@@ -6,7 +6,7 @@
 
 1. **先开 issue 讨论**：在动手写新 skill 之前，强烈建议先用 `new_skill_proposal` issue 模板说明 skill 的定位、触发场景、输入输出契约。这能避免两人同时写同一个 skill，也便于在早期对齐设计。
 
-2. **阅读现有参考实现**：`skills/shareholders-meeting-witness-review/` 是第一个成熟 skill，目录结构、SKILL.md 写法、参考资料组织方式都可以直接抄。
+2. **阅读现有参考实现**：`skills/ecm-qc-shareholders-meeting-witness/` 是第一个成熟 skill，目录结构、SKILL.md 写法、参考资料组织方式都可以直接抄。
 
 3. **阅读 [docs/skill-authoring-guide.md](./docs/skill-authoring-guide.md)**：本仓库对 skill 的 YAML frontmatter、目录结构、命名规范有统一约定。
 

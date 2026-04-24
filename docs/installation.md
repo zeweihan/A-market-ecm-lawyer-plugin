@@ -32,7 +32,7 @@ claude plugin install .
 ### 安装后确认
 
 ```bash
-claude skill list | grep -E "shareholders-meeting-witness-review|listing-pathway-selection"
+claude skill list | grep -E "ecm-qc-shareholders-meeting-witness|listing-pathway-selection"
 ```
 
 ## 方式 2：按需下载单个 `.skill` 文件
@@ -48,8 +48,8 @@ claude skill list | grep -E "shareholders-meeting-witness-review|listing-pathway
 `.skill` 文件就是 skill 目录的 zip 压缩包。你也可以自己从源码打包：
 
 ```bash
-./scripts/package-skill.sh skills/shareholders-meeting-witness-review
-# 产出：dist/shareholders-meeting-witness-review.skill
+./scripts/package-skill.sh skills/ecm-qc-shareholders-meeting-witness
+# 产出：dist/ecm-qc-shareholders-meeting-witness.skill
 ```
 
 ## 外部依赖
@@ -62,7 +62,7 @@ claude skill list | grep -E "shareholders-meeting-witness-review|listing-pathway
 
 > 帮我审一下这份股东大会见证意见。
 
-如果 Claude 回复里提到"按照见证意见内核审查 skill 的三级工作流……"，说明 `shareholders-meeting-witness-review` 已安装成功。
+如果 Claude 回复里提到"按照见证意见内核审查 skill 的三级工作流……"，说明 `ecm-qc-shareholders-meeting-witness` 已安装成功。
 
 ## 卸载
 

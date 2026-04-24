@@ -8,7 +8,7 @@ assignees: ''
 
 ## 受影响的 skill
 
-<!-- 例如：shareholders-meeting-witness-review -->
+<!-- 例如：ecm-qc-shareholders-meeting-witness -->
 
 ## 问题描述
 

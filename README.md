@@ -18,6 +18,26 @@
 
 ——拆成一组独立的 skill，每个 skill 封装一套参考资料 + 检查清单 + 脚本，给 Claude 作为上下文触发使用。
 
+## 两个模块：项目 skill 和 QC skill
+
+本仓库的 skill 按**使用者角色**分为两个模块：
+
+```
+┌─────────────────────────────────────────────┬──────────────────────────────┐
+│ 项目 skill（6 类）                          │ QC skill（1 类）             │
+│ ── 项目组律师做项目时使用                   │ ── 内核/QC 团队使用          │
+├─────────────────────────────────────────────┼──────────────────────────────┤
+│ ecm-setup  项目初始化 / 文件管理            │ ecm-qc  内核审查系列         │
+│ ecm-design 方案设计                         │   - 见证意见内核审查         │
+│ ecm-dd     尽职调查（17 章 + 2 工具）       │   - 法律意见书内核审查（规划）│
+│ ecm-draft  文书起草 / 格式                  │   - 工作报告内核审查（规划）  │
+│ ecm-research 法律研究 / 案例检索            │   - 披露文件内核审查（规划）  │
+│ ecm-workflow 工作流编排                     │                              │
+└─────────────────────────────────────────────┴──────────────────────────────┘
+```
+
+**项目 skill** 和 **QC skill** 的典型工作关系：项目组用项目 skill 推进业务、生成底稿和文书；文书交给内核团队前，内核用 QC skill 做独立审阅，输出带修订痕迹（Track Changes）和批注（Comments）的修订稿。两套 skill 语义上并列、互不替代。
+
 ## 仓库架构
 
 ```
@@ -43,14 +63,14 @@ A-market-ecm-lawyer-plugin/
 ├── scripts/
 │   └── package-skill.sh        # 把单个 skill 目录打包成 .skill zip 的工具
 └── skills/                     # 各个 skill（每个是独立子目录）
-    └── shareholders-meeting-witness-review/
+    └── ecm-qc-shareholders-meeting-witness/
 ```
 
 ## skill 清单
 
-本仓库按六大类组织 skill，整体规划 36 项 + 若干独立 skill。详细路线图见 [docs/skill-roadmap.md](./docs/skill-roadmap.md)。
+本仓库整体规划 36 项项目 skill（6 类）+ 若干 QC skill（1 类）。详细路线图见 [docs/skill-roadmap.md](./docs/skill-roadmap.md)。
 
-### 概览
+### 项目 skill 概览
 
 | 类别 | 数量 | 覆盖工作 |
 |------|-----:|---------|
@@ -60,25 +80,30 @@ A-market-ecm-lawyer-plugin/
 | `ecm-draft` | 5 | 报告拼接、格式调整、会议文件、意见书、披露文件 |
 | `ecm-research` | 3 | 案例检索、法规查询、法规深度研究 |
 | `ecm-workflow` | 6 | IPO 全流程、并购、跨境并购、再融资、新三板等 |
-| 独立 skill | 1+ | 不属于上述命名空间的特例（如内核审查类） |
+
+### QC skill 概览
+
+| 类别 | 规划 | 覆盖工作 |
+|------|-----:|---------|
+| `ecm-qc` | 1 + 规划中 | 内核团队对见证意见、法律意见书、工作报告、披露文件的独立审阅 |
 
 ### 当前可用
 
-| skill | 状态 | 简介 |
-|-------|------|------|
-| [`shareholders-meeting-witness-review`](./skills/shareholders-meeting-witness-review/) | ✅ v0.1.0 | 股东（大）会法律见证意见内核审查 |
+| skill | 模块 | 状态 | 简介 |
+|-------|------|------|------|
+| [`ecm-qc:shareholders-meeting-witness`](./skills/ecm-qc-shareholders-meeting-witness/) | QC | ✅ v0.1.0 | 股东（大）会法律见证意见内核审查 |
 
 ### 命名约定
 
-所有规划中的 skill 采用 `ecm-<category>:<function>` 两级命名空间，例如：
+所有 skill 采用 `ecm-<category>:<function>` 两级命名空间，例如：
 
 ```
-ecm-setup:project-init
-ecm-dd:dd-shareholders
-ecm-workflow:wf-ipo-full
+ecm-setup:project-init           # 项目 skill
+ecm-dd:dd-shareholders           # 项目 skill
+ecm-qc:shareholders-meeting-witness  # QC skill
 ```
 
-目录名使用 kebab-case（用 `-` 替代 `:`），例：`skills/ecm-setup-project-init/`。详见 [skill-authoring-guide.md](./docs/skill-authoring-guide.md#命名约定)。
+目录名使用 kebab-case（用 `-` 替代 `:`），例：`skills/ecm-qc-shareholders-meeting-witness/`。详见 [skill-authoring-guide.md](./docs/skill-authoring-guide.md#命名约定)。
 
 ## 安装使用
 

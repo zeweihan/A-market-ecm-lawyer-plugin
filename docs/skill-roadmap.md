@@ -2,7 +2,12 @@
 
 本文档跟踪本仓库 skill 的规划和进度，对齐《ECM Skills 项目说明》定稿的完整 taxonomy。
 
-## 命名规范
+## 两个模块 + 命名规范
+
+本仓库的 skill 按**使用者角色**分为两个模块：
+
+- **项目 skill**（6 类：setup/design/dd/draft/research/workflow）——项目组律师做项目时用
+- **QC skill**（1 类：qc）——内核/QC 团队做独立审查时用
 
 所有 skill 采用两级命名空间：
 
@@ -12,17 +17,16 @@ ecm-<category>:<function>
 
 - **目录名**用 `ecm-<category>-<function>` 格式（kebab-case，用连字符替代冒号），例：`skills/ecm-setup-project-init/`
 - **SKILL.md frontmatter 的 `name` 字段**同目录名（例：`ecm-setup-project-init`）
+- **SKILL.md frontmatter 的 `module` 字段**标注所属模块（`ecm-setup/design/dd/draft/research/workflow/qc`）
 - **文档/路线图/README 表格**里统一用带冒号的人类可读形式（例：`ecm-setup:project-init`）
-
-**特例**：`shareholders-meeting-witness-review` 是最早开发的 skill，尚未套用上述命名。是否改名见本文末尾「命名统一化」章节。
 
 ## 两个维度
 
 **业务阶段**（单项目可能跨多阶段）：研究阶段 / 启动阶段 / 尽调阶段 / 申报阶段 / 反馈阶段 / 发行阶段 / 持续督导阶段
 
-**功能类别**（对应六大 skill 类）：setup / design / dd / draft / research / workflow
+**功能类别**（对应 7 大 skill 类）：setup / design / dd / draft / research / workflow / qc
 
-## 完整 skill 清单（6 大类 / 36 项）
+## 完整 skill 清单（7 大类 / 36 项项目 skill + 1 项已实现 QC skill）
 
 ### 1. ecm-setup — 项目初始化与文件管理
 
@@ -95,11 +99,19 @@ ecm-<category>:<function>
 | `ecm-workflow:wf-issuance` | 上市公司再融资流程（定增/配股/可转债） | 🟡 草稿 |
 | `ecm-workflow:wf-nto-listing` | 新三板挂牌流程 | 🟡 草稿 |
 
-### 7. 既有独立 skill（命名待统一）
+### 7. ecm-qc — 内核/QC 审查（QC 模块）
 
-| skill | 说明 | 状态 |
-|-------|------|------|
-| `shareholders-meeting-witness-review` | 股东大会见证意见内核审查 | ✅ v0.1.0 可用 |
+> **使用者角色**：内核团队/QC 团队。调用场景：项目组提交的文书需要独立审阅环节。输出形式统一为**带修订痕迹（Track Changes）+ 批注（Comments）的 Word 文档**，作者（w:author）统一为"内核"或 QC 团队自定义名。
+
+| skill | 说明 | 阶段 | 状态 |
+|-------|------|------|------|
+| `ecm-qc:shareholders-meeting-witness` | 股东（大）会法律见证意见内核审查 | 持续督导阶段 | ✅ v0.1.0 可用 |
+| `ecm-qc:opinion-letter-review` | 法律意见书内核审查（配对 `ecm-draft:opinion-letter`） | 申报阶段 | ⏳ 规划 |
+| `ecm-qc:work-report-review` | 律师工作报告内核审查 | 申报阶段 | ⏳ 规划 |
+| `ecm-qc:disclosure-review` | 招股书/重组报告书/权益变动报告书内核审查（和 `ecm-draft:disclosure-review` 的区别见下方注） | 申报阶段 / 反馈阶段 | ⏳ 规划 |
+| `ecm-qc:meeting-docs-review` | 会议文件（通知/议案/决议/记录）内核审查 | 全阶段 | ⏳ 规划 |
+
+> **注**：`ecm-draft:disclosure-review` 是项目组起草人自查自纠；`ecm-qc:disclosure-review` 是内核独立审查。二者 checklist 重叠但视角不同：前者关注"我写的对不对"，后者关注"团队交上来的有没有错"。
 
 ## 状态说明
 
@@ -108,18 +120,20 @@ ecm-<category>:<function>
 - ⏳ **规划**：只有名字和大致定位，未开始写
 - 🔴 **弃用**：已被其他 skill 替代
 
-## 开发优先级（沿用原设计）
+## 开发优先级
 
 | 阶段 | 内容 | 优先级 |
 |------|------|--------|
 | P0 | 仓库框架 + 模板 + 统一规范 | ✅ 已完成（v0.1.0） |
+| P0.5 | `ecm-qc:shareholders-meeting-witness` 迁入 | ✅ 已完成（v0.1.0） |
 | P1 | `ecm-setup` 系列（3 项，前置依赖） | 🔜 下一轮 |
 | P2 | `ecm-dd` 系列（19 项，律师最高频工作） | 核心价值 |
 | P3 | `ecm-draft` 系列（5 项，report-assembly 最优先） | 串联输出 |
 | P4 | `ecm-design` 系列（5 项） | 方案能力 |
 | P5 | `ecm-research` 系列（3 项） | 研究支持 |
 | P6 | `ecm-workflow` 系列（6 项） | 全流程打通 |
-| P7 | 数据连接器（Tushare / 企查查） | 自动化增强 |
+| P7 | `ecm-qc` 其余 skill（opinion-letter-review 等） | QC 能力横向扩展 |
+| P8 | 数据连接器（Tushare / 企查查） | 自动化增强 |
 
 ## 标准工作流示例（IPO 项目）
 
@@ -140,16 +154,6 @@ ecm-<category>:<function>
 2. **输入输出标准化**：每个 DD skill 输出统一为「核查要点清单 + 审阅发现 + 风险分级（高/中/低）+ 建议措施」。
 3. **标签多对多**：文件分类阶段一个文件可对应多个标签，不简单放进唯一文件夹。
 4. **组合调用**：复杂项目通过 workflow 组合多个原子 skill，不在单个 skill 中硬编码。
-
-## 命名统一化待办
-
-当前 `shareholders-meeting-witness-review` 不遵循 `ecm-<category>:<function>` 命名。可选方案：
-
-- **A. 改名**：→ `ecm-review:shareholders-meeting-witness`，新增 `ecm-review` 类别（文书审核类）
-- **B. 并入 ecm-draft**：→ `ecm-draft:witness-review`（审阅属于 draft 大类的逆向能力）
-- **C. 保留不改**：作为"独立 skill"存在，命名规范里留个特例口子
-
-建议方向：**A**。`ecm-review` 和 `ecm-draft` 的关系类似于 code review 和 code writing——职责不同，拆开更清晰。本 skill 实际上覆盖了内核审查逻辑，将来还会有 `ecm-review:opinion-letter-review`、`ecm-review:disclosure-review`（本来在 ecm-draft 下的 disclosure-review 应当搬家）等。这个决定会影响 `shareholders-meeting-witness-review` skill 本身的目录名、内部引用路径，需要和你单独对齐。
 
 ## 源材料出处
 

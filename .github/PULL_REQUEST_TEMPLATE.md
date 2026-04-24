@@ -8,7 +8,7 @@
 
 ## 涉及的 skill
 
-<!-- 例：shareholders-meeting-witness-review -->
+<!-- 例：ecm-qc-shareholders-meeting-witness -->
 
 ## 变更摘要
 

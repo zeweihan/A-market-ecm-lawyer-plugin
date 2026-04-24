@@ -27,14 +27,14 @@
     "chinese-legal"
   ],
   "skills": [
-    "skills/shareholders-meeting-witness-review"
+    "skills/ecm-qc-shareholders-meeting-witness"
   ],
   "dependencies": {
     "external_skills": [
       {
         "name": "docx",
         "source": "anthropic-official",
-        "required_by": ["shareholders-meeting-witness-review"],
+        "required_by": ["ecm-qc-shareholders-meeting-witness"],
         "notes": "见 docs/dependencies.md"
       }
     ]

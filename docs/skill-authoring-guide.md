@@ -2,15 +2,31 @@
 
 本仓库对所有 skill 有统一的目录结构、frontmatter 字段和文档规范。在动手新建 skill 之前请先读完本文。
 
+## 两个模块：项目 skill 和 QC skill
+
+本仓库的 skill 按**使用者角色**分成两个模块，写新 skill 前先确定归属：
+
+| 模块 | 使用者 | 类别 | 设计要点 |
+|------|--------|------|---------|
+| **项目 skill** | 项目组律师（经办律师、签字律师、团队成员） | `setup` / `design` / `dd` / `draft` / `research` / `workflow` | 主动推进业务、产生底稿/文书；输入可以是客户材料或既有 skill 输出；输出可以是分析备忘、checklist 结论、文书初稿等 |
+| **QC skill** | 内核/QC 团队（独立于项目组的审核团队） | `qc` | 输入恒为"项目组已交付的文书"；输出恒为"带 Track Changes + Comments 的修订稿"；修订痕迹的 `w:author` 恒为"内核"或 QC 自定义名；语气是独立审阅、不替代签字律师判断 |
+
+两者的关键区别：
+
+- **触发链条不同**：项目 skill 被"做什么事"触发（写报告、做尽调），QC skill 被"审什么文书"触发（看一下这份意见书对不对）。
+- **输入假设不同**：项目 skill 可以接受不完整的客户资料，自行判断缺口；QC skill 假设收到的文书"已经有一稿了"，重点是挑错。
+- **输出格式不同**：项目 skill 的输出形式多样；QC skill 的输出恒为 docx + tracked changes + comments。
+- **不要混用**：一个 skill 只能归属一个模块，避免"既起草又审查"这种角色混淆。如果业务场景是"起草同时自查"，拆成两个 skill：`ecm-draft:xxx` 起草，`ecm-qc:xxx-review` 审查。
+
 ## 命名约定
 
-所有规划中的 skill 采用**两级命名空间**：
+所有 skill 采用**两级命名空间**：
 
 ```
 ecm-<category>:<function>
 ```
 
-其中 `<category>` 取自六大类：`setup` / `design` / `dd` / `draft` / `research` / `workflow`。
+其中 `<category>` 取自七大类：`setup` / `design` / `dd` / `draft` / `research` / `workflow`（项目 skill）/ `qc`（QC skill）。
 
 ### 三种书写形式
 
@@ -52,12 +68,14 @@ skills/<skill-name>/
 
 ```yaml
 ---
-name: skill-name                          # 小写 kebab-case，英文，与目录名一致
+name: ecm-<category>-<function>           # 与目录名一致；例：ecm-setup-project-init
 description: >                            # 用来触发 skill 的描述，关键词要密集
   一段中文描述……包含所有可能的触发关键词、同义词、简称、英文对照。
   当用户提到 xxx、yyy、zzz 时触发。
 version: 0.1.0                            # SemVer
 license: MIT                              # 全仓统一 MIT，见顶层 LICENSE
+module: ecm-setup                         # 必填；取值：ecm-{setup,design,dd,draft,research,workflow,qc}
+user_role: 项目组律师                     # 必填；典型取值："项目组律师" / "内核 / QC 团队"
 phase:                                    # 业务阶段（多选）
   - 研究阶段
   - 启动阶段
@@ -66,7 +84,7 @@ phase:                                    # 业务阶段（多选）
   - 反馈阶段
   - 发行阶段
   - 持续督导阶段
-category:                                 # 功能类别（多选）
+category:                                 # 功能类别（多选，自然语言描述）
   - 方案设计
   - 合规核查
   - 文书起草
@@ -78,7 +96,7 @@ depends_on:                               # 依赖声明（可选）
   external_skills:                        # 外部 skill 依赖
     - docx
   internal_skills:                        # 本仓库其他 skill
-    - listing-pathway-selection
+    - ecm-design-ipo-path
 ---
 ```
 
@@ -91,7 +109,7 @@ Claude 是靠 description 字段判断是否触发该 skill 的。好的 descrip
 - **覆盖非明确的触发情形**："即使用户未明确使用 'xxx' 一词，只要涉及 zzz 也应触发"
 - **避免与其他 skill 重叠**：如果两个 skill 的 description 触发范围有冲突，会导致误触发
 
-可以直接参照 `skills/shareholders-meeting-witness-review/SKILL.md` 的 frontmatter 作为样板。
+可以直接参照 `skills/ecm-qc-shareholders-meeting-witness/SKILL.md` 的 frontmatter 作为样板。
 
 ## SKILL.md 正文的标准章节
 
@@ -143,8 +161,8 @@ skill 的版本号独立于仓库整体版本号（顶层 `VERSION` 文件）。
 本仓库提供 `scripts/package-skill.sh`：
 
 ```bash
-./scripts/package-skill.sh skills/shareholders-meeting-witness-review
-# 产出：dist/shareholders-meeting-witness-review.skill
+./scripts/package-skill.sh skills/ecm-qc-shareholders-meeting-witness
+# 产出：dist/ecm-qc-shareholders-meeting-witness.skill
 ```
 
 打包产物会在每次 release 时附到 GitHub Releases 页面。

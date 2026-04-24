@@ -20,11 +20,11 @@ usage() {
 用法: $0 <skill-dir> [--output <output-dir>]
 
 参数:
-  <skill-dir>          要打包的 skill 目录，例如 skills/shareholders-meeting-witness-review
+  <skill-dir>          要打包的 skill 目录，例如 skills/ecm-qc-shareholders-meeting-witness
   --output <dir>       自定义输出目录（默认 dist/）
 
 示例:
-  $0 skills/shareholders-meeting-witness-review
+  $0 skills/ecm-qc-shareholders-meeting-witness
   $0 skills/listing-pathway-selection --output /tmp/release
 EOF
 }

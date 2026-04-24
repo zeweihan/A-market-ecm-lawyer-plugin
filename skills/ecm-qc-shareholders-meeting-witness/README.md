@@ -38,7 +38,7 @@ securities regulations and industry practice.
 
 ### 安装（Claude Desktop）
 
-1. 下载最新的 `shareholders-meeting-witness-review.skill` 文件
+1. 下载最新的 `ecm-qc-shareholders-meeting-witness.skill` 文件
    （或从源码打包：`python -m scripts.package_skill <path-to-this-repo>`）
 2. 打开 Claude Desktop → Settings → Skills → Upload
 3. 选择 `.skill` 文件上传即可
@@ -102,7 +102,7 @@ Level 3 · 跳过交叉比对 + 在输出文档顶部插入整体性批注
 ## 项目结构
 
 ```
-shareholders-meeting-witness-review/
+ecm-qc-shareholders-meeting-witness/
 ├── SKILL.md                         # 主入口：工作流 + 配置 + 免责声明
 ├── LICENSE                          # MIT
 ├── README.md                        # 本文件

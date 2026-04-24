@@ -5,13 +5,15 @@
 ## [Unreleased]
 
 ### Added
-- （占位）
+- 新增 `ecm-qc` 模块（第 7 个 skill 类），用于承载内核 / QC 团队使用的审查类 skill。模块和既有 6 类项目 skill（setup/design/dd/draft/research/workflow）并列但语义独立——项目组 skill 是"做事"，QC skill 是"审事"。
+- 在 `docs/skill-authoring-guide.md` 和 `README.md` 顶部明确划出**项目 skill / QC skill** 的使用者边界。
+- SKILL.md frontmatter 增加 `module` 和 `user_role` 两个必填字段，防止角色混淆。
+- `ecm-qc` 类下规划了 4 个未来 skill：`opinion-letter-review`、`work-report-review`、`disclosure-review`、`meeting-docs-review`。
 
 ### Changed
-- （占位）
-
-### Removed
-- （占位）
+- 把首个 skill `shareholders-meeting-witness-review` 重命名为 `ecm-qc-shareholders-meeting-witness`（`git mv` 方式保留历史），归入新的 `ecm-qc` 模块。
+- 同步更新 `plugin.json` / `README` / `skill-roadmap` / `skill-authoring-guide` / `CONTRIBUTING` / `docs/dependencies` / `docs/installation` / `scripts/package-skill.sh` / `.github/` 模板中对该 skill 的所有引用。
+- `docs/skill-roadmap.md` 里移除"命名统一化待办"章节（决定已落地）。
 
 ---
 
