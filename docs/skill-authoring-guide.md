@@ -148,6 +148,19 @@ skill 需要引用时，用相对路径：`../../shared/regulations/公司法-20
 
 **不要**在 skill 内部重复共享资源的内容；共享资源更新后所有 skill 自动拿到新版本。
 
+## DD skill 专用模板
+
+所有业务性 `ecm-dd-*` skill（不含工具类 `dd-data-verify` / `dd-file-review`）必须套用
+[shared/templates/dd-skill-template.md](../shared/templates/dd-skill-template.md) 的统一结构：
+
+- 统一的 frontmatter 字段（module / user_role / phase / category / depends_on）
+- 统一的正文章节（定位与边界 / 前置依赖 / 核心工作流 / 统一风险分级口径 / 输出格式契约 / 参考资料索引 / 变更规则）
+- 统一的 DD Memo 输出契约（"核查要点 + 审阅发现 + 风险分级汇总 + 结论与建议 + 参考资料"五段式）
+- 强制的输出落地路径（`02-尽职调查/02-NN-xxx/DD-Memo-xxx-{YYYYMMDD}.md`）
+
+新建 DD skill 时严禁另起炉灶；确需扩展输出结构（如增加"时间线表""花名册"等专属字段）时，
+在该 skill 内部"输出格式契约"章节追加"额外要求"段落，但五段式骨架不得破坏。
+
 ## 版本号规则（SemVer）
 
 - **MAJOR**：输出契约破坏性变更（例如改变 JSON 输出字段结构、改变工作流的硬性要求）
