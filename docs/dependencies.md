@@ -17,8 +17,8 @@ Anthropic 官方 skill 的 `LICENSE.txt` 明确限制：
 
 | 外部 skill | 被哪些 skill 依赖 | 功能 | 获取路径 |
 |-----------|------------------|------|---------|
-| `docx` | ecm-qc-shareholders-meeting-witness、ecm-setup-file-classify、ecm-design-ipo-path / deal-structure / control-rights / ma-structure / cross-border、ecm-draft-report-assembly、ecm-draft-opinion-letter、ecm-draft-disclosure-review、ecm-draft-meeting-docs、ecm-draft-format-adjust；（未来 BATCH-09）所有 ecm-qc-* skill | Word 文档读写、tracked changes、批注 | Claude Code / Cowork 内置 |
-| `pdf` | ecm-setup-file-classify、ecm-draft-disclosure-review（读取 PDF 形式的信披文件做自查）；（未来）案例检索、意见书扫描件处理 | PDF 文本提取、表单填写、合并切分 | Claude Code / Cowork 内置 |
+| `docx` | ecm-qc-shareholders-meeting-witness、ecm-setup-file-classify、ecm-design-ipo-path / deal-structure / control-rights / ma-structure / cross-border、ecm-draft-report-assembly、ecm-draft-opinion-letter、ecm-draft-disclosure-review、ecm-draft-meeting-docs、ecm-draft-format-adjust、ecm-qc-opinion-letter-review、ecm-qc-work-report-review、ecm-qc-disclosure-review、ecm-qc-meeting-docs-review | Word 文档读写、tracked changes、批注 | Claude Code / Cowork 内置 |
+| `pdf` | ecm-setup-file-classify、ecm-draft-disclosure-review（起草人自查读 PDF 信披文件）、ecm-qc-disclosure-review（内核审查读 PDF 信披文件）；（未来）案例检索、意见书扫描件处理 | PDF 文本提取、表单填写、合并切分 | Claude Code / Cowork 内置 |
 | `xlsx` | ecm-setup-file-classify；（未来）尽调清单管理、股东名册处理 | Excel 读写、公式、图表 | Claude Code / Cowork 内置 |
 
 ## 如何确认你已经有这些 skill

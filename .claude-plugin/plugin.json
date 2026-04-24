@@ -62,7 +62,11 @@
     "skills/ecm-draft-opinion-letter",
     "skills/ecm-draft-disclosure-review",
     "skills/ecm-draft-meeting-docs",
-    "skills/ecm-draft-format-adjust"
+    "skills/ecm-draft-format-adjust",
+    "skills/ecm-qc-opinion-letter-review",
+    "skills/ecm-qc-work-report-review",
+    "skills/ecm-qc-disclosure-review",
+    "skills/ecm-qc-meeting-docs-review"
   ],
   "dependencies": {
     "external_skills": [
@@ -81,7 +85,11 @@
           "ecm-draft-opinion-letter",
           "ecm-draft-disclosure-review",
           "ecm-draft-meeting-docs",
-          "ecm-draft-format-adjust"
+          "ecm-draft-format-adjust",
+          "ecm-qc-opinion-letter-review",
+          "ecm-qc-work-report-review",
+          "ecm-qc-disclosure-review",
+          "ecm-qc-meeting-docs-review"
         ],
         "notes": "见 docs/dependencies.md"
       },
@@ -90,7 +98,8 @@
         "source": "anthropic-official",
         "required_by": [
           "ecm-setup-file-classify",
-          "ecm-draft-disclosure-review"
+          "ecm-draft-disclosure-review",
+          "ecm-qc-disclosure-review"
         ],
         "notes": "见 docs/dependencies.md"
       },
