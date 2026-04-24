@@ -1,0 +1,42 @@
+{
+  "$schema": "https://claude.com/schemas/plugin.json",
+  "name": "a-share-ecm-lawyer",
+  "displayName": "A 股 ECM 律师助手",
+  "version": "0.1.0",
+  "description": "面向中国 A 股股权资本市场律师的 Claude 插件，覆盖路径选择、尽调、意见书撰写/审核、文书格式处理等业务环节。",
+  "author": {
+    "name": "zeweihan",
+    "url": "https://github.com/zeweihan"
+  },
+  "homepage": "https://github.com/zeweihan/A-market-ecm-lawyer-plugin",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zeweihan/A-market-ecm-lawyer-plugin.git"
+  },
+  "license": "MIT",
+  "keywords": [
+    "a-share",
+    "a股",
+    "ecm",
+    "股权资本市场",
+    "ipo",
+    "上市",
+    "尽调",
+    "法律意见书",
+    "证券法律",
+    "chinese-legal"
+  ],
+  "skills": [
+    "skills/shareholders-meeting-witness-review"
+  ],
+  "dependencies": {
+    "external_skills": [
+      {
+        "name": "docx",
+        "source": "anthropic-official",
+        "required_by": ["shareholders-meeting-witness-review"],
+        "notes": "见 docs/dependencies.md"
+      }
+    ]
+  }
+}
