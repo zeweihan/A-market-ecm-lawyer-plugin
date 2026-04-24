@@ -2,6 +2,31 @@
 
 > 本文档是建设本仓库全部 skill 的总协调文件。开新窗口时请先读本文件再开始具体 batch 工作。
 
+## 当前状态快照（最后更新：2026-04-24）
+
+**仓库位置**：`/Users/zewei/Documents/2024-2044/0-个人事项/0-aplugin`
+**GitHub**：https://github.com/zeweihan/A-market-ecm-lawyer-plugin
+**本地 git 分支**：`main`（领先 GitHub 3 个 commit，等用户 push）
+
+**已完成**（4 个 skill 可用）：
+- ✅ BATCH-00 仓库框架
+- ✅ BATCH-00.5 `ecm-qc:shareholders-meeting-witness`
+- ✅ BATCH-01 `ecm-setup` 三件套（project-init / file-classify / file-organize）
+  - 附带产出：`shared/terminology/classification-labels.md`（19 个标签的权威定义）
+  - 附带产出：`shared/templates/project-folder-structure.md`（目录结构 + 标签→目录映射）
+
+**下一步推荐**：BATCH-02（`ecm-dd` 公司基础面 7 个 skill）。BATCH-02 完成后会产出 `shared/templates/dd-skill-template.md`，供 BATCH-03/04/05 复用。
+
+**并行可开**：BATCH-07（ecm-design）和 BATCH-08（ecm-research）与 BATCH-02 无硬依赖，可以同时开独立窗口推进。
+
+**源材料位置**：`/Users/zewei/Documents/2024-2044/0-个人事项/54-ecm_skills/`
+- 新窗口需先用 `request_cowork_directory` 请求访问
+- 部分文件是 iCloud 仅云端状态——Bash 读取会遇到 `Resource deadlock avoided`，改用 Read 工具即可（Read 经由 host 读，绕开 iCloud 锁）
+
+**已建立的跨 skill 共享资源**（新 skill 必须通过相对路径引用，不要重复定义）：
+- `shared/terminology/classification-labels.md`——19 个分类标签
+- `shared/templates/project-folder-structure.md`——目录结构和标签映射
+
 ## 整体策略
 
 把 40+ 个 skill 的建设工作切成 **11 个 batch**。每个 batch 满足：
@@ -325,35 +350,46 @@
 
 ## 独立窗口启动模板（copy-paste 用）
 
-开新窗口做某个 batch 时，把下面这段话发给新窗口的 Claude：
+开新窗口做某个 batch 时，把下面这段话发给新窗口的 Claude（把 `<编号>` 替换成实际 batch 编号）：
 
 ```
-我在做 A-market-ecm-lawyer-plugin 仓库的 BATCH-<编号>。仓库路径：
-/Users/zewei/Documents/2024-2044/0-个人事项/0-aplugin
+我要做 A-market-ecm-lawyer-plugin 仓库的 BATCH-<编号>。
+仓库路径：/Users/zewei/Documents/2024-2044/0-个人事项/0-aplugin
 
-请按以下顺序工作：
+请按顺序工作：
 
-1. 读本仓库的这 4 个文件了解上下文：
-   - docs/project-plan.md     （找到 BATCH-<编号> 章节）
-   - docs/skill-authoring-guide.md
-   - docs/skill-roadmap.md
-   - skills/ecm-qc-shareholders-meeting-witness/SKILL.md  （参考样板）
+1. 读这 5 个文件了解现状（顺序重要）：
+   - docs/project-plan.md                         （头部"当前状态快照"+ BATCH-<编号> 章节）
+   - docs/skill-authoring-guide.md                （命名/frontmatter/项目 vs QC 模块约定）
+   - shared/terminology/classification-labels.md  （标签体系 single source of truth）
+   - shared/templates/project-folder-structure.md （目录结构 single source of truth）
+   - skills/ecm-setup-project-init/SKILL.md       （可参考的标准 skill 样板）
 
-2. BATCH-<编号> 要参考的源材料在：
-   /Users/zewei/Documents/2024-2044/0-个人事项/54-ecm_skills/
-   （需要先用 request_cowork_directory 请求访问；注意部分文件可能是 iCloud 仅云端，
-    需要在 Finder 里先下载到本地再读。）
+2. 源材料位置：/Users/zewei/Documents/2024-2044/0-个人事项/54-ecm_skills/
+   - 先用 request_cowork_directory 请求访问
+   - iCloud 仅云端文件遇到 "Resource deadlock avoided" 时，改用 Read 工具（host 读取
+     绕开 iCloud 锁），不要让用户先手动下载
 
-3. 做完之后：
-   - 更新 docs/project-plan.md 里该 batch 的状态（改为 ✅）
-   - 更新 docs/skill-roadmap.md 里受影响 skill 的状态
-   - 更新 README.md 的"当前可用"表格
-   - 更新 CHANGELOG.md 的 [Unreleased] 段
-   - 更新 .claude-plugin/plugin.json 的 skills 清单
-   - git commit（message 用约定格式："Add BATCH-XX: <描述>"）
-   - 提示我 push
+3. 做 BATCH-<编号> 对应章节里列出的全部 skill，严格遵守：
+   - 目录名用 ecm-<category>-<function> 格式
+   - SKILL.md frontmatter 含 module / user_role / phase / category / depends_on
+   - 跨 skill 共用的东西抽到 shared/，不要在每个 skill 内部重复
+   - 不要放单独的 LICENSE（用顶层的）
+   - 免责声明引用 ../../DISCLAIMER.md，不复制全文
 
-4. 验收：本 batch 的"验收"checklist 全部打勾。
+4. 做完统一更新（不要漏）：
+   - docs/project-plan.md 里该 batch 标 ✅
+   - README.md 的"当前可用"表格加新行
+   - docs/skill-roadmap.md 的状态标 ✅
+   - CHANGELOG.md 的 [Unreleased] 段记录
+   - .claude-plugin/plugin.json 的 skills 数组 + dependencies（如有新外部依赖）
+   - docs/dependencies.md 的 required_by 列表（如有新外部依赖）
+
+5. git commit，message 格式：Add BATCH-<编号>: <简要描述>
+   （用户自己 push，你不用 push）
+
+6. 验收：对照 BATCH-<编号> 章节的"验收"checklist 逐条打勾，对照文档尾部
+   "每个 batch 的标准交付清单"通用 checklist 再过一遍。
 ```
 
 ## Master 窗口（当前这个窗口）的协调职责
