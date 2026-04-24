@@ -57,7 +57,12 @@
     "skills/ecm-design-cross-border",
     "skills/ecm-research-case-search",
     "skills/ecm-research-reg-search",
-    "skills/ecm-research-reg-study"
+    "skills/ecm-research-reg-study",
+    "skills/ecm-draft-report-assembly",
+    "skills/ecm-draft-opinion-letter",
+    "skills/ecm-draft-disclosure-review",
+    "skills/ecm-draft-meeting-docs",
+    "skills/ecm-draft-format-adjust"
   ],
   "dependencies": {
     "external_skills": [
@@ -71,14 +76,22 @@
           "ecm-design-deal-structure",
           "ecm-design-control-rights",
           "ecm-design-ma-structure",
-          "ecm-design-cross-border"
+          "ecm-design-cross-border",
+          "ecm-draft-report-assembly",
+          "ecm-draft-opinion-letter",
+          "ecm-draft-disclosure-review",
+          "ecm-draft-meeting-docs",
+          "ecm-draft-format-adjust"
         ],
         "notes": "见 docs/dependencies.md"
       },
       {
         "name": "pdf",
         "source": "anthropic-official",
-        "required_by": ["ecm-setup-file-classify"],
+        "required_by": [
+          "ecm-setup-file-classify",
+          "ecm-draft-disclosure-review"
+        ],
         "notes": "见 docs/dependencies.md"
       },
       {

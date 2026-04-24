@@ -85,7 +85,7 @@ A-market-ecm-lawyer-plugin/
 
 | 类别 | 规划 | 覆盖工作 |
 |------|-----:|---------|
-| `ecm-qc` | 1 + 规划中 | 内核团队对见证意见、法律意见书、工作报告、披露文件的独立审阅 |
+| `ecm-qc` | 1 已用 + 4 BATCH-09 规划 | 内核团队对见证意见、法律意见书、工作报告、披露文件、会议文件的独立审阅（BATCH-09 窗口建设中：opinion-letter-review / work-report-review / disclosure-review / meeting-docs-review） |
 
 ### 当前可用
 
@@ -121,7 +121,16 @@ A-market-ecm-lawyer-plugin/
 | [`ecm-research:case-search`](./skills/ecm-research-case-search/) | 项目 | ✅ v0.1.0 | 多源案例检索（裁判文书 / 证监会处罚 / 交易所纪律处分 / 重组委 / 上市委审议） |
 | [`ecm-research:reg-search`](./skills/ecm-research-reg-search/) | 项目 | ✅ v0.1.0 | 五级法规检索 + 时效性核验（法律 / 行政法规 / 部门规章 / 规范性文件 / 交易所规则） |
 | [`ecm-research:reg-study`](./skills/ecm-research-reg-study/) | 项目 | ✅ v0.1.0 | 法规深度研究（效力层级 / 冲突解决 / 新旧衔接 / 适用性分析） |
+| [`ecm-draft:report-assembly`](./skills/ecm-draft-report-assembly/) | 项目 | ✅ v0.1.0 | 按 dd-output-schema 拼接 17 份 DD Memo 成完整律师工作报告 / 尽职调查报告 + 全项目风险聚合 |
+| [`ecm-draft:opinion-letter`](./skills/ecm-draft-opinion-letter/) | 项目 | ✅ v0.1.0 | 法律意见书起草（IPO / 再融资 / 并购重组 / 新三板挂牌），事实 - 核查 - 意见三步法，自动注入"特别事项提示" |
+| [`ecm-draft:disclosure-review`](./skills/ecm-draft-disclosure-review/) | 项目 | ✅ v0.1.0 | 信息披露文件（招股书 / 重组报告书 / 权益变动）起草人自查（与工作报告 / DD Memo 双向交叉比对） |
+| [`ecm-draft:meeting-docs`](./skills/ecm-draft-meeting-docs/) | 项目 | ✅ v0.1.0 | 会议文件批量起草（通知 / 议案 / 决议 / 记录 / 签到表 / 授权委托书），跨文件一致性校验 + 通知期限校验 |
+| [`ecm-draft:format-adjust`](./skills/ecm-draft-format-adjust/) | 项目 | ✅ v0.1.0 | Word 文档格式调整（Markdown → Word 套版、目录 / 页眉页脚 / 自动编号 / 交叉引用） |
 | [`ecm-qc:shareholders-meeting-witness`](./skills/ecm-qc-shareholders-meeting-witness/) | QC | ✅ v0.1.0 | 股东（大）会法律见证意见内核审查 |
+| [`ecm-qc:opinion-letter-review`](./skills/ecm-qc-opinion-letter-review/) | QC | ⏳ BATCH-09 规划中 | 法律意见书内核审查（配对 `ecm-draft:opinion-letter`；BATCH-09 窗口建设） |
+| [`ecm-qc:work-report-review`](./skills/ecm-qc-work-report-review/) | QC | ⏳ BATCH-09 规划中 | 律师工作报告内核审查（配对 `ecm-draft:report-assembly`；BATCH-09 窗口建设） |
+| [`ecm-qc:disclosure-review`](./skills/ecm-qc-disclosure-review/) | QC | ⏳ BATCH-09 规划中 | 信披文件内核审查（配对 `ecm-draft:disclosure-review`；视角为内核独立审查而非起草人自查；BATCH-09 窗口建设） |
+| [`ecm-qc:meeting-docs-review`](./skills/ecm-qc-meeting-docs-review/) | QC | ⏳ BATCH-09 规划中 | 会议文件内核审查（配对 `ecm-draft:meeting-docs`；BATCH-09 窗口建设） |
 
 ### 命名约定
 

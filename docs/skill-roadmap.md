@@ -74,11 +74,11 @@ ecm-<category>:<function>
 
 | skill | 说明 | 阶段 | 状态 |
 |-------|------|------|------|
-| `ecm-draft:report-assembly` | 拼接 DD 各章节 → 完整尽调报告/律师工作报告 | 申报阶段 | 🟡 草稿 |
-| `ecm-draft:format-adjust` | Word 格式调整（排版/编号/交叉引用/页眉页脚/目录） | 全阶段 | 🟡 草稿 |
-| `ecm-draft:meeting-docs` | 批量起草会议文件（通知/议案/决议/记录/签到表） | 全阶段 | 🟡 草稿 |
-| `ecm-draft:opinion-letter` | 基于 DD 结论生成标准化法律意见书 | 申报阶段 | 🟡 草稿 |
-| `ecm-draft:disclosure-review` | 信息披露文件审阅（招股书/重组报告书/权益变动） | 申报阶段 / 反馈阶段 | 🟡 草稿 |
+| `ecm-draft:report-assembly` | 拼接 DD 各章节 → 完整尽调报告/律师工作报告 | 申报阶段 | ✅ v0.1.0 可用 |
+| `ecm-draft:format-adjust` | Word 格式调整（排版/编号/交叉引用/页眉页脚/目录） | 全阶段 | ✅ v0.1.0 可用 |
+| `ecm-draft:meeting-docs` | 批量起草会议文件（通知/议案/决议/记录/签到表） | 全阶段 | ✅ v0.1.0 可用 |
+| `ecm-draft:opinion-letter` | 基于 DD 结论生成标准化法律意见书 | 申报阶段 | ✅ v0.1.0 可用 |
+| `ecm-draft:disclosure-review` | 信息披露文件起草人自查（招股书/重组报告书/权益变动；与 `ecm-qc:disclosure-review` 配对但视角不同） | 申报阶段 / 反馈阶段 | ✅ v0.1.0 可用 |
 
 ### 5. ecm-research — 法律研究
 
@@ -106,10 +106,10 @@ ecm-<category>:<function>
 | skill | 说明 | 阶段 | 状态 |
 |-------|------|------|------|
 | `ecm-qc:shareholders-meeting-witness` | 股东（大）会法律见证意见内核审查 | 持续督导阶段 | ✅ v0.1.0 可用 |
-| `ecm-qc:opinion-letter-review` | 法律意见书内核审查（配对 `ecm-draft:opinion-letter`） | 申报阶段 | ⏳ 规划 |
-| `ecm-qc:work-report-review` | 律师工作报告内核审查 | 申报阶段 | ⏳ 规划 |
-| `ecm-qc:disclosure-review` | 招股书/重组报告书/权益变动报告书内核审查（和 `ecm-draft:disclosure-review` 的区别见下方注） | 申报阶段 / 反馈阶段 | ⏳ 规划 |
-| `ecm-qc:meeting-docs-review` | 会议文件（通知/议案/决议/记录）内核审查 | 全阶段 | ⏳ 规划 |
+| `ecm-qc:opinion-letter-review` | 法律意见书内核审查（配对 `ecm-draft:opinion-letter`） | 申报阶段 | ⏳ BATCH-09 规划中 |
+| `ecm-qc:work-report-review` | 律师工作报告内核审查（配对 `ecm-draft:report-assembly`） | 申报阶段 | ⏳ BATCH-09 规划中 |
+| `ecm-qc:disclosure-review` | 招股书/重组报告书/权益变动报告书内核审查（和 `ecm-draft:disclosure-review` 的区别见下方注） | 申报阶段 / 反馈阶段 | ⏳ BATCH-09 规划中 |
+| `ecm-qc:meeting-docs-review` | 会议文件（通知/议案/决议/记录）内核审查（配对 `ecm-draft:meeting-docs`） | 全阶段 | ⏳ BATCH-09 规划中 |
 
 > **注**：`ecm-draft:disclosure-review` 是项目组起草人自查自纠；`ecm-qc:disclosure-review` 是内核独立审查。二者 checklist 重叠但视角不同：前者关注"我写的对不对"，后者关注"团队交上来的有没有错"。
 
@@ -128,11 +128,11 @@ ecm-<category>:<function>
 | P0.5 | `ecm-qc:shareholders-meeting-witness` 迁入 | ✅ 已完成（v0.1.0） |
 | P1 | `ecm-setup` 系列（3 项，前置依赖） | ✅ 已完成（BATCH-01） |
 | P2 | `ecm-dd` 系列（19 项，律师最高频工作） | ✅ 全部完成：BATCH-02 公司基础面 7 项 + BATCH-03 业务与资产 5 项 + BATCH-04 合规事项 5 项 + BATCH-05 工具类 2 项 |
-| P3 | `ecm-draft` 系列（5 项，report-assembly 最优先） | 串联输出 |
+| P3 | `ecm-draft` 系列（5 项，report-assembly 最优先） | ✅ 已完成（BATCH-06：report-assembly / opinion-letter / disclosure-review / meeting-docs / format-adjust 全部就绪；`shared/schemas/dd-output-schema.md` 和 `work-report-format.md` / `legal-opinion-format.md` / `meeting-docs-format.md` 三份模板同批建立） |
 | P4 | `ecm-design` 系列（5 项） | ✅ 已完成（BATCH-07） |
 | P5 | `ecm-research` 系列（3 项） | ✅ 已完成（BATCH-08） |
 | P6 | `ecm-workflow` 系列（6 项） | 全流程打通 |
-| P7 | `ecm-qc` 其余 skill（opinion-letter-review 等） | QC 能力横向扩展 |
+| P7 | `ecm-qc` 其余 skill（opinion-letter-review / work-report-review / disclosure-review / meeting-docs-review） | BATCH-09 窗口建设（与 BATCH-06 并行触发） |
 | P8 | 数据连接器（Tushare / 企查查） | 自动化增强 |
 
 ## 标准工作流示例（IPO 项目）

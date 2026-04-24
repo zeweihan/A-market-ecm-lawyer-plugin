@@ -43,6 +43,9 @@
 - [x] `legal-memo-format.md` — 法律备忘录排版规范（`ecm-design` 五件套共用；未来其他备忘录类输出亦可复用）
 - [x] `dd-skill-template.md` — DD 业务性 skill 统一编写模板（BATCH-02 建立；所有 `ecm-dd-*` 业务性 skill 必须套用。BATCH-03 / BATCH-04 / BATCH-05 三路并行交付的 12 个 `ecm-dd-*` skill 均已按该模板产出；至此 `ecm-dd` 17 个业务性 skill 统一契约覆盖完毕，工具类 2 个 skill（`dd-data-verify` / `dd-file-review`）按 BATCH-05 窗口单独的"工具契约"出）
 - [x] `research-output-format.md` — 法律研究类 skill 统一输出格式（BATCH-08 建立；所有 `ecm-research-*` 输出必须遵循：可靠性 A/B/C/D 分级、法规 / 案例引证规范、四段外层结构、三层 fallback）
+- [x] `work-report-format.md` — **律师工作报告 / 尽职调查报告排版规范**（BATCH-06 建立）。首页封面 / 目录 / 引言 / 17 章正文 / 附件 / 签字页；字体字号 / 行距 / 首行缩进；自动章节编号；交叉引用规则；全项目风险汇总表 7 列定义；Markdown → DOCX 映射；12 类常见踩坑。`ecm-draft-report-assembly` 输出必遵循；`ecm-qc-work-report-review`（BATCH-09）以此为参考坐标
+- [x] `legal-opinion-format.md` — **法律意见书排版规范**（BATCH-06 建立）。5 段骨架（引言 / 释义 / 正文 / 结论性意见 / 特别事项提示）；事实 - 核查 - 意见三步法；结论三级措辞；与工作报告的 11 项形式配套要求。`ecm-draft-opinion-letter` 输出必遵循；`ecm-qc-opinion-letter-review`（BATCH-09）参考
+- [x] `meeting-docs-format.md` — **会议文件批量起草规范**（BATCH-06 建立）。三类会议 + 8 种会议文件结构；通知期限硬校验表；特别决议 / 关联回避 / 中小投资者单独计票识别规则；跨文件一致性校验；表决基数计算规则；2024 新《公司法》新情况。`ecm-draft-meeting-docs` 输出必遵循；`ecm-qc-meeting-docs-review`（BATCH-09）参考
 
 ## 待补充（占位）
 
@@ -51,6 +54,4 @@
 - [ ] `legal-opinion-declaration.md` — 声明事项标准段
 - [ ] `witness-opinion-conclusion.md` — 见证意见结论措辞模板
 - [ ] `tracked-changes-author-config.md` — 修订痕迹的 author 字段统一约定（当前约定：默认 "内核"）
-- [ ] `work-report-format.md` — 律师工作报告排版规范（随 BATCH-06 建立）
-- [ ] `legal-opinion-format.md` — 法律意见书排版规范（随 BATCH-06 建立）
 - [ ] `qc-skill-template.md` — QC skill 统一模板（随 BATCH-09 建立）

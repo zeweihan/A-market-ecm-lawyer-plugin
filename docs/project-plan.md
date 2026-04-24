@@ -6,9 +6,9 @@
 
 **仓库位置**：`/Users/zewei/Documents/2024-2044/0-个人事项/0-aplugin`
 **GitHub**：https://github.com/zeweihan/A-market-ecm-lawyer-plugin
-**本地 git 分支**：`main`（领先 GitHub **9+ 个 commit**，等用户 push）
+**本地 git 分支**：`main`（领先 GitHub **10+ 个 commit**，等用户 push）
 
-**已完成**（31 个 skill 可用；ecm-dd 19 章全部完成）：
+**已完成**（36 个 skill 可用；ecm-dd 19 章 + ecm-design 5 + ecm-research 3 + ecm-draft 5 + ecm-setup 3 + ecm-qc 1）：
 - ✅ BATCH-00 仓库框架
 - ✅ BATCH-00.5 `ecm-qc:shareholders-meeting-witness`
 - ✅ BATCH-01 `ecm-setup` 三件套（project-init / file-classify / file-organize）
@@ -20,15 +20,21 @@
 - ✅ BATCH-03 `ecm-dd` 业务与资产 5 个 skill（business / related-party / assets / debt / independence）——2026-04-24 窗口完成
 - ✅ BATCH-04 `ecm-dd` 合规事项 5 个 skill（tax / environment / fundraising / litigation / compliance）——2026-04-24 并行窗口完成
 - ✅ BATCH-05 `ecm-dd` 工具类 2 个 skill（dd-data-verify / dd-file-review）——2026-04-24 并行窗口完成
+- ✅ BATCH-06 `ecm-draft` 五件套（report-assembly / opinion-letter / disclosure-review / meeting-docs / format-adjust）——2026-04-24 并行窗口完成
+  - 附带产出：`shared/schemas/dd-output-schema.md`（**DD → Draft 数据交接契约 SoT**；规定 17 份 DD Memo 的统一结构、拼接语义、opinion-letter 消费规则、违约处理）
+  - 附带产出：`shared/templates/work-report-format.md`（律师工作报告 / 尽职调查报告排版规范）
+  - 附带产出：`shared/templates/legal-opinion-format.md`（法律意见书排版规范；与工作报告形式配套）
+  - 附带产出：`shared/templates/meeting-docs-format.md`（会议文件批量起草规范；含跨文件一致性校验规则）
+  - BATCH-06 作为 cross-batch aggregator：同时为 BATCH-09 的 4 个 qc skill 在 README / plugin.json / skill-roadmap 中占位登记
 - ✅ BATCH-07 `ecm-design` 五件套（ipo-path / deal-structure / control-rights / ma-structure / cross-border）
   - 附带产出：`shared/templates/legal-memo-format.md`（法律备忘录排版规范；5 个 design skill 共享，未来其他备忘录类输出亦可复用）
   - 附带产出：`skills/ecm-design-ipo-path/references/pathway-rules.md`（A 股 / 港股 / 美股 / 红筹 / VIE / 借壳 / 被并购等路径规则速查）
 - ✅ BATCH-08 `ecm-research` 三件套（case-search / reg-search / reg-study）
   - 附带产出：`shared/templates/research-output-format.md`（法律研究类 skill 统一输出格式，含可靠性四级、引证格式、fallback 规则）
 
-**下一步推荐**：BATCH-06 `ecm-draft` 5 个 skill。DD 19 章全部就位，report-assembly 上游输入已可以消费。建议先建立 `shared/schemas/dd-output-schema.json` 明确 DD Memo 的字段契约，再开发 report-assembly。
+**下一步推荐**：BATCH-09 `ecm-qc` 剩余 4 个 skill（opinion-letter-review / work-report-review / disclosure-review / meeting-docs-review）。BATCH-06 已完成且建立了 `work-report-format.md` / `legal-opinion-format.md` / `meeting-docs-format.md` 三份格式规范，可作为 QC 审查的"参考坐标"。
 
-**并行可开**：BATCH-09 `ecm-qc` 剩余 4 个 skill（需等 BATCH-06 先落地，因为 QC 对 draft 产物做独立审查）。BATCH-11 数据连接器脚本可随时并行。BATCH-10 workflow 必须最后做。
+**并行可开**：BATCH-11 数据连接器脚本可随时并行。BATCH-10 workflow 必须最后做（等 BATCH-09 完成）。
 
 **源材料位置**：`/Users/zewei/Documents/2024-2044/0-个人事项/54-ecm_skills/`
 - 新窗口需先用 `request_cowork_directory` 请求访问
@@ -40,6 +46,10 @@
 - `shared/templates/dd-skill-template.md`——DD skill 统一编写模板（frontmatter / 目录结构 / 输出契约 / checklist 规范）
 - `shared/templates/legal-memo-format.md`——法律备忘录排版规范（字体 / 段距 / 表格 / 编号 / 引用 / 数字格式；所有 `ecm-design:*` 输出须遵循）
 - `shared/templates/research-output-format.md`——法律研究类 skill 统一输出格式（可靠性 A/B/C/D 分级、法规 / 案例引证格式、四段外层结构、三层 fallback；所有 `ecm-research:*` 输出须遵循）
+- `shared/templates/work-report-format.md`——律师工作报告 / 尽职调查报告排版规范（含全项目风险汇总表字段、附件结构、签字页规范；所有 `ecm-draft:report-assembly` 输出须遵循，BATCH-09 `ecm-qc:work-report-review` 亦以此为参考坐标）
+- `shared/templates/legal-opinion-format.md`——法律意见书排版规范（5 段骨架 / 事实 - 核查 - 意见三步法 / 形式配套要求；所有 `ecm-draft:opinion-letter` 输出须遵循）
+- `shared/templates/meeting-docs-format.md`——会议文件（通知 / 议案 / 决议 / 记录 / 签到表 / 授权委托书）起草规范（含通知期限硬校验、表决基数计算规则、特别决议 / 关联回避 / 中小投资者单独计票识别规则）
+- `shared/schemas/dd-output-schema.md`——**DD → Draft 数据交接契约 SoT**（17 份 DD Memo 的统一结构、一级标题 → 章节号映射、拼接语义、opinion-letter 消费规则、违约处理；BATCH-06 建立，所有 17 个 DD skill 和 `ecm-draft:report-assembly` / `opinion-letter` 共同遵守）
 - `shared/regulations/编报规则第12号-2001.md`——17 章 DD 维度索引
 - `shared/regulations/公司法-2024.md`——2024 新法高频条款节选
 - `shared/regulations/首次公开发行股票注册管理办法-2023.md`——发行条件节选
@@ -63,6 +73,7 @@
 | BATCH-03 | `ecm-dd` 业务与资产 5 个 skill（business / related-party / assets / debt / independence）——完全套用 dd-skill-template.md | ✅ |
 | BATCH-04 | `ecm-dd` 合规事项 5 个 skill（tax / environment / fundraising / litigation / compliance）——完全套用 dd-skill-template.md | ✅ |
 | BATCH-05 | `ecm-dd` 工具类 2 个 skill（dd-data-verify / dd-file-review）——非 DD Memo 输出契约，工具类 skill | ✅ |
+| BATCH-06 | `ecm-draft` 五件套（report-assembly / opinion-letter / disclosure-review / meeting-docs / format-adjust）+ 抽出 shared/schemas/dd-output-schema.md + shared/templates/work-report-format.md / legal-opinion-format.md / meeting-docs-format.md | ✅ |
 | BATCH-07 | `ecm-design` 五件套（ipo-path / deal-structure / control-rights / ma-structure / cross-border）+ 抽出 shared/templates/legal-memo-format.md + references/pathway-rules.md | ✅ |
 | BATCH-08 | `ecm-research` 三件套（case-search / reg-search / reg-study）+ 抽出 shared/templates/research-output-format.md | ✅ |
 
@@ -75,14 +86,14 @@
 | ~~BATCH-03~~ | ~~`ecm-dd` 业务与资产~~ | ~~5~~ | ~~BATCH-01~~ | ✅ 已完成 |
 | ~~BATCH-04~~ | ~~`ecm-dd` 合规事项~~ | ~~5~~ | ~~BATCH-01~~ | ✅ 已完成 |
 | ~~BATCH-05~~ | ~~`ecm-dd` 工具类~~ | ~~2~~ | ~~BATCH-01~~ | ✅ 已完成 |
-| BATCH-06 | `ecm-draft` | 5 | BATCH-02~05 已完成（DD 输出格式已可消费） | 独立窗口 |
+| ~~BATCH-06~~ | ~~`ecm-draft`~~ | ~~5~~ | ~~BATCH-02~05 已完成~~ | ✅ 已完成 |
 | ~~BATCH-07~~ | ~~`ecm-design`~~ | ~~5~~ | ~~无硬依赖~~ | ✅ 已完成 |
 | ~~BATCH-08~~ | ~~`ecm-research`~~ | ~~3~~ | ~~无硬依赖~~ | ✅ 已完成 |
-| BATCH-09 | `ecm-qc` 剩余 | 4 | BATCH-06 先完成（需要起草侧的对应 skill） | 独立窗口 |
+| BATCH-09 | `ecm-qc` 剩余 | 4 | BATCH-06 已完成（draft 侧对应产物已就绪；work-report-format / legal-opinion-format / meeting-docs-format 三份格式规范已作为 QC 参考坐标） | 独立窗口 |
 | BATCH-10 | `ecm-workflow` | 6 | 前述所有 batch 都需完成 | 独立窗口（编排层） |
 | BATCH-11 | 数据连接器脚本 | — | BATCH-05 完成（已完成，可并行） | 独立窗口（纯 Python 代码） |
 
-**并行建议**：BATCH-01、BATCH-07、BATCH-08 之间无硬依赖，可以同时开三个窗口推进。BATCH-02~05 在 BATCH-01 完成后可四个窗口并行（2026-04-24 BATCH-03/04/05 三路并行一次性落地）。
+**并行建议**：BATCH-01、BATCH-07、BATCH-08 之间无硬依赖，可以同时开三个窗口推进。BATCH-02~05 在 BATCH-01 完成后可四个窗口并行（2026-04-24 BATCH-03/04/05 三路并行一次性落地）。BATCH-06 和 BATCH-09 可并行（2026-04-24 完成；BATCH-06 担任 aggregator 统一更新共用索引文件）。
 
 ---
 
@@ -476,3 +487,4 @@ aggregator 负责在自己 commit 里一并更新这 6 个共用文件：
 | 2026-04-24 | 文档初始化，确定 11 个 batch 的划分 |
 | 2026-04-24 | BATCH-02（公司基础面 7）+ BATCH-07（ecm-design 5）+ BATCH-08（ecm-research 3）完成 |
 | 2026-04-24 | BATCH-03（业务与资产 5）+ BATCH-04（合规事项 5）+ BATCH-05（工具类 2）三路并行完成；至此 `ecm-dd` 19 章 / 19 个 skill 全部就绪；下一步推荐 BATCH-06 `ecm-draft` |
+| 2026-04-24 | BATCH-06（ecm-draft 5 件套）+ BATCH-09（ecm-qc 剩余 4 件套）并行启动；BATCH-06 担任 cross-batch aggregator，同步更新共用索引文件（README / CHANGELOG / plugin.json / skill-roadmap / project-plan / shared-templates-README）并为 BATCH-09 的 4 个 qc skill 占位登记；本 batch 建立 `shared/schemas/dd-output-schema.md`（DD → Draft 契约 SoT）和 `shared/templates/work-report-format.md` / `legal-opinion-format.md` / `meeting-docs-format.md` 三份格式规范 |
