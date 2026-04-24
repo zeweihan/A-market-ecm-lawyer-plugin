@@ -4,6 +4,35 @@
 
 ## [Unreleased]
 
+### Added — BATCH-03（ecm-dd 业务与资产 5 个 skill）
+- `skills/ecm-dd-business/`：发行人业务核查（编报规则第 7 章）。覆盖经营范围 / 业务资质 / 特许经营、重大业务合同（签约主体 + change of control + 违约）、前五大客户 / 供应商集中度、业务合规（反垄断 / 数据合规 / 网络安全 / 国家安全审查 / 外资准入 / 产业政策）、业务完整性与连续性。Memo 含**业务资质清单表**和**前五大客户/供应商集中度表**强制字段。
+- `skills/ecm-dd-related-party/`：关联交易和同业竞争核查（第 8 章）。双主线工作流：关联方范围认定（关联自然人 + 关联法人 + 12 个月回溯）+ 关联交易公允性 / 决策程序 / 占比 / 重大依赖；同业竞争识别（相同相似业务 + 重大不利影响判断）+ 解决方案（注销 / 转让 / 置入 / 分割 / 承诺）。专门应对 IPO 红线：非经营性资金占用 + 违规担保。Memo 含**关联方清单表 + 关联交易汇总表 + 同业竞争情况表**三张强制表。
+- `skills/ecm-dd-assets/`：主要财产核查（第 9 章）。覆盖不动产（国有出让 vs 划拨 vs 集体土地 + 建筑合法性 + 违建识别 + 权利受限）、知识产权（专利 / 商标 / 著作权 / 软著 / 域名 / 商业秘密 / 特许经营权，含职务发明 / 开源合规 / 商标撤三等专项）、重大设备（含融资租赁）、承租资产（含"二房东"与租赁备案）。Memo 含**不动产清单表 + 知识产权清单表 + 重大设备清单表 + 承租资产清单表**四张强制表。
+- `skills/ecm-dd-debt/`：重大债权债务核查（第 10 章）。覆盖银行借款 / 授信 / 债券 / 融资租赁 / 保理、对外担保（决策程序 / 反担保 / 占净资产比例 / 违规担保识别）、应收应付账款、或有负债（未决诉讼 + 对赌回购 + 业绩补偿 + 补缴款项）、change of control / 交叉违约 / 财务契约等限制性条款。应对 IPO 红线：非经营性资金占用 + 违规担保。Memo 含**重大借款清单表 + 对外担保清单表 + 大额应收应付清单表 + 或有负债清单表**四张强制表。
+- `skills/ecm-dd-independence/`：发行人独立性综合评估（第 4 章）。作为**横向 skill**，依赖 related-party / directors / assets / business / debt 五个上游 DD skill 的输出做五独立评估（资产完整 / 业务独立 / 人员独立 / 财务独立 / 机构独立）。输出与《注册办法》第 12 条逐款对照。Memo 含**五独立对照评估表 + 独立性重大依赖汇总表**两张强制表。
+
+### Changed — BATCH-03 相关
+- `.claude-plugin/plugin.json`：`skills` 数组新增 5 个 `ecm-dd-*`（BATCH-03）路径。
+- `docs/skill-roadmap.md`：5 个 BATCH-03 `ecm-dd:*` 状态从 🟡 草稿 改为 ✅ v0.1.0 可用。
+- `docs/project-plan.md`：BATCH-03 标记 ✅。
+
+### Added — BATCH-04（ecm-dd 合规事项 5 个 skill）
+（由 BATCH-04 并行窗口于 2026-04-24 交付；skill 目录位于 `skills/ecm-dd-tax/` / `skills/ecm-dd-environment/` / `skills/ecm-dd-fundraising/` / `skills/ecm-dd-litigation/` / `skills/ecm-dd-compliance/`。完整 skill 清单详述由该窗口在本段补充。）
+
+### Changed — BATCH-04 相关
+- `.claude-plugin/plugin.json`：`skills` 数组新增 5 个 `ecm-dd-*`（BATCH-04）路径。
+- `docs/skill-roadmap.md`：5 个 BATCH-04 `ecm-dd:*` 状态从 🟡 草稿 改为 ✅ v0.1.0 可用。
+- `docs/project-plan.md`：BATCH-04 标记 ✅。
+
+### Added — BATCH-05（ecm-dd 工具类 2 个 skill）
+（由 BATCH-05 并行窗口于 2026-04-24 交付；skill 目录位于 `skills/ecm-dd-data-verify/`（Tushare / 企查查 API 交叉验证）和 `skills/ecm-dd-file-review/`（本地文件批量审阅）。完整 skill 清单详述由该窗口在本段补充。）
+
+### Changed — BATCH-05 相关
+- `.claude-plugin/plugin.json`：`skills` 数组新增 2 个 `ecm-dd-*`（BATCH-05）路径。
+- `docs/skill-roadmap.md`：2 个 BATCH-05 `ecm-dd:*` 状态从 🟡 草稿 改为 ✅ v0.1.0 可用。
+- `docs/project-plan.md`：BATCH-05 标记 ✅。
+- `docs/skill-roadmap.md`：P2 优先级标注"ecm-dd 19 章 / 19 个 skill 全部完成"。
+
 ### Added — BATCH-08（ecm-research 三件套）
 - `skills/ecm-research-case-search/`：案例检索 skill。覆盖五类权威数据源（中国裁判文书网 / 证监会行政处罚 / 三大交易所及新三板纪律处分 / 并购重组委审议 / 上市委审议与 IPO 审核问询），4-Phase 工作流（澄清 → 策略制定 → 执行检索 → 结构化输出）；内含 `references/case-source-registry.md`（数据源登记 + 已知坑）、`references/case-card-template.md`（裁判 / 处罚 / 纪律处分 / 审议意见四类案例卡片字段模板）、`references/search-keyword-patterns.md`（20 个高频 ECM 主题的关键词矩阵预设）。
 - `skills/ecm-research-reg-search/`：法规检索 skill。按**五级效力层级**（法律 / 行政法规 / 部门规章 / 规范性文件 / 交易所业务规则）分层检索 + Phase 3 时效性核验（现行有效 / 已修订 / 已废止 / 事实失效 / 部分修订）。内含 `references/regulation-source-registry.md`（flk.npc.gov.cn、证监会规章库、各交易所规则专区）、`references/effect-status-rules.md`（时效性判断方法 + 常见陷阱 + 五级标注格式）、`references/citation-format.md`（规范引证格式）、`references/core-regulations-map.md`（20 个 ECM 高频主题的法规速查表）。

@@ -41,7 +41,7 @@
 
 - [x] `project-folder-structure.md` — 项目标准目录结构 + 标签→目录映射（`ecm-setup` 三件套共用）
 - [x] `legal-memo-format.md` — 法律备忘录排版规范（`ecm-design` 五件套共用；未来其他备忘录类输出亦可复用）
-- [x] `dd-skill-template.md` — DD 业务性 skill 统一编写模板（BATCH-02 建立；所有 `ecm-dd-*` 业务性 skill 必须套用）
+- [x] `dd-skill-template.md` — DD 业务性 skill 统一编写模板（BATCH-02 建立；所有 `ecm-dd-*` 业务性 skill 必须套用。BATCH-03 / BATCH-04 / BATCH-05 三路并行交付的 12 个 `ecm-dd-*` skill 均已按该模板产出；至此 `ecm-dd` 17 个业务性 skill 统一契约覆盖完毕，工具类 2 个 skill（`dd-data-verify` / `dd-file-review`）按 BATCH-05 窗口单独的"工具契约"出）
 - [x] `research-output-format.md` — 法律研究类 skill 统一输出格式（BATCH-08 建立；所有 `ecm-research-*` 输出必须遵循：可靠性 A/B/C/D 分级、法规 / 案例引证规范、四段外层结构、三层 fallback）
 
 ## 待补充（占位）

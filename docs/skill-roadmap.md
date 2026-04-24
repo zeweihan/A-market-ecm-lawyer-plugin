@@ -53,22 +53,22 @@ ecm-<category>:<function>
 | `ecm-dd:dd-approval` | 第 1 章 | 本次交易的批准和授权 | ✅ v0.1.0 可用 |
 | `ecm-dd:dd-entity` | 第 2 章 | 发行人的主体资格 | ✅ v0.1.0 可用 |
 | `ecm-dd:dd-establishment` | 第 3 章 | 发行人的设立 | ✅ v0.1.0 可用 |
-| `ecm-dd:dd-independence` | 第 4 章 | 发行人的独立性 | 🟡 草稿 |
+| `ecm-dd:dd-independence` | 第 4 章 | 发行人的独立性 | ✅ v0.1.0 可用 |
 | `ecm-dd:dd-shareholders` | 第 5 章 | 发起人和主要股东（含实控人） | ✅ v0.1.0 可用 |
 | `ecm-dd:dd-history` | 第 6 章 | 发行人的股本及其演变（历史沿革） | ✅ v0.1.0 可用 |
-| `ecm-dd:dd-business` | 第 7 章 | 发行人的业务 | 🟡 草稿 |
-| `ecm-dd:dd-related-party` | 第 8 章 | 关联交易和同业竞争 | 🟡 草稿 |
-| `ecm-dd:dd-assets` | 第 9 章 | 发行人的主要财产 | 🟡 草稿 |
-| `ecm-dd:dd-debt` | 第 10 章 | 重大债权债务 | 🟡 草稿 |
+| `ecm-dd:dd-business` | 第 7 章 | 发行人的业务 | ✅ v0.1.0 可用 |
+| `ecm-dd:dd-related-party` | 第 8 章 | 关联交易和同业竞争 | ✅ v0.1.0 可用 |
+| `ecm-dd:dd-assets` | 第 9 章 | 发行人的主要财产 | ✅ v0.1.0 可用 |
+| `ecm-dd:dd-debt` | 第 10 章 | 重大债权债务 | ✅ v0.1.0 可用 |
 | `ecm-dd:dd-charter` | 第 11 章 | 公司章程及组织机构（三会运作） | ✅ v0.1.0 可用 |
 | `ecm-dd:dd-directors` | 第 12 章 | 董事、监事、高管及其变化 | ✅ v0.1.0 可用 |
-| `ecm-dd:dd-tax` | 第 13 章 | 税务 | 🟡 草稿 |
-| `ecm-dd:dd-environment` | 第 14 章 | 环境保护、产品质量、安全生产 | 🟡 草稿 |
-| `ecm-dd:dd-fundraising` | 第 15 章 | 募集资金运用 | 🟡 草稿 |
-| `ecm-dd:dd-litigation` | 第 16 章 | 诉讼、仲裁或行政处罚 | 🟡 草稿 |
-| `ecm-dd:dd-compliance` | 第 17 章 | 其他合规事项（兜底） | 🟡 草稿 |
-| `ecm-dd:dd-data-verify` | — | 数据自动化比对（Tushare / 企查查 API 交叉验证） | 🟡 草稿 |
-| `ecm-dd:dd-file-review` | — | 本地文件批量审阅（读取项目文件夹 PDF/Word/Excel） | 🟡 草稿 |
+| `ecm-dd:dd-tax` | 第 13 章 | 税务 | ✅ v0.1.0 可用 |
+| `ecm-dd:dd-environment` | 第 14 章 | 环境保护、产品质量、安全生产 | ✅ v0.1.0 可用 |
+| `ecm-dd:dd-fundraising` | 第 15 章 | 募集资金运用 | ✅ v0.1.0 可用 |
+| `ecm-dd:dd-litigation` | 第 16 章 | 诉讼、仲裁或行政处罚 | ✅ v0.1.0 可用 |
+| `ecm-dd:dd-compliance` | 第 17 章 | 其他合规事项（兜底） | ✅ v0.1.0 可用 |
+| `ecm-dd:dd-data-verify` | — | 数据自动化比对（Tushare / 企查查 API 交叉验证） | ✅ v0.1.0 可用 |
+| `ecm-dd:dd-file-review` | — | 本地文件批量审阅（读取项目文件夹 PDF/Word/Excel） | ✅ v0.1.0 可用 |
 
 ### 4. ecm-draft — 文书起草与处理
 
@@ -127,7 +127,7 @@ ecm-<category>:<function>
 | P0 | 仓库框架 + 模板 + 统一规范 | ✅ 已完成（v0.1.0） |
 | P0.5 | `ecm-qc:shareholders-meeting-witness` 迁入 | ✅ 已完成（v0.1.0） |
 | P1 | `ecm-setup` 系列（3 项，前置依赖） | ✅ 已完成（BATCH-01） |
-| P2 | `ecm-dd` 系列（19 项，律师最高频工作） | 🟨 部分完成：BATCH-02 公司基础面 7 项 ✅；BATCH-03/04/05 12 项待做 |
+| P2 | `ecm-dd` 系列（19 项，律师最高频工作） | ✅ 全部完成：BATCH-02 公司基础面 7 项 + BATCH-03 业务与资产 5 项 + BATCH-04 合规事项 5 项 + BATCH-05 工具类 2 项 |
 | P3 | `ecm-draft` 系列（5 项，report-assembly 最优先） | 串联输出 |
 | P4 | `ecm-design` 系列（5 项） | ✅ 已完成（BATCH-07） |
 | P5 | `ecm-research` 系列（3 项） | ✅ 已完成（BATCH-08） |

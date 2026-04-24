@@ -101,6 +101,18 @@ A-market-ecm-lawyer-plugin/
 | [`ecm-dd:dd-history`](./skills/ecm-dd-history/) | 项目 | ✅ v0.1.0 | 股本及其演变（历史沿革）核查（编报规则第 6 章） |
 | [`ecm-dd:dd-charter`](./skills/ecm-dd-charter/) | 项目 | ✅ v0.1.0 | 公司章程、三会运作、内控制度核查（编报规则第 11 章） |
 | [`ecm-dd:dd-directors`](./skills/ecm-dd-directors/) | 项目 | ✅ v0.1.0 | 董监高任职资格 / 兼职 / 变化核查（编报规则第 12 章） |
+| [`ecm-dd:dd-business`](./skills/ecm-dd-business/) | 项目 | ✅ v0.1.0 | 发行人业务核查：主营业务 / 资质 / 重大合同 / 客户供应商 / 横向合规（编报规则第 7 章） |
+| [`ecm-dd:dd-related-party`](./skills/ecm-dd-related-party/) | 项目 | ✅ v0.1.0 | 关联交易 + 同业竞争核查（编报规则第 8 章） |
+| [`ecm-dd:dd-assets`](./skills/ecm-dd-assets/) | 项目 | ✅ v0.1.0 | 主要财产核查：不动产 / 知识产权 / 重大设备 / 租赁 / 权利受限（编报规则第 9 章） |
+| [`ecm-dd:dd-debt`](./skills/ecm-dd-debt/) | 项目 | ✅ v0.1.0 | 重大债权债务核查：借款 / 担保 / 应收应付 / 或有负债 / change of control（编报规则第 10 章） |
+| [`ecm-dd:dd-independence`](./skills/ecm-dd-independence/) | 项目 | ✅ v0.1.0 | 发行人独立性综合评估（五独立 + 重大依赖，编报规则第 4 章） |
+| [`ecm-dd:dd-tax`](./skills/ecm-dd-tax/) | 项目 | ✅ v0.1.0 | 税务合规核查：税收优惠 / 纳税凭证 / 税务处罚 / 关联交易税务（编报规则第 13 章） |
+| [`ecm-dd:dd-environment`](./skills/ecm-dd-environment/) | 项目 | ✅ v0.1.0 | 环保、安全生产、产品质量核查（编报规则第 14 章） |
+| [`ecm-dd:dd-fundraising`](./skills/ecm-dd-fundraising/) | 项目 | ✅ v0.1.0 | 募集资金运用核查：募投项目 / 用地 / 备案立项（编报规则第 15 章） |
+| [`ecm-dd:dd-litigation`](./skills/ecm-dd-litigation/) | 项目 | ✅ v0.1.0 | 诉讼、仲裁、行政处罚核查（编报规则第 16 章） |
+| [`ecm-dd:dd-compliance`](./skills/ecm-dd-compliance/) | 项目 | ✅ v0.1.0 | 其他合规事项兜底核查：社保 / 公积金 / 海关 / 外汇 / 劳动（编报规则第 17 章） |
+| [`ecm-dd:dd-data-verify`](./skills/ecm-dd-data-verify/) | 项目 | ✅ v0.1.0 | 工具类：Tushare / 企查查 API 工商 / 财务数据自动交叉验证 |
+| [`ecm-dd:dd-file-review`](./skills/ecm-dd-file-review/) | 项目 | ✅ v0.1.0 | 工具类：本地文件批量审阅（PDF / Word / Excel 字段提取） |
 | [`ecm-design:ipo-path`](./skills/ecm-design-ipo-path/) | 项目 | ✅ v0.1.0 | IPO 路径选择（A 股 / 港股 / 美股 / 红筹 / VIE / 借壳 / 被并购）三维影响分析 |
 | [`ecm-design:deal-structure`](./skills/ecm-design-deal-structure/) | 项目 | ✅ v0.1.0 | 通用交易结构设计（股权 / 资产 / 增资 / 合并 / 分立） |
 | [`ecm-design:control-rights`](./skills/ecm-design-control-rights/) | 项目 | ✅ v0.1.0 | 控制权获取 / 巩固 / 分配 / 退出（要约、一致行动、AB 股、反收购） |
