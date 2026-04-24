@@ -27,14 +27,32 @@
     "chinese-legal"
   ],
   "skills": [
-    "skills/ecm-qc-shareholders-meeting-witness"
+    "skills/ecm-qc-shareholders-meeting-witness",
+    "skills/ecm-setup-project-init",
+    "skills/ecm-setup-file-classify",
+    "skills/ecm-setup-file-organize"
   ],
   "dependencies": {
     "external_skills": [
       {
         "name": "docx",
         "source": "anthropic-official",
-        "required_by": ["ecm-qc-shareholders-meeting-witness"],
+        "required_by": [
+          "ecm-qc-shareholders-meeting-witness",
+          "ecm-setup-file-classify"
+        ],
+        "notes": "见 docs/dependencies.md"
+      },
+      {
+        "name": "pdf",
+        "source": "anthropic-official",
+        "required_by": ["ecm-setup-file-classify"],
+        "notes": "见 docs/dependencies.md"
+      },
+      {
+        "name": "xlsx",
+        "source": "anthropic-official",
+        "required_by": ["ecm-setup-file-classify"],
         "notes": "见 docs/dependencies.md"
       }
     ]

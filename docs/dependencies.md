@@ -17,9 +17,9 @@ Anthropic 官方 skill 的 `LICENSE.txt` 明确限制：
 
 | 外部 skill | 被哪些 skill 依赖 | 功能 | 获取路径 |
 |-----------|------------------|------|---------|
-| `docx` | ecm-qc-shareholders-meeting-witness；（未来）opinion-drafting、opinion-review、docx-legal-formatting | Word 文档读写、tracked changes、批注 | Claude Code / Cowork 内置 |
-| `pdf` | （规划中）案例检索、意见书扫描件处理 | PDF 文本提取、表单填写、合并切分 | Claude Code / Cowork 内置 |
-| `xlsx` | （规划中）尽调清单管理、股东名册处理 | Excel 读写、公式、图表 | Claude Code / Cowork 内置 |
+| `docx` | ecm-qc-shareholders-meeting-witness、ecm-setup-file-classify；（未来）所有 ecm-draft-* 和 ecm-qc-* skill | Word 文档读写、tracked changes、批注 | Claude Code / Cowork 内置 |
+| `pdf` | ecm-setup-file-classify；（未来）案例检索、意见书扫描件处理 | PDF 文本提取、表单填写、合并切分 | Claude Code / Cowork 内置 |
+| `xlsx` | ecm-setup-file-classify；（未来）尽调清单管理、股东名册处理 | Excel 读写、公式、图表 | Claude Code / Cowork 内置 |
 
 ## 如何确认你已经有这些 skill
 

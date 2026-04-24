@@ -32,9 +32,9 @@ ecm-<category>:<function>
 
 | skill | 说明 | 阶段 | 状态 |
 |-------|------|------|------|
-| `ecm-setup:project-init` | 根据项目类型初始化文件夹结构、生成 Skill roadmap | 启动阶段 | 🟡 草稿（271 行） |
-| `ecm-setup:file-classify` | 批量阅读客户提供的文件，输出多维标签 | 启动阶段 | 🟡 草稿 |
-| `ecm-setup:file-organize` | 根据分类标签将文件移入对应目录，生成文件索引 | 启动阶段 | 🟡 草稿 |
+| `ecm-setup:project-init` | 根据项目类型初始化文件夹结构、生成 Skill roadmap | 启动阶段 | ✅ v0.1.0 可用 |
+| `ecm-setup:file-classify` | 批量阅读客户提供的文件，输出多维标签 | 启动阶段 | ✅ v0.1.0 可用 |
+| `ecm-setup:file-organize` | 根据分类标签将文件移入对应目录，生成文件索引 | 启动阶段 | ✅ v0.1.0 可用 |
 
 ### 2. ecm-design — 方案设计
 
@@ -126,7 +126,7 @@ ecm-<category>:<function>
 |------|------|--------|
 | P0 | 仓库框架 + 模板 + 统一规范 | ✅ 已完成（v0.1.0） |
 | P0.5 | `ecm-qc:shareholders-meeting-witness` 迁入 | ✅ 已完成（v0.1.0） |
-| P1 | `ecm-setup` 系列（3 项，前置依赖） | 🔜 下一轮 |
+| P1 | `ecm-setup` 系列（3 项，前置依赖） | ✅ 已完成（BATCH-01） |
 | P2 | `ecm-dd` 系列（19 项，律师最高频工作） | 核心价值 |
 | P3 | `ecm-draft` 系列（5 项，report-assembly 最优先） | 串联输出 |
 | P4 | `ecm-design` 系列（5 项） | 方案能力 |

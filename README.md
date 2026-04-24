@@ -91,6 +91,9 @@ A-market-ecm-lawyer-plugin/
 
 | skill | 模块 | 状态 | 简介 |
 |-------|------|------|------|
+| [`ecm-setup:project-init`](./skills/ecm-setup-project-init/) | 项目 | ✅ v0.1.0 | 项目初始化、建文件夹、生成 skill roadmap |
+| [`ecm-setup:file-classify`](./skills/ecm-setup-file-classify/) | 项目 | ✅ v0.1.0 | 批量阅读客户文件、打多标签分类 |
+| [`ecm-setup:file-organize`](./skills/ecm-setup-file-organize/) | 项目 | ✅ v0.1.0 | 按标签归位 + 生成文件索引表 |
 | [`ecm-qc:shareholders-meeting-witness`](./skills/ecm-qc-shareholders-meeting-witness/) | QC | ✅ v0.1.0 | 股东（大）会法律见证意见内核审查 |
 
 ### 命名约定

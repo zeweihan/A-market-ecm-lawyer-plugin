@@ -16,12 +16,13 @@
 |-------|------|------|
 | BATCH-00 | 仓库框架（LICENSE / README / DISCLAIMER / CONTRIBUTING / CHANGELOG / docs / shared / scripts / plugin.json / .github） | ✅ |
 | BATCH-00.5 | `ecm-qc:shareholders-meeting-witness` 迁入 + ecm-qc 模块成立 | ✅ |
+| BATCH-01 | `ecm-setup` 三件套（project-init / file-classify / file-organize）+ 抽出 shared/terminology/classification-labels.md + shared/templates/project-folder-structure.md | ✅ |
 
 ## Batch 清单
 
 | Batch | 类别 | skill 数 | 依赖 | 推荐执行窗口 |
 |-------|------|---------:|------|-------------|
-| BATCH-01 | `ecm-setup` 三件套 | 3 | 无 | 独立窗口（高内聚）|
+| ~~BATCH-01~~ | ~~`ecm-setup` 三件套~~ | ~~3~~ | ~~无~~ | ✅ 已完成 |
 | BATCH-02 | `ecm-dd` 公司基础面 | 7 | 建议 BATCH-01 先完成 | 独立窗口 |
 | BATCH-03 | `ecm-dd` 业务与资产 | 5 | BATCH-01 | 独立窗口 |
 | BATCH-04 | `ecm-dd` 合规事项 | 5 | BATCH-01 | 独立窗口 |
