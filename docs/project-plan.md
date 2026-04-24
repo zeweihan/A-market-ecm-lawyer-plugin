@@ -6,7 +6,7 @@
 
 **仓库位置**：`/Users/zewei/Documents/2024-2044/0-个人事项/0-aplugin`
 **GitHub**：https://github.com/zeweihan/A-market-ecm-lawyer-plugin
-**本地 git 分支**：`main`（领先 GitHub 3 个 commit，等用户 push）
+**本地 git 分支**：`main`（领先 GitHub **8 个 commit**，等用户 push）
 
 **已完成**（19 个 skill 可用）：
 - ✅ BATCH-00 仓库框架
@@ -413,10 +413,30 @@
 
 为避免冲突，以下工作**只在 master 窗口做**：
 
-1. **合并 batch 产出**：如果多个 batch 并行，它们都会改 `README.md` / `plugin.json` / `CHANGELOG.md` / `docs/skill-roadmap.md` 这四个文件——可能产生合并冲突。用户把 push 过的 batch commit 回到 master 窗口后，我来统一 resolve。
+1. **合并 batch 产出**：多个 batch 并行时，都会改 `README.md` / `plugin.json` / `CHANGELOG.md` / `docs/skill-roadmap.md` / `docs/project-plan.md` / `shared/templates/README.md` 这六个文件——可能产生合并冲突。master 窗口负责统一 resolve。
 2. **维护本文件 `docs/project-plan.md`**：状态表、整体节奏、batch 之间的界面调整。
-3. **维护 `shared/`**：跨 batch 共用的模板、schema、术语——任何 batch 觉得"这东西好像别人也要用"时，都抛回 master 窗口来放进 shared。
+3. **维护 `shared/`**：跨 batch 共用的模板、schema、术语。
 4. **整体测试**：所有 batch 完成后跑一次打包测试（`scripts/package-skill.sh` 遍历所有 skill）、README 的 skill 表和 plugin.json 的 skills 清单对齐、CHANGELOG 汇总出 v1.0.0 发布说明。
+
+## 并行 batch 的血泪经验（2026-04-24 三路并行回顾）
+
+**最重要的一条——指定一个 window 做 cross-batch aggregator**。上一轮 BATCH-07 的窗口主动承担了这个角色：它在自己 commit 里一并更新了 BATCH-02 和 BATCH-08 的**索引条目**（README/CHANGELOG/plugin.json/roadmap/project-plan/shared-templates-README）。如果三路都去改同一批共用文件，git lock 会冲突，索引会不一致，master 窗口要做大量冲突解决。
+
+**并行启动时应在每个 window 的 kickoff prompt 里加一条约束**：
+
+```
+本轮并行 batch 的 cross-batch aggregator 是 <BATCH-XX>。
+其他 batch 只动自己的 skills/ecm-<...>-*/ 目录和自己专用的 shared 资源
+（例如 BATCH-08 可以建 shared/templates/research-output-format.md，
+ 但不要碰 shared/templates/README.md——让 aggregator 统一更新）。
+aggregator 负责在自己 commit 里一并更新这 6 个共用文件：
+  README.md / CHANGELOG.md / .claude-plugin/plugin.json /
+  docs/skill-roadmap.md / docs/project-plan.md / shared/templates/README.md
+```
+
+**沙盒 git lock 的处理**：window 里看到 `Another git process seems to be running` 或 `.git/HEAD.lock` / `.git/index.lock` 存在——那是并行 window 争锁留下的。沙盒用户对 `.git/` 下文件没有 unlink 权限，**不要反复尝试自己 rm**——留给 master 窗口用 `mcp__cowork__allow_cowork_file_delete` 请求权限后清。
+
+**无法 commit 时的交接机制**：做完工作但 commit 因 lock 失败——不要反复重试，在仓库根目录写 `.batch-XX-commit-instructions.txt`，列出新增文件清单、unstaged 清单、推荐的 `git add` / `git commit` 命令；然后告知用户交接到 master 窗口处理。master 完成后**务必删除这个 .txt 文件**。
 
 ## 每个 batch 的标准交付清单（所有 batch 通用）
 
