@@ -68,7 +68,7 @@ A-market-ecm-lawyer-plugin/
 
 ## skill 清单
 
-本仓库整体规划 36 项项目 skill（6 类）+ 若干 QC skill（1 类）。详细路线图见 [docs/skill-roadmap.md](./docs/skill-roadmap.md)。
+本仓库整体规划 36 项项目 skill（6 类）+ 若干 QC skill（1 类）。详细路线图见 [docs/skill-roadmap.md](./docs/skill-roadmap.md)，建设工作计划（含 11 个可并行 batch）见 [docs/project-plan.md](./docs/project-plan.md)。
 
 ### 项目 skill 概览
 

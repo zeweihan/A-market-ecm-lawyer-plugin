@@ -5,6 +5,7 @@
 ## [Unreleased]
 
 ### Added
+- `docs/project-plan.md`：总工作计划。把 40+ 个 skill 的建设切成 11 个可独立完成的 batch，每个 batch 自带依赖清单、输入输出、验收标准和独立窗口启动模板，支持并行推进。
 - 新增 `ecm-qc` 模块（第 7 个 skill 类），用于承载内核 / QC 团队使用的审查类 skill。模块和既有 6 类项目 skill（setup/design/dd/draft/research/workflow）并列但语义独立——项目组 skill 是"做事"，QC skill 是"审事"。
 - 在 `docs/skill-authoring-guide.md` 和 `README.md` 顶部明确划出**项目 skill / QC skill** 的使用者边界。
 - SKILL.md frontmatter 增加 `module` 和 `user_role` 两个必填字段，防止角色混淆。
