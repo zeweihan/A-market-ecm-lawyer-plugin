@@ -4,6 +4,53 @@
 
 ## [Unreleased]
 
+### Added — BATCH-08（ecm-research 三件套）
+- `skills/ecm-research-case-search/`：案例检索 skill。覆盖五类权威数据源（中国裁判文书网 / 证监会行政处罚 / 三大交易所及新三板纪律处分 / 并购重组委审议 / 上市委审议与 IPO 审核问询），4-Phase 工作流（澄清 → 策略制定 → 执行检索 → 结构化输出）；内含 `references/case-source-registry.md`（数据源登记 + 已知坑）、`references/case-card-template.md`（裁判 / 处罚 / 纪律处分 / 审议意见四类案例卡片字段模板）、`references/search-keyword-patterns.md`（20 个高频 ECM 主题的关键词矩阵预设）。
+- `skills/ecm-research-reg-search/`：法规检索 skill。按**五级效力层级**（法律 / 行政法规 / 部门规章 / 规范性文件 / 交易所业务规则）分层检索 + Phase 3 时效性核验（现行有效 / 已修订 / 已废止 / 事实失效 / 部分修订）。内含 `references/regulation-source-registry.md`（flk.npc.gov.cn、证监会规章库、各交易所规则专区）、`references/effect-status-rules.md`（时效性判断方法 + 常见陷阱 + 五级标注格式）、`references/citation-format.md`（规范引证格式）、`references/core-regulations-map.md`（20 个 ECM 高频主题的法规速查表）。
+- `skills/ecm-research-reg-study/`：法规深度研究 skill。在已有法规清单基础上做**效力层级图 + 一般 / 特别 / 新 / 旧关系分析 + 冲突识别与解决 + 新旧衔接 + 适用性结论**五段式 5-Phase 工作流；支持在需要时回调 `ecm-research-reg-search` 和 `ecm-research-case-search`。内含 `references/hierarchy-framework.md`（中国法律规范效力层级完整框架）、`references/conflict-resolution-rules.md`（8 类典型冲突的解决规则库）、`references/transition-analysis-framework.md`（新旧衔接分析 + 年份标志速查）、`references/applicability-analysis-template.md`（单一条款 / 法律框架 / 新旧衔接三类研究主题的分析模板）。
+- `shared/templates/research-output-format.md`：**全仓唯一权威**的法律研究类 skill 统一输出格式。规定：(1) 可靠性四级分类（A 官方原始 / B 官方汇编 / C 公开二手 / D 模型记忆）；(2) 法规引证格式（全称 + 文号 + 生效日期 + 效力状态）和案例引证格式（案号 + 当事人 + 审级 + 终审状态）；(3) 四段式外层结构（检索策略 / 核心结论 / 支撑材料 / 时效性局限 / 下一步建议）；(4) 三层 fallback 规则（shared/regulations/ 节选 → 用户上传 → 模型记忆 D 级标注，绝不编造）；(5) 跨 skill 数据交接 JSON schema。所有 `ecm-research-*` skill 和下游引用 research 结果的 skill 必须遵循。
+
+### Changed — BATCH-08 相关
+- `.claude-plugin/plugin.json`：`skills` 数组新增 3 个 `ecm-research-*` 路径。
+- `docs/skill-roadmap.md`：3 个 `ecm-research:*` 状态从 🟡 草稿 改为 ✅ v0.1.0 可用；P5 优先级标注完成。
+- `docs/project-plan.md`：BATCH-08 标记 ✅；"跨 skill 共享资源"清单新增 `shared/templates/research-output-format.md`。
+- `shared/templates/README.md`：已建立列表新增 `research-output-format.md`。
+
+### Added — BATCH-07（ecm-design 五件套）
+- `skills/ecm-design-ipo-path/`：IPO 路径选择 skill。完整迁入 54-ecm_skills 中 271 行的成熟源稿，含三维影响分析（股东利益 / 管理层 / 公司发展）、12 个比较维度、6 阶段工作流、外部检索优先级（企查查 MCP → Tavily → Web Search）、6 种典型场景处理指引；内含 `references/pathway-rules.md`（A 股各板块 + 港股 18A/18C + 美股 + 红筹 / VIE + 借壳 + 被并购 + SPAC 的规则速查）。
+- `skills/ecm-design-deal-structure/`：通用交易结构设计 skill。覆盖股权 / 资产 / 增资 / 合并 / 分立五类交易的结构选型、一步 vs 分步、现金 / 股权 / 混合对价、CP 清单、风险缓释工具（对赌、锁定期、Escrow、W&I）。
+- `skills/ecm-design-control-rights/`：控制权交易结构 skill。四类目标识别（获取 / 巩固 / 分配 / 退出）、股权穿透、要约豁免、一致行动 / 表决权委托 / AB 股 / 反收购条款、多股东共建治理。
+- `skills/ecm-design-ma-structure/`：上市公司并购 skill。交易性质判定三分叉（一般 / 重大 / 借壳）、支付工具对比、配套融资、锁定期分层（36 / 12 月 / 业绩承诺期）、业绩承诺与补偿公式、近年监管关注点。
+- `skills/ecm-design-cross-border/`：跨境交易 skill。六跨境维度识别、7 个主管部门 + 10 部核心法规总览、红筹 / VIE 搭建与拆除、ODI / FDI / 37 号文 / 境外上市备案 / 反垄断 / 国安 / 数据出境的触发点与时间线。
+- `shared/templates/legal-memo-format.md`：**全仓唯一权威**的法律备忘录排版规范（首页元信息、主标题与各级标题、正文段落、表格样式、数字格式、法规引用、Markdown → DOCX 映射、常见踩坑清单）。所有 `ecm-design:*` 输出的备忘录必须遵循；未来其他备忘录类输出亦可复用。
+
+### Changed — BATCH-07 相关
+- `docs/dependencies.md`：`docx` 外部 skill 的 `required_by` 列表追加 5 个 `ecm-design-*`（用于最终套版为 `.docx` 终稿）。
+- `.claude-plugin/plugin.json`：`skills` 数组新增 5 个 `ecm-design-*` 路径；`dependencies.external_skills.docx.required_by` 同步更新。
+- `docs/skill-roadmap.md`：5 个 `ecm-design:*` 状态从 🟡 草稿 改为 ✅ v0.1.0 可用。
+- `docs/project-plan.md`：BATCH-07 标记 ✅；跨 skill 共享资源清单新增 `shared/templates/legal-memo-format.md`。
+- `shared/templates/README.md`：已建立列表新增 `legal-memo-format.md`；待补充列表新增 `work-report-format.md` / `legal-opinion-format.md` / `dd-skill-template.md` / `qc-skill-template.md` 占位。
+
+### Added — BATCH-02（ecm-dd 公司基础面 7 个 skill）
+- `skills/ecm-dd-approval/`：本次发行 / 交易的批准和授权核查（编报规则第 1 章）。覆盖董事会 / 股东（大）会决议、独立董事事前认可、国资 / 发改 / 商务 / 反垄断 / 国安审查等外部批准、授权有效期与授权范围。
+- `skills/ecm-dd-entity/`：发行人主体资格核查（第 2 章）。覆盖营业执照、工商登记、经营异常 / 失信黑名单、36 个月未擅自发行 / 未被交易所谴责 / 未被立案的《注册办法》第 10 条消极条件、特殊行业基础资质。
+- `skills/ecm-dd-establishment/`：发行人设立核查（第 3 章）。覆盖发起人资格、出资方式、验资、非货币出资评估 / 权属转移、整体变更（有限变股份）的净资产折股与税务处理、设立环节历史瑕疵识别与补正。
+- `skills/ecm-dd-history/`：股本及其演变核查（第 6 章）。按时间线复原历次增资 / 股转 / 回购 / 员工持股 / 激励，每次变动核查六要素（决议 / 协议 / 定价 / 付款 / 工商 / 税务）；国资审批、外汇登记、代持清理专章。Memo 含"股本演变时间线表"强制字段。
+- `skills/ecm-dd-shareholders/`：股东与实控人核查（第 5 章）。持股 5% 以上股东身份穿透、出资来源、代持清理、三类股东专项、股权质押冻结、实控人认定（单一自然人 / 共同控制 / 一致行动 / 国资 / 无实控）、近 2 年控制权稳定。Memo 含"股权结构图 + 实控人穿透图"强制字段。
+- `skills/ecm-dd-charter/`：公司章程及组织机构核查（第 11 章）。章程本体合法性、三会议事规则、近 3 年三会召开规范性、独立董事和董事会专门委员会运行、内控制度完备性；特别关注 2024 新《公司法》衔接。
+- `skills/ecm-dd-directors/`：董监高核查（第 12 章）。《公司法》第 146 条消极条件、证监会市场禁入、36 个月 / 12 个月监管处分、兼职与对外投资、近亲属关系、报告期内变化、承诺事项。Memo 含"董监高花名册"强制字段。
+- `shared/templates/dd-skill-template.md`：**DD 业务性 skill 统一编写模板**。规定 frontmatter 字段、目录结构、"核查要点 + 审阅发现 + 风险分级 + 结论建议 + 参考资料"五段式输出契约（强制）、checklist 编写规范、与上下游 skill 的交互约定。**BATCH-03 / 04 的 10 个 DD skill 必须套用本模板**。
+- `shared/regulations/编报规则第12号-2001.md`：17 章大纲索引，建立 DD skill 与各章节的映射关系；与《公司法》《注册办法》交叉条文标注。
+- `shared/regulations/公司法-2024.md`：2024 年 7 月 1 日施行版本的高频条款节选（第 4/7/8/46/47/48/49/56/66/84/92/94/97/112/116/119/130/140/146/180/181/265 条）。
+- `shared/regulations/首次公开发行股票注册管理办法-2023.md`：第二章"发行条件"的第 7–15 条节选，建立发行条件与 DD skill 的映射索引。
+
+### Changed — BATCH-02 相关
+- `.claude-plugin/plugin.json`：`skills` 数组新增 7 个 `ecm-dd-*` 路径。
+- `docs/skill-roadmap.md`：7 个 `ecm-dd:*` 状态从 🟡 草稿 改为 ✅ v0.1.0 可用；P2 优先级注明部分完成。
+- `docs/project-plan.md`：BATCH-02 标记 ✅；"跨 skill 共享资源"清单新增 `dd-skill-template.md` 和 3 份法规节选。
+- `docs/skill-authoring-guide.md`：新增"DD skill 专用模板"一节，指向 `shared/templates/dd-skill-template.md`。
+- `shared/regulations/README.md`：待补充清单中《公司法》《首次公开发行股票注册管理办法》《编报规则第 12 号》勾选完成。
+
 ### Added — BATCH-01（ecm-setup 三件套）
 - `skills/ecm-setup-project-init/`：项目初始化 skill。追问最多 4 轮确认项目类型/境内跨境/板块/客户简称；物理创建标准项目目录；根据项目类型输出 skill 调用 roadmap。内含 `references/project-roadmaps.md`（IPO/并购/再融资/新三板/债券 5 种类型 + 通用 roadmap）。
 - `skills/ecm-setup-file-classify/`：文件批量分类 skill。扫描 `02-99-未分类文件/` 目录，调用 `pdf`/`docx`/`xlsx` 外部 skill 读取内容，为每个文件打 1-3 个标签（many-to-many），主动提示版本重复/类别缺失/标签过多。

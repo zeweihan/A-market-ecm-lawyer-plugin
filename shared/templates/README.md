@@ -37,6 +37,13 @@
 ...
 ```
 
+## 已建立
+
+- [x] `project-folder-structure.md` — 项目标准目录结构 + 标签→目录映射（`ecm-setup` 三件套共用）
+- [x] `legal-memo-format.md` — 法律备忘录排版规范（`ecm-design` 五件套共用；未来其他备忘录类输出亦可复用）
+- [x] `dd-skill-template.md` — DD 业务性 skill 统一编写模板（BATCH-02 建立；所有 `ecm-dd-*` 业务性 skill 必须套用）
+- [x] `research-output-format.md` — 法律研究类 skill 统一输出格式（BATCH-08 建立；所有 `ecm-research-*` 输出必须遵循：可靠性 A/B/C/D 分级、法规 / 案例引证规范、四段外层结构、三层 fallback）
+
 ## 待补充（占位）
 
 - [ ] `law-firm-letterhead.md` — 律所抬头
@@ -44,3 +51,6 @@
 - [ ] `legal-opinion-declaration.md` — 声明事项标准段
 - [ ] `witness-opinion-conclusion.md` — 见证意见结论措辞模板
 - [ ] `tracked-changes-author-config.md` — 修订痕迹的 author 字段统一约定（当前约定：默认 "内核"）
+- [ ] `work-report-format.md` — 律师工作报告排版规范（随 BATCH-06 建立）
+- [ ] `legal-opinion-format.md` — 法律意见书排版规范（随 BATCH-06 建立）
+- [ ] `qc-skill-template.md` — QC skill 统一模板（随 BATCH-09 建立）

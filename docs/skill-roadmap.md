@@ -40,28 +40,28 @@ ecm-<category>:<function>
 
 | skill | 说明 | 阶段 | 状态 |
 |-------|------|------|------|
-| `ecm-design:ipo-path` | IPO 路径选择（主板/科创板/创业板/北交所/港股/红筹对比） | 研究阶段 | 🟡 草稿 |
-| `ecm-design:deal-structure` | 通用交易结构设计（股权/资产/增资/合并） | 研究阶段 | 🟡 草稿 |
-| `ecm-design:control-rights` | 控制权交易结构（收购方式、对赌、表决权、一致行动） | 研究阶段 | 🟡 草稿 |
-| `ecm-design:ma-structure` | 上市公司并购（发行股份购买资产/现金/混合/借壳） | 研究阶段 | 🟡 草稿 |
-| `ecm-design:cross-border` | 跨境交易方案（ODI/FDI/外商投资/外汇/反垄断/国安审查） | 研究阶段 | 🟡 草稿 |
+| `ecm-design:ipo-path` | IPO 路径选择（主板/科创板/创业板/北交所/港股/红筹对比） | 研究阶段 | ✅ v0.1.0 可用 |
+| `ecm-design:deal-structure` | 通用交易结构设计（股权/资产/增资/合并） | 研究阶段 | ✅ v0.1.0 可用 |
+| `ecm-design:control-rights` | 控制权交易结构（收购方式、对赌、表决权、一致行动） | 研究阶段 | ✅ v0.1.0 可用 |
+| `ecm-design:ma-structure` | 上市公司并购（发行股份购买资产/现金/混合/借壳） | 研究阶段 | ✅ v0.1.0 可用 |
+| `ecm-design:cross-border` | 跨境交易方案（ODI/FDI/外商投资/外汇/反垄断/国安审查） | 研究阶段 | ✅ v0.1.0 可用 |
 
 ### 3. ecm-dd — 尽职调查（按编报规则第 12 号拆分）
 
 | skill | 对应章节 | 说明 | 状态 |
 |-------|---------|------|------|
-| `ecm-dd:dd-approval` | 第 1 章 | 本次交易的批准和授权 | 🟡 草稿 |
-| `ecm-dd:dd-entity` | 第 2 章 | 发行人的主体资格 | 🟡 草稿 |
-| `ecm-dd:dd-establishment` | 第 3 章 | 发行人的设立 | 🟡 草稿 |
+| `ecm-dd:dd-approval` | 第 1 章 | 本次交易的批准和授权 | ✅ v0.1.0 可用 |
+| `ecm-dd:dd-entity` | 第 2 章 | 发行人的主体资格 | ✅ v0.1.0 可用 |
+| `ecm-dd:dd-establishment` | 第 3 章 | 发行人的设立 | ✅ v0.1.0 可用 |
 | `ecm-dd:dd-independence` | 第 4 章 | 发行人的独立性 | 🟡 草稿 |
-| `ecm-dd:dd-shareholders` | 第 5 章 | 发起人和主要股东（含实控人） | 🟡 草稿 |
-| `ecm-dd:dd-history` | 第 6 章 | 发行人的股本及其演变（历史沿革） | 🟡 草稿 |
+| `ecm-dd:dd-shareholders` | 第 5 章 | 发起人和主要股东（含实控人） | ✅ v0.1.0 可用 |
+| `ecm-dd:dd-history` | 第 6 章 | 发行人的股本及其演变（历史沿革） | ✅ v0.1.0 可用 |
 | `ecm-dd:dd-business` | 第 7 章 | 发行人的业务 | 🟡 草稿 |
 | `ecm-dd:dd-related-party` | 第 8 章 | 关联交易和同业竞争 | 🟡 草稿 |
 | `ecm-dd:dd-assets` | 第 9 章 | 发行人的主要财产 | 🟡 草稿 |
 | `ecm-dd:dd-debt` | 第 10 章 | 重大债权债务 | 🟡 草稿 |
-| `ecm-dd:dd-charter` | 第 11 章 | 公司章程及组织机构（三会运作） | 🟡 草稿 |
-| `ecm-dd:dd-directors` | 第 12 章 | 董事、监事、高管及其变化 | 🟡 草稿 |
+| `ecm-dd:dd-charter` | 第 11 章 | 公司章程及组织机构（三会运作） | ✅ v0.1.0 可用 |
+| `ecm-dd:dd-directors` | 第 12 章 | 董事、监事、高管及其变化 | ✅ v0.1.0 可用 |
 | `ecm-dd:dd-tax` | 第 13 章 | 税务 | 🟡 草稿 |
 | `ecm-dd:dd-environment` | 第 14 章 | 环境保护、产品质量、安全生产 | 🟡 草稿 |
 | `ecm-dd:dd-fundraising` | 第 15 章 | 募集资金运用 | 🟡 草稿 |
@@ -84,9 +84,9 @@ ecm-<category>:<function>
 
 | skill | 说明 | 阶段 | 状态 |
 |-------|------|------|------|
-| `ecm-research:case-search` | 案例检索（裁判文书/证监会处罚/交易所纪律处分/并购重组委/上市委案例） | 全阶段 | 🟡 草稿 |
-| `ecm-research:reg-search` | 法规查询（法律/行政法规/部门规章/证监会规范性文件/交易所业务规则） | 全阶段 | 🟡 草稿 |
-| `ecm-research:reg-study` | 法规深度研究（适用性/效力层级/冲突解决/新旧衔接） | 全阶段 | 🟡 草稿 |
+| `ecm-research:case-search` | 案例检索（裁判文书/证监会处罚/交易所纪律处分/并购重组委/上市委案例） | 全阶段 | ✅ v0.1.0 可用 |
+| `ecm-research:reg-search` | 法规查询（法律/行政法规/部门规章/证监会规范性文件/交易所业务规则） | 全阶段 | ✅ v0.1.0 可用 |
+| `ecm-research:reg-study` | 法规深度研究（适用性/效力层级/冲突解决/新旧衔接） | 全阶段 | ✅ v0.1.0 可用 |
 
 ### 6. ecm-workflow — 工作流编排
 
@@ -127,10 +127,10 @@ ecm-<category>:<function>
 | P0 | 仓库框架 + 模板 + 统一规范 | ✅ 已完成（v0.1.0） |
 | P0.5 | `ecm-qc:shareholders-meeting-witness` 迁入 | ✅ 已完成（v0.1.0） |
 | P1 | `ecm-setup` 系列（3 项，前置依赖） | ✅ 已完成（BATCH-01） |
-| P2 | `ecm-dd` 系列（19 项，律师最高频工作） | 核心价值 |
+| P2 | `ecm-dd` 系列（19 项，律师最高频工作） | 🟨 部分完成：BATCH-02 公司基础面 7 项 ✅；BATCH-03/04/05 12 项待做 |
 | P3 | `ecm-draft` 系列（5 项，report-assembly 最优先） | 串联输出 |
-| P4 | `ecm-design` 系列（5 项） | 方案能力 |
-| P5 | `ecm-research` 系列（3 项） | 研究支持 |
+| P4 | `ecm-design` 系列（5 项） | ✅ 已完成（BATCH-07） |
+| P5 | `ecm-research` 系列（3 项） | ✅ 已完成（BATCH-08） |
 | P6 | `ecm-workflow` 系列（6 项） | 全流程打通 |
 | P7 | `ecm-qc` 其余 skill（opinion-letter-review 等） | QC 能力横向扩展 |
 | P8 | 数据连接器（Tushare / 企查查） | 自动化增强 |

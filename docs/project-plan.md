@@ -8,16 +8,24 @@
 **GitHub**：https://github.com/zeweihan/A-market-ecm-lawyer-plugin
 **本地 git 分支**：`main`（领先 GitHub 3 个 commit，等用户 push）
 
-**已完成**（4 个 skill 可用）：
+**已完成**（19 个 skill 可用）：
 - ✅ BATCH-00 仓库框架
 - ✅ BATCH-00.5 `ecm-qc:shareholders-meeting-witness`
 - ✅ BATCH-01 `ecm-setup` 三件套（project-init / file-classify / file-organize）
   - 附带产出：`shared/terminology/classification-labels.md`（19 个标签的权威定义）
   - 附带产出：`shared/templates/project-folder-structure.md`（目录结构 + 标签→目录映射）
+- ✅ BATCH-02 `ecm-dd` 公司基础面 7 个 skill（approval / entity / establishment / history / shareholders / charter / directors）
+  - 附带产出：`shared/templates/dd-skill-template.md`（DD skill 统一模板，供 BATCH-03/04/05 复用）
+  - 附带产出：`shared/regulations/编报规则第12号-2001.md` / `公司法-2024.md` / `首次公开发行股票注册管理办法-2023.md`
+- ✅ BATCH-07 `ecm-design` 五件套（ipo-path / deal-structure / control-rights / ma-structure / cross-border）
+  - 附带产出：`shared/templates/legal-memo-format.md`（法律备忘录排版规范；5 个 design skill 共享，未来其他备忘录类输出亦可复用）
+  - 附带产出：`skills/ecm-design-ipo-path/references/pathway-rules.md`（A 股 / 港股 / 美股 / 红筹 / VIE / 借壳 / 被并购等路径规则速查）
+- ✅ BATCH-08 `ecm-research` 三件套（case-search / reg-search / reg-study）
+  - 附带产出：`shared/templates/research-output-format.md`（法律研究类 skill 统一输出格式，含可靠性四级、引证格式、fallback 规则）
 
-**下一步推荐**：BATCH-02（`ecm-dd` 公司基础面 7 个 skill）。BATCH-02 完成后会产出 `shared/templates/dd-skill-template.md`，供 BATCH-03/04/05 复用。
+**下一步推荐**：BATCH-03（`ecm-dd` 业务与资产 5 个 skill）。dd-skill-template 已就绪，可直接套用。
 
-**并行可开**：BATCH-07（ecm-design）和 BATCH-08（ecm-research）与 BATCH-02 无硬依赖，可以同时开独立窗口推进。
+**并行可开**：BATCH-03 / BATCH-04 可各开一个独立窗口。BATCH-06（ecm-draft）建议在 BATCH-03/04/05 完成后再开（需知道 DD 输出格式）。
 
 **源材料位置**：`/Users/zewei/Documents/2024-2044/0-个人事项/54-ecm_skills/`
 - 新窗口需先用 `request_cowork_directory` 请求访问
@@ -26,6 +34,12 @@
 **已建立的跨 skill 共享资源**（新 skill 必须通过相对路径引用，不要重复定义）：
 - `shared/terminology/classification-labels.md`——19 个分类标签
 - `shared/templates/project-folder-structure.md`——目录结构和标签映射
+- `shared/templates/dd-skill-template.md`——DD skill 统一编写模板（frontmatter / 目录结构 / 输出契约 / checklist 规范）
+- `shared/templates/legal-memo-format.md`——法律备忘录排版规范（字体 / 段距 / 表格 / 编号 / 引用 / 数字格式；所有 `ecm-design:*` 输出须遵循）
+- `shared/templates/research-output-format.md`——法律研究类 skill 统一输出格式（可靠性 A/B/C/D 分级、法规 / 案例引证格式、四段外层结构、三层 fallback；所有 `ecm-research:*` 输出须遵循）
+- `shared/regulations/编报规则第12号-2001.md`——17 章 DD 维度索引
+- `shared/regulations/公司法-2024.md`——2024 新法高频条款节选
+- `shared/regulations/首次公开发行股票注册管理办法-2023.md`——发行条件节选
 
 ## 整体策略
 
@@ -42,19 +56,22 @@
 | BATCH-00 | 仓库框架（LICENSE / README / DISCLAIMER / CONTRIBUTING / CHANGELOG / docs / shared / scripts / plugin.json / .github） | ✅ |
 | BATCH-00.5 | `ecm-qc:shareholders-meeting-witness` 迁入 + ecm-qc 模块成立 | ✅ |
 | BATCH-01 | `ecm-setup` 三件套（project-init / file-classify / file-organize）+ 抽出 shared/terminology/classification-labels.md + shared/templates/project-folder-structure.md | ✅ |
+| BATCH-02 | `ecm-dd` 公司基础面 7 个 skill（approval / entity / establishment / history / shareholders / charter / directors）+ 抽出 shared/templates/dd-skill-template.md + shared/regulations/ 三份法规节选 | ✅ |
+| BATCH-07 | `ecm-design` 五件套（ipo-path / deal-structure / control-rights / ma-structure / cross-border）+ 抽出 shared/templates/legal-memo-format.md + references/pathway-rules.md | ✅ |
+| BATCH-08 | `ecm-research` 三件套（case-search / reg-search / reg-study）+ 抽出 shared/templates/research-output-format.md | ✅ |
 
 ## Batch 清单
 
 | Batch | 类别 | skill 数 | 依赖 | 推荐执行窗口 |
 |-------|------|---------:|------|-------------|
 | ~~BATCH-01~~ | ~~`ecm-setup` 三件套~~ | ~~3~~ | ~~无~~ | ✅ 已完成 |
-| BATCH-02 | `ecm-dd` 公司基础面 | 7 | 建议 BATCH-01 先完成 | 独立窗口 |
+| ~~BATCH-02~~ | ~~`ecm-dd` 公司基础面~~ | ~~7~~ | ~~BATCH-01~~ | ✅ 已完成 |
 | BATCH-03 | `ecm-dd` 业务与资产 | 5 | BATCH-01 | 独立窗口 |
 | BATCH-04 | `ecm-dd` 合规事项 | 5 | BATCH-01 | 独立窗口 |
 | BATCH-05 | `ecm-dd` 工具类 | 2 | BATCH-01 | 独立窗口 |
 | BATCH-06 | `ecm-draft` | 5 | 建议 BATCH-02~05 先完成（需知道 DD 输出格式） | 独立窗口 |
-| BATCH-07 | `ecm-design` | 5 | 无硬依赖 | 独立窗口 |
-| BATCH-08 | `ecm-research` | 3 | 无硬依赖 | 独立窗口 |
+| ~~BATCH-07~~ | ~~`ecm-design`~~ | ~~5~~ | ~~无硬依赖~~ | ✅ 已完成 |
+| ~~BATCH-08~~ | ~~`ecm-research`~~ | ~~3~~ | ~~无硬依赖~~ | ✅ 已完成 |
 | BATCH-09 | `ecm-qc` 剩余 | 4 | BATCH-06 先完成（需要起草侧的对应 skill） | 独立窗口 |
 | BATCH-10 | `ecm-workflow` | 6 | 前述所有 batch 都需完成 | 独立窗口（编排层） |
 | BATCH-11 | 数据连接器脚本 | — | BATCH-05 完成 | 独立窗口（纯 Python 代码） |

@@ -30,7 +30,22 @@
     "skills/ecm-qc-shareholders-meeting-witness",
     "skills/ecm-setup-project-init",
     "skills/ecm-setup-file-classify",
-    "skills/ecm-setup-file-organize"
+    "skills/ecm-setup-file-organize",
+    "skills/ecm-dd-approval",
+    "skills/ecm-dd-entity",
+    "skills/ecm-dd-establishment",
+    "skills/ecm-dd-shareholders",
+    "skills/ecm-dd-history",
+    "skills/ecm-dd-charter",
+    "skills/ecm-dd-directors",
+    "skills/ecm-design-ipo-path",
+    "skills/ecm-design-deal-structure",
+    "skills/ecm-design-control-rights",
+    "skills/ecm-design-ma-structure",
+    "skills/ecm-design-cross-border",
+    "skills/ecm-research-case-search",
+    "skills/ecm-research-reg-search",
+    "skills/ecm-research-reg-study"
   ],
   "dependencies": {
     "external_skills": [
@@ -39,7 +54,12 @@
         "source": "anthropic-official",
         "required_by": [
           "ecm-qc-shareholders-meeting-witness",
-          "ecm-setup-file-classify"
+          "ecm-setup-file-classify",
+          "ecm-design-ipo-path",
+          "ecm-design-deal-structure",
+          "ecm-design-control-rights",
+          "ecm-design-ma-structure",
+          "ecm-design-cross-border"
         ],
         "notes": "见 docs/dependencies.md"
       },

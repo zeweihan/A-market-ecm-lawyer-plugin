@@ -94,6 +94,21 @@ A-market-ecm-lawyer-plugin/
 | [`ecm-setup:project-init`](./skills/ecm-setup-project-init/) | 项目 | ✅ v0.1.0 | 项目初始化、建文件夹、生成 skill roadmap |
 | [`ecm-setup:file-classify`](./skills/ecm-setup-file-classify/) | 项目 | ✅ v0.1.0 | 批量阅读客户文件、打多标签分类 |
 | [`ecm-setup:file-organize`](./skills/ecm-setup-file-organize/) | 项目 | ✅ v0.1.0 | 按标签归位 + 生成文件索引表 |
+| [`ecm-dd:dd-approval`](./skills/ecm-dd-approval/) | 项目 | ✅ v0.1.0 | 本次发行 / 交易的批准和授权核查（编报规则第 1 章） |
+| [`ecm-dd:dd-entity`](./skills/ecm-dd-entity/) | 项目 | ✅ v0.1.0 | 发行人主体资格核查（编报规则第 2 章） |
+| [`ecm-dd:dd-establishment`](./skills/ecm-dd-establishment/) | 项目 | ✅ v0.1.0 | 发行人设立 / 出资 / 整体变更核查（编报规则第 3 章） |
+| [`ecm-dd:dd-shareholders`](./skills/ecm-dd-shareholders/) | 项目 | ✅ v0.1.0 | 股东 / 实控人穿透、代持清理、三类股东核查（编报规则第 5 章） |
+| [`ecm-dd:dd-history`](./skills/ecm-dd-history/) | 项目 | ✅ v0.1.0 | 股本及其演变（历史沿革）核查（编报规则第 6 章） |
+| [`ecm-dd:dd-charter`](./skills/ecm-dd-charter/) | 项目 | ✅ v0.1.0 | 公司章程、三会运作、内控制度核查（编报规则第 11 章） |
+| [`ecm-dd:dd-directors`](./skills/ecm-dd-directors/) | 项目 | ✅ v0.1.0 | 董监高任职资格 / 兼职 / 变化核查（编报规则第 12 章） |
+| [`ecm-design:ipo-path`](./skills/ecm-design-ipo-path/) | 项目 | ✅ v0.1.0 | IPO 路径选择（A 股 / 港股 / 美股 / 红筹 / VIE / 借壳 / 被并购）三维影响分析 |
+| [`ecm-design:deal-structure`](./skills/ecm-design-deal-structure/) | 项目 | ✅ v0.1.0 | 通用交易结构设计（股权 / 资产 / 增资 / 合并 / 分立） |
+| [`ecm-design:control-rights`](./skills/ecm-design-control-rights/) | 项目 | ✅ v0.1.0 | 控制权获取 / 巩固 / 分配 / 退出（要约、一致行动、AB 股、反收购） |
+| [`ecm-design:ma-structure`](./skills/ecm-design-ma-structure/) | 项目 | ✅ v0.1.0 | 上市公司并购（发行股份购买资产 / 重大资产重组 / 借壳 / 配套融资） |
+| [`ecm-design:cross-border`](./skills/ecm-design-cross-border/) | 项目 | ✅ v0.1.0 | 跨境方案（红筹 / VIE / ODI / FDI / 境外上市备案 / 反垄断 / 国安 / 数据出境） |
+| [`ecm-research:case-search`](./skills/ecm-research-case-search/) | 项目 | ✅ v0.1.0 | 多源案例检索（裁判文书 / 证监会处罚 / 交易所纪律处分 / 重组委 / 上市委审议） |
+| [`ecm-research:reg-search`](./skills/ecm-research-reg-search/) | 项目 | ✅ v0.1.0 | 五级法规检索 + 时效性核验（法律 / 行政法规 / 部门规章 / 规范性文件 / 交易所规则） |
+| [`ecm-research:reg-study`](./skills/ecm-research-reg-study/) | 项目 | ✅ v0.1.0 | 法规深度研究（效力层级 / 冲突解决 / 新旧衔接 / 适用性分析） |
 | [`ecm-qc:shareholders-meeting-witness`](./skills/ecm-qc-shareholders-meeting-witness/) | QC | ✅ v0.1.0 | 股东（大）会法律见证意见内核审查 |
 
 ### 命名约定
