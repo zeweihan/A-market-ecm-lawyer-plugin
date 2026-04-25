@@ -3,7 +3,7 @@
 > 面向中国 A 股股权资本市场（ECM）律师的 Claude 插件 —— 把上市业务从路径选择、尽调、文书撰写、文书审核到 DOCX 格式处理的每个环节沉淀成可复用的 skill。
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
-![Status](https://img.shields.io/badge/status-early%20development-orange)
+![Status](https://img.shields.io/badge/status-v1.0.0%20complete-brightgreen)
 
 ## 这是什么
 
@@ -15,8 +15,9 @@
 - 法律意见书内核审查
 - 律师工作底稿整理
 - Word 文书的格式处理（letterhead、骑缝章位、甲乙方对齐等）
+- 端到端工作流编排（IPO / 并购 / 跨境 / 再融资 / 新三板）
 
-——拆成一组独立的 skill，每个 skill 封装一套参考资料 + 检查清单 + 脚本，给 Claude 作为上下文触发使用。
+——拆成一组独立的 skill，每个 skill 封装一套参考资料 + 检查清单 + 脚本，给 Claude 作为上下文触发使用。**当前 v1.0.0 共 46 个 skill 全部就绪**：6 类项目 skill（setup / design / dd / draft / research / workflow）+ 1 类 QC skill（qc）。
 
 ## 两个模块：项目 skill 和 QC skill
 
@@ -24,15 +25,15 @@
 
 ```
 ┌─────────────────────────────────────────────┬──────────────────────────────┐
-│ 项目 skill（6 类）                          │ QC skill（1 类）             │
+│ 项目 skill（6 类，41 项）                   │ QC skill（1 类，5 项）       │
 │ ── 项目组律师做项目时使用                   │ ── 内核/QC 团队使用          │
 ├─────────────────────────────────────────────┼──────────────────────────────┤
-│ ecm-setup  项目初始化 / 文件管理            │ ecm-qc  内核审查系列         │
-│ ecm-design 方案设计                         │   - 见证意见内核审查         │
-│ ecm-dd     尽职调查（17 章 + 2 工具）       │   - 法律意见书内核审查（规划）│
-│ ecm-draft  文书起草 / 格式                  │   - 工作报告内核审查（规划）  │
-│ ecm-research 法律研究 / 案例检索            │   - 披露文件内核审查（规划）  │
-│ ecm-workflow 工作流编排                     │                              │
+│ ecm-setup  项目初始化 / 文件管理（3）       │ ecm-qc  内核审查系列         │
+│ ecm-design 方案设计（5）                    │   - 见证意见内核审查         │
+│ ecm-dd     尽职调查（17 章 + 2 工具）       │   - 法律意见书内核审查       │
+│ ecm-draft  文书起草 / 格式（5）             │   - 工作报告内核审查         │
+│ ecm-research 法律研究 / 案例检索（3）       │   - 披露文件内核审查         │
+│ ecm-workflow 工作流编排（6）                │   - 会议文件内核审查         │
 └─────────────────────────────────────────────┴──────────────────────────────┘
 ```
 
@@ -68,7 +69,7 @@ A-market-ecm-lawyer-plugin/
 
 ## skill 清单
 
-本仓库整体规划 36 项项目 skill（6 类）+ 若干 QC skill（1 类）。详细路线图见 [docs/skill-roadmap.md](./docs/skill-roadmap.md)，建设工作计划（含 11 个可并行 batch）见 [docs/project-plan.md](./docs/project-plan.md)。
+本仓库 v1.0.0 共 **46 个 skill** 全部就绪：41 项项目 skill（6 类）+ 5 项 QC skill（1 类）。详细路线图见 [docs/skill-roadmap.md](./docs/skill-roadmap.md)，建设工作计划见 [docs/project-plan.md](./docs/project-plan.md)。
 
 ### 项目 skill 概览
 
@@ -83,9 +84,9 @@ A-market-ecm-lawyer-plugin/
 
 ### QC skill 概览
 
-| 类别 | 规划 | 覆盖工作 |
+| 类别 | 数量 | 覆盖工作 |
 |------|-----:|---------|
-| `ecm-qc` | 1 已用 + 4 BATCH-09 规划 | 内核团队对见证意见、法律意见书、工作报告、披露文件、会议文件的独立审阅（BATCH-09 窗口建设中：opinion-letter-review / work-report-review / disclosure-review / meeting-docs-review） |
+| `ecm-qc` | 5 | 内核团队对见证意见、法律意见书、工作报告、披露文件、会议文件的独立审阅 |
 
 ### 当前可用
 
@@ -127,10 +128,16 @@ A-market-ecm-lawyer-plugin/
 | [`ecm-draft:meeting-docs`](./skills/ecm-draft-meeting-docs/) | 项目 | ✅ v0.1.0 | 会议文件批量起草（通知 / 议案 / 决议 / 记录 / 签到表 / 授权委托书），跨文件一致性校验 + 通知期限校验 |
 | [`ecm-draft:format-adjust`](./skills/ecm-draft-format-adjust/) | 项目 | ✅ v0.1.0 | Word 文档格式调整（Markdown → Word 套版、目录 / 页眉页脚 / 自动编号 / 交叉引用） |
 | [`ecm-qc:shareholders-meeting-witness`](./skills/ecm-qc-shareholders-meeting-witness/) | QC | ✅ v0.1.0 | 股东（大）会法律见证意见内核审查 |
-| [`ecm-qc:opinion-letter-review`](./skills/ecm-qc-opinion-letter-review/) | QC | ⏳ BATCH-09 规划中 | 法律意见书内核审查（配对 `ecm-draft:opinion-letter`；BATCH-09 窗口建设） |
-| [`ecm-qc:work-report-review`](./skills/ecm-qc-work-report-review/) | QC | ⏳ BATCH-09 规划中 | 律师工作报告内核审查（配对 `ecm-draft:report-assembly`；BATCH-09 窗口建设） |
-| [`ecm-qc:disclosure-review`](./skills/ecm-qc-disclosure-review/) | QC | ⏳ BATCH-09 规划中 | 信披文件内核审查（配对 `ecm-draft:disclosure-review`；视角为内核独立审查而非起草人自查；BATCH-09 窗口建设） |
-| [`ecm-qc:meeting-docs-review`](./skills/ecm-qc-meeting-docs-review/) | QC | ⏳ BATCH-09 规划中 | 会议文件内核审查（配对 `ecm-draft:meeting-docs`；BATCH-09 窗口建设） |
+| [`ecm-qc:opinion-letter-review`](./skills/ecm-qc-opinion-letter-review/) | QC | ✅ v0.1.0 | 法律意见书内核审查（配对 `ecm-draft:opinion-letter`） |
+| [`ecm-qc:work-report-review`](./skills/ecm-qc-work-report-review/) | QC | ✅ v0.1.0 | 律师工作报告内核审查（配对 `ecm-draft:report-assembly`） |
+| [`ecm-qc:disclosure-review`](./skills/ecm-qc-disclosure-review/) | QC | ✅ v0.1.0 | 信披文件内核审查（配对 `ecm-draft:disclosure-review`；视角为内核独立审查而非起草人自查） |
+| [`ecm-qc:meeting-docs-review`](./skills/ecm-qc-meeting-docs-review/) | QC | ✅ v0.1.0 | 会议文件内核审查（配对 `ecm-draft:meeting-docs`） |
+| [`ecm-workflow:wf-ipo-full`](./skills/ecm-workflow-wf-ipo-full/) | 项目 | ✅ v0.1.0 | 完整 IPO 项目工作流（6 阶段编排：启动 / 设计 / 尽调 / 文书 / 内核 / 申报；尽调阶段嵌套 wf-ipo-dd-full） |
+| [`ecm-workflow:wf-ipo-dd-full`](./skills/ecm-workflow-wf-ipo-dd-full/) | 项目 | ✅ v0.1.0 | 完整 IPO 尽调工作流（按编报规则第 12 号顺序串联 17 个 DD skill + 独立性留最后的实务习惯） |
+| [`ecm-workflow:wf-ma-full`](./skills/ecm-workflow-wf-ma-full/) | 项目 | ✅ v0.1.0 | 完整并购重组工作流（一般并购 / 重大资产重组 / 借壳 / 上市公司收购 / 控制权交易；定向 DD 子集；借壳场景回退嵌套 wf-ipo-dd-full） |
+| [`ecm-workflow:wf-cross-border-ma`](./skills/ecm-workflow-wf-cross-border-ma/) | 项目 | ✅ v0.1.0 | 跨境并购工作流（境内主体出境 / 境外主体入境 / 红筹回归 / 中概股私有化 / VIE 收购；7 大跨境主管部门多线监管路径） |
+| [`ecm-workflow:wf-issuance`](./skills/ecm-workflow-wf-issuance/) | 项目 | ✅ v0.1.0 | 上市公司再融资工作流（定增 / 配股 / 可转债 / 优先股 / 公开增发；上市公司视角 13 章 DD 子集 + IPO 红线再核查） |
+| [`ecm-workflow:wf-nto-listing`](./skills/ecm-workflow-wf-nto-listing/) | 项目 | ✅ v0.1.0 | 新三板挂牌工作流（基础层 / 创新层 / 北交所衔接路径；嵌套 wf-ipo-dd-full） |
 
 ### 命名约定
 

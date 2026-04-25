@@ -2,13 +2,13 @@
 
 > 本文档是建设本仓库全部 skill 的总协调文件。开新窗口时请先读本文件再开始具体 batch 工作。
 
-## 当前状态快照（最后更新：2026-04-24）
+## 当前状态快照（最后更新：2026-04-25）
 
 **仓库位置**：`/Users/zewei/Documents/2024-2044/0-个人事项/0-aplugin`
 **GitHub**：https://github.com/zeweihan/A-market-ecm-lawyer-plugin
-**本地 git 分支**：`main`（领先 GitHub **11+ 个 commit**，等用户 push）
+**本地 git 分支**：`main`（领先 GitHub **12+ 个 commit**，等用户 push）
 
-**已完成**（40 个 skill 可用；ecm-dd 19 章 + ecm-design 5 + ecm-research 3 + ecm-draft 5 + ecm-setup 3 + ecm-qc 5）：
+**🎉 项目全部完成！v1.0.0：46 个 skill 全部就绪**（ecm-dd 19 章 + ecm-design 5 + ecm-research 3 + ecm-draft 5 + ecm-setup 3 + ecm-qc 5 + ecm-workflow 6）：
 - ✅ BATCH-00 仓库框架
 - ✅ BATCH-00.5 `ecm-qc:shareholders-meeting-witness`
 - ✅ BATCH-01 `ecm-setup` 三件套（project-init / file-classify / file-organize）
@@ -35,10 +35,15 @@
   - 附带产出：`shared/templates/qc-skill-template.md`（**ecm-qc-* 系列统一骨架**：frontmatter / 五步工作流 / 三条硬性输出契约 / 批注分类前缀 / references 目录结构 / 与 ecm-draft-* 的边界声明格式）
   - 每个 skill 自备 5 份 references：`cross-check-matrix.md` / `form-requirements.md` / `substantive-checklist.md` / `common-errors.md` / `comment-templates.md`
   - 4 个 skill 全部产出带 tracked changes + comments 的 Word 文件，w:author 默认 "内核" 并可用户覆盖；均遵循最小显示改动原则 + 解释文字只进批注
+- ✅ BATCH-10 `ecm-workflow` 六件套（wf-ipo-full / wf-ipo-dd-full / wf-ma-full / wf-cross-border-ma / wf-issuance / wf-nto-listing）——2026-04-25 完成；**至此项目 v1.0.0 全部就绪**
+  - 附带产出：`shared/templates/workflow-skill-template.md`（**ecm-workflow-* 系列统一骨架 SoT**：frontmatter（含 `wf-` 前缀强制）/ 正文 9 节 / 6 阶段 schema（启动 / 设计 / 尽调 / 文书 / 内核 / 申报）/ skill 间数据传递契约（引用 project-folder-structure + dd-output-schema 两份既有 SoT，无 workflow 私有状态）/ 失败-跳过-回滚处理规则 / workflow 嵌套规则（声明嵌套 + 不重复展开 + 状态独立 + 禁止双向）/ 与原子 skill 五项边界声明）
+  - **嵌套关系**：wf-ipo-full 在阶段 3 嵌套调用 wf-ipo-dd-full；wf-nto-listing 也在阶段 3 嵌套调用 wf-ipo-dd-full（"新三板 ≈ IPO 尽调"实务认知）；wf-ma-full 在借壳子类型场景下回退嵌套调用 wf-ipo-dd-full
+  - **每个 workflow 都遵循无状态原则**：阶段间状态由"项目目录里有没有该产物"自然表达，`ls 02-尽职调查/02-*/DD-Memo-*.md | wc -l` 即可知进度，便于多 workflow 嵌套与切换
+  - **触发关键词覆盖**：6 个 workflow 的 description 互不重叠（IPO / 并购 / 跨境并购 / 再融资 / 新三板各自独立触发关键词），用户表达"新接一个项目""帮我安排一下流程"时按子类型路由
 
-**下一步推荐**：BATCH-10 `ecm-workflow` 6 个编排 skill（所有原子 skill 已就绪）。
+**🏁 项目状态**：全部 11 个 batch 完成，46 个 skill 可用，v1.0.0 等待打 tag 发布。
 
-**并行可开**：无。BATCH-10 是编排层，必须最后做；BATCH-11 已并入 BATCH-05。
+**并行可开**：无。所有 batch 已完成。
 
 **源材料位置**：`/Users/zewei/Documents/2024-2044/0-个人事项/54-ecm_skills/`
 - 新窗口需先用 `request_cowork_directory` 请求访问
@@ -54,6 +59,7 @@
 - `shared/templates/legal-opinion-format.md`——法律意见书排版规范（5 段骨架 / 事实 - 核查 - 意见三步法 / 形式配套要求；所有 `ecm-draft:opinion-letter` 输出须遵循）
 - `shared/templates/meeting-docs-format.md`——会议文件（通知 / 议案 / 决议 / 记录 / 签到表 / 授权委托书）起草规范（含通知期限硬校验、表决基数计算规则、特别决议 / 关联回避 / 中小投资者单独计票识别规则）
 - `shared/templates/qc-skill-template.md`——**ecm-qc-*-review 系列统一骨架**（BATCH-09 建立）：SKILL.md frontmatter / 五步工作流 / 三条硬性输出契约（w:author / 最小显示改动 / 解释入批注）/ 批注分类前缀 / references 目录结构 / 与 ecm-draft-* 的边界声明格式；所有 ecm-qc-*-review（除 shareholders-meeting-witness 保留自有样板）必须套用
+- `shared/templates/workflow-skill-template.md`——**ecm-workflow-* 编排层 skill 统一骨架**（BATCH-10 建立）：SKILL.md frontmatter（含 `wf-` 前缀强制 + module=ecm-workflow + category=工作流编排）/ 正文 9 节硬性顺序 / 6 阶段 schema（启动-设计-尽调-文书-内核-申报）/ 引用 project-folder-structure + dd-output-schema 做无状态指挥官 / 失败-跳过-回滚处理 / workflow 嵌套规则（声明嵌套 + 不重复展开 + 状态独立 + 禁止双向）/ 与原子 skill 五项边界声明；所有 6 个 ecm-workflow-* skill 必须套用
 - `shared/schemas/dd-output-schema.md`——**DD → Draft 数据交接契约 SoT**（17 份 DD Memo 的统一结构、一级标题 → 章节号映射、拼接语义、opinion-letter 消费规则、违约处理；BATCH-06 建立，所有 17 个 DD skill 和 `ecm-draft:report-assembly` / `opinion-letter` 共同遵守；BATCH-09 `ecm-qc:opinion-letter-review` / `work-report-review` / `disclosure-review` 亦按本契约反向校验 DD Memo）
 - `shared/regulations/编报规则第12号-2001.md`——17 章 DD 维度索引
 - `shared/regulations/公司法-2024.md`——2024 新法高频条款节选
@@ -81,6 +87,8 @@
 | BATCH-06 | `ecm-draft` 五件套（report-assembly / opinion-letter / disclosure-review / meeting-docs / format-adjust）+ 抽出 shared/schemas/dd-output-schema.md + shared/templates/work-report-format.md / legal-opinion-format.md / meeting-docs-format.md | ✅ |
 | BATCH-07 | `ecm-design` 五件套（ipo-path / deal-structure / control-rights / ma-structure / cross-border）+ 抽出 shared/templates/legal-memo-format.md + references/pathway-rules.md | ✅ |
 | BATCH-08 | `ecm-research` 三件套（case-search / reg-search / reg-study）+ 抽出 shared/templates/research-output-format.md | ✅ |
+| BATCH-09 | `ecm-qc` 剩余 4 件套（opinion-letter-review / work-report-review / disclosure-review / meeting-docs-review）+ 抽出 shared/templates/qc-skill-template.md | ✅ |
+| BATCH-10 | `ecm-workflow` 六件套（wf-ipo-full / wf-ipo-dd-full / wf-ma-full / wf-cross-border-ma / wf-issuance / wf-nto-listing）+ 抽出 shared/templates/workflow-skill-template.md | ✅ |
 
 ## Batch 清单
 
@@ -95,8 +103,8 @@
 | ~~BATCH-07~~ | ~~`ecm-design`~~ | ~~5~~ | ~~无硬依赖~~ | ✅ 已完成 |
 | ~~BATCH-08~~ | ~~`ecm-research`~~ | ~~3~~ | ~~无硬依赖~~ | ✅ 已完成 |
 | ~~BATCH-09~~ | ~~`ecm-qc` 剩余 4 件套~~ | ~~4~~ | ~~BATCH-06 已完成（draft 侧对应产物已就绪）~~ | ✅ 已完成 |
-| BATCH-10 | `ecm-workflow` | 6 | 前述所有 batch 都需完成 | 独立窗口（编排层） |
-| BATCH-11 | 数据连接器脚本 | — | BATCH-05 完成（已完成，可并行） | 独立窗口（纯 Python 代码） |
+| ~~BATCH-10~~ | ~~`ecm-workflow`~~ | ~~6~~ | ~~前述所有 batch 都需完成~~ | ✅ 已完成 |
+| ~~BATCH-11~~ | ~~数据连接器脚本~~ | ~~—~~ | ~~已并入 BATCH-05~~ | ✅ 已完成（合并入 BATCH-05） |
 
 **并行建议**：BATCH-01、BATCH-07、BATCH-08 之间无硬依赖，可以同时开三个窗口推进。BATCH-02~05 在 BATCH-01 完成后可四个窗口并行（2026-04-24 BATCH-03/04/05 三路并行一次性落地）。BATCH-06 和 BATCH-09 可并行（2026-04-24 完成；BATCH-06 担任 aggregator 统一更新共用索引文件）。
 
@@ -483,7 +491,7 @@ aggregator 负责在自己 commit 里一并更新这 6 个共用文件：
 | v0.2.0 | BATCH-01（setup 完成） | 待办 |
 | v0.5.0 | BATCH-02~05（dd 全部完成） | 待办 |
 | v0.7.0 | BATCH-06~09（draft / design / research / qc 完成） | ✅ 本地 commit 已就绪（等用户 push） |
-| v1.0.0 | BATCH-10~11（workflow + 连接器完成，全部就绪） | 待办 |
+| **v1.0.0** | BATCH-10（workflow 完成；BATCH-11 数据连接器已合并入 BATCH-05；46 个 skill 全部就绪）| ✅ **本地 commit 已就绪（等用户 push）** |
 
 ## 更新日志
 
@@ -494,3 +502,4 @@ aggregator 负责在自己 commit 里一并更新这 6 个共用文件：
 | 2026-04-24 | BATCH-03（业务与资产 5）+ BATCH-04（合规事项 5）+ BATCH-05（工具类 2）三路并行完成；至此 `ecm-dd` 19 章 / 19 个 skill 全部就绪；下一步推荐 BATCH-06 `ecm-draft` |
 | 2026-04-24 | BATCH-06（ecm-draft 5 件套）+ BATCH-09（ecm-qc 剩余 4 件套）并行启动；BATCH-06 担任 cross-batch aggregator，同步更新共用索引文件（README / CHANGELOG / plugin.json / skill-roadmap / project-plan / shared-templates-README）并为 BATCH-09 的 4 个 qc skill 占位登记；本 batch 建立 `shared/schemas/dd-output-schema.md`（DD → Draft 契约 SoT）和 `shared/templates/work-report-format.md` / `legal-opinion-format.md` / `meeting-docs-format.md` 三份格式规范 |
 | 2026-04-24 | BATCH-09（ecm-qc 剩余 4 件套：opinion-letter-review / work-report-review / disclosure-review / meeting-docs-review）完成；本 batch 建立 `shared/templates/qc-skill-template.md`（ecm-qc-*-review 系列统一骨架 SoT：五步工作流 / 三条硬性输出契约 / 批注分类前缀 / references 目录结构）；每个 qc skill 自备 5 份 references（cross-check-matrix / form-requirements / substantive-checklist / common-errors / comment-templates）；全部输出 w:author="内核" 的 tracked changes + comments Word 文件；ecm-qc-disclosure-review 的 SKILL.md 显式阐明与 ecm-draft-disclosure-review（起草人自查）的 7 维度边界；BATCH-09 作为非 aggregator 窗口，仅追加 plugin.json 的 qc skills 路径 + 更新 docs/dependencies.md 的 docx/pdf required_by 列表 + 本文件的状态表格，不碰 README / CHANGELOG / skill-roadmap / shared-templates-README（这 4 份 BATCH-06 已做好占位） |
+| 2026-04-25 | **BATCH-10（ecm-workflow 六件套：wf-ipo-full / wf-ipo-dd-full / wf-ma-full / wf-cross-border-ma / wf-issuance / wf-nto-listing）完成；至此 v1.0.0 全部就绪（46 个 skill）**。本 batch 建立 `shared/templates/workflow-skill-template.md`（编排层 skill 统一骨架 SoT：6 阶段 schema / skill 间数据传递契约（无私有状态，引用 project-folder-structure + dd-output-schema 两份既有 SoT）/ 失败-跳过-回滚处理 / workflow 嵌套规则 / 与原子 skill 五项边界）；嵌套关系锁定：wf-ipo-full → wf-ipo-dd-full、wf-nto-listing → wf-ipo-dd-full、wf-ma-full（借壳子类型）→ wf-ipo-dd-full；BATCH-10 作为唯一窗口同时担任 aggregator，更新 README / CHANGELOG / plugin.json / skill-roadmap / project-plan / shared/templates/README.md 六份共用索引 + 同步 BATCH-09 的占位条目（README / skill-roadmap 中 4 个 ecm-qc-*-review 状态从 ⏳ 改为 ✅） |

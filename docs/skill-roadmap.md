@@ -26,7 +26,7 @@ ecm-<category>:<function>
 
 **功能类别**（对应 7 大 skill 类）：setup / design / dd / draft / research / workflow / qc
 
-## 完整 skill 清单（7 大类 / 36 项项目 skill + 1 项已实现 QC skill）
+## 完整 skill 清单（7 大类 / 41 项项目 skill + 5 项 QC skill = 46 项；v1.0.0 全部就绪）
 
 ### 1. ecm-setup — 项目初始化与文件管理
 
@@ -92,12 +92,12 @@ ecm-<category>:<function>
 
 | skill | 说明 | 状态 |
 |-------|------|------|
-| `ecm-workflow:wf-ipo-full` | 完整 IPO 项目流程（init → design → dd → draft） | 🟡 草稿 |
-| `ecm-workflow:wf-ipo-dd-full` | 完整 IPO 尽调流程（自动顺序调用 17 个 DD skill） | 🟡 草稿 |
-| `ecm-workflow:wf-ma-full` | 完整并购项目流程 | 🟡 草稿 |
-| `ecm-workflow:wf-cross-border-ma` | 跨境并购工作流 | 🟡 草稿 |
-| `ecm-workflow:wf-issuance` | 上市公司再融资流程（定增/配股/可转债） | 🟡 草稿 |
-| `ecm-workflow:wf-nto-listing` | 新三板挂牌流程 | 🟡 草稿 |
+| `ecm-workflow:wf-ipo-full` | 完整 IPO 项目流程（6 阶段编排：启动 → 设计 → 尽调（嵌套 wf-ipo-dd-full）→ 文书 → 内核 → 申报） | ✅ v0.1.0 可用 |
+| `ecm-workflow:wf-ipo-dd-full` | 完整 IPO 尽调流程（按编报规则第 12 号顺序串联 17 个 DD skill + 独立性留最后的实务习惯；叶节点 workflow，被 wf-ipo-full / wf-nto-listing 嵌套） | ✅ v0.1.0 可用 |
+| `ecm-workflow:wf-ma-full` | 完整并购重组项目流程（一般并购 / 重大资产重组 / 借壳 / 上市公司收购 / 控制权交易；阶段 3 定向 DD 子集；借壳回退嵌套 wf-ipo-dd-full） | ✅ v0.1.0 可用 |
+| `ecm-workflow:wf-cross-border-ma` | 跨境并购工作流（境内主体出境 ODI / 境外主体入境 FDI / 红筹回归 / 中概股私有化 / VIE 收购；7 大跨境主管部门 + 法规研究前置）| ✅ v0.1.0 可用 |
+| `ecm-workflow:wf-issuance` | 上市公司再融资流程（定增/配股/可转债/优先股/公开增发；阶段 3 上市公司视角 13 章必查 + IPO 红线再核查）| ✅ v0.1.0 可用 |
+| `ecm-workflow:wf-nto-listing` | 新三板挂牌流程（基础层 / 创新层 / 北交所衔接路径；阶段 3 嵌套 wf-ipo-dd-full） | ✅ v0.1.0 可用 |
 
 ### 7. ecm-qc — 内核/QC 审查（QC 模块）
 
@@ -106,10 +106,10 @@ ecm-<category>:<function>
 | skill | 说明 | 阶段 | 状态 |
 |-------|------|------|------|
 | `ecm-qc:shareholders-meeting-witness` | 股东（大）会法律见证意见内核审查 | 持续督导阶段 | ✅ v0.1.0 可用 |
-| `ecm-qc:opinion-letter-review` | 法律意见书内核审查（配对 `ecm-draft:opinion-letter`） | 申报阶段 | ⏳ BATCH-09 规划中 |
-| `ecm-qc:work-report-review` | 律师工作报告内核审查（配对 `ecm-draft:report-assembly`） | 申报阶段 | ⏳ BATCH-09 规划中 |
-| `ecm-qc:disclosure-review` | 招股书/重组报告书/权益变动报告书内核审查（和 `ecm-draft:disclosure-review` 的区别见下方注） | 申报阶段 / 反馈阶段 | ⏳ BATCH-09 规划中 |
-| `ecm-qc:meeting-docs-review` | 会议文件（通知/议案/决议/记录）内核审查（配对 `ecm-draft:meeting-docs`） | 全阶段 | ⏳ BATCH-09 规划中 |
+| `ecm-qc:opinion-letter-review` | 法律意见书内核审查（配对 `ecm-draft:opinion-letter`） | 申报阶段 | ✅ v0.1.0 可用 |
+| `ecm-qc:work-report-review` | 律师工作报告内核审查（配对 `ecm-draft:report-assembly`） | 申报阶段 | ✅ v0.1.0 可用 |
+| `ecm-qc:disclosure-review` | 招股书/重组报告书/权益变动报告书内核审查（和 `ecm-draft:disclosure-review` 的区别见下方注） | 申报阶段 / 反馈阶段 | ✅ v0.1.0 可用 |
+| `ecm-qc:meeting-docs-review` | 会议文件（通知/议案/决议/记录）内核审查（配对 `ecm-draft:meeting-docs`） | 全阶段 | ✅ v0.1.0 可用 |
 
 > **注**：`ecm-draft:disclosure-review` 是项目组起草人自查自纠；`ecm-qc:disclosure-review` 是内核独立审查。二者 checklist 重叠但视角不同：前者关注"我写的对不对"，后者关注"团队交上来的有没有错"。
 
@@ -131,9 +131,9 @@ ecm-<category>:<function>
 | P3 | `ecm-draft` 系列（5 项，report-assembly 最优先） | ✅ 已完成（BATCH-06：report-assembly / opinion-letter / disclosure-review / meeting-docs / format-adjust 全部就绪；`shared/schemas/dd-output-schema.md` 和 `work-report-format.md` / `legal-opinion-format.md` / `meeting-docs-format.md` 三份模板同批建立） |
 | P4 | `ecm-design` 系列（5 项） | ✅ 已完成（BATCH-07） |
 | P5 | `ecm-research` 系列（3 项） | ✅ 已完成（BATCH-08） |
-| P6 | `ecm-workflow` 系列（6 项） | 全流程打通 |
-| P7 | `ecm-qc` 其余 skill（opinion-letter-review / work-report-review / disclosure-review / meeting-docs-review） | BATCH-09 窗口建设（与 BATCH-06 并行触发） |
-| P8 | 数据连接器（Tushare / 企查查） | 自动化增强 |
+| P6 | `ecm-workflow` 系列（6 项） | ✅ 已完成（BATCH-10：wf-ipo-full / wf-ipo-dd-full / wf-ma-full / wf-cross-border-ma / wf-issuance / wf-nto-listing；本批同时建立 `shared/templates/workflow-skill-template.md` 编排层 SoT） |
+| P7 | `ecm-qc` 其余 skill（opinion-letter-review / work-report-review / disclosure-review / meeting-docs-review） | ✅ 已完成（BATCH-09；建立 `shared/templates/qc-skill-template.md`） |
+| P8 | 数据连接器（Tushare / 企查查） | ✅ 已合并入 BATCH-05（dd-data-verify 内 scripts/） |
 
 ## 标准工作流示例（IPO 项目）
 

@@ -46,6 +46,8 @@
 - [x] `work-report-format.md` — **律师工作报告 / 尽职调查报告排版规范**（BATCH-06 建立）。首页封面 / 目录 / 引言 / 17 章正文 / 附件 / 签字页；字体字号 / 行距 / 首行缩进；自动章节编号；交叉引用规则；全项目风险汇总表 7 列定义；Markdown → DOCX 映射；12 类常见踩坑。`ecm-draft-report-assembly` 输出必遵循；`ecm-qc-work-report-review`（BATCH-09）以此为参考坐标
 - [x] `legal-opinion-format.md` — **法律意见书排版规范**（BATCH-06 建立）。5 段骨架（引言 / 释义 / 正文 / 结论性意见 / 特别事项提示）；事实 - 核查 - 意见三步法；结论三级措辞；与工作报告的 11 项形式配套要求。`ecm-draft-opinion-letter` 输出必遵循；`ecm-qc-opinion-letter-review`（BATCH-09）参考
 - [x] `meeting-docs-format.md` — **会议文件批量起草规范**（BATCH-06 建立）。三类会议 + 8 种会议文件结构；通知期限硬校验表；特别决议 / 关联回避 / 中小投资者单独计票识别规则；跨文件一致性校验；表决基数计算规则；2024 新《公司法》新情况。`ecm-draft-meeting-docs` 输出必遵循；`ecm-qc-meeting-docs-review`（BATCH-09）参考
+- [x] `qc-skill-template.md` — **ecm-qc-*-review 系列统一骨架**（BATCH-09 建立）。SKILL.md frontmatter / 五步工作流 / 三条硬性输出契约（w:author="内核" / 最小显示改动 / 解释入批注）/ 批注分类前缀（【必改】【核实】【建议】【底稿】）/ references 目录结构（cross-check-matrix / form-requirements / substantive-checklist / common-errors / comment-templates）/ 与 ecm-draft-* 的边界声明格式。`ecm-qc:opinion-letter-review` / `work-report-review` / `disclosure-review` / `meeting-docs-review` 必须套用（`shareholders-meeting-witness` 作为样板保留自有结构）
+- [x] `workflow-skill-template.md` — **ecm-workflow-* 编排层 skill 统一骨架**（BATCH-10 建立）。SKILL.md frontmatter（含 `wf-` 前缀强制 + module=ecm-workflow + category=工作流编排）/ 正文 9 节硬性顺序 / 6 阶段 schema（启动 / 设计 / 尽调 / 文书 / 内核 / 申报）/ skill 间数据传递契约（无私有状态，引用 project-folder-structure + dd-output-schema 两份既有 SoT）/ 失败-跳过-回滚处理 / workflow 嵌套规则（声明嵌套 + 不重复展开 + 状态独立 + 禁止双向）/ 与原子 skill 五项边界声明。`wf-ipo-full` / `wf-ipo-dd-full` / `wf-ma-full` / `wf-cross-border-ma` / `wf-issuance` / `wf-nto-listing` 必须套用
 
 ## 待补充（占位）
 
@@ -54,4 +56,3 @@
 - [ ] `legal-opinion-declaration.md` — 声明事项标准段
 - [ ] `witness-opinion-conclusion.md` — 见证意见结论措辞模板
 - [ ] `tracked-changes-author-config.md` — 修订痕迹的 author 字段统一约定（当前约定：默认 "内核"）
-- [ ] `qc-skill-template.md` — QC skill 统一模板（随 BATCH-09 建立）

@@ -4,6 +4,36 @@
 
 ## [Unreleased]
 
+### Added — BATCH-10（ecm-workflow 六件套 + workflow-skill-template SoT；**v1.0.0 全部就绪**）
+- `shared/templates/workflow-skill-template.md`：**ecm-workflow-* 编排层 skill 统一骨架 SoT**。锁定 SKILL.md frontmatter（含 `wf-` 前缀强制 + module=ecm-workflow + category=工作流编排）；正文 9 节硬性顺序（定位与边界 / 免责声明 / 与原子 skill 的边界 / 配置项 / 阶段编排 / skill 间数据传递契约 / 失败-跳过-回滚处理 / 嵌套关系 / 端到端示例 / 参考资料索引）；6 阶段 schema（启动 / 设计 / 尽调 / 文书 / 内核 / 申报）；skill 间数据传递契约的无状态原则（workflow 不维护私有状态，阶段间状态完全靠"项目目录里有没有该产物"自然表达——`ls 02-尽职调查/02-*/DD-Memo-*.md | wc -l` 即可知进度，便于多 workflow 嵌套与切换）；失败处理（标记 `⛔ 失败`、违约 Memo 按 dd-output-schema § 7 跳过）；跳过策略（strict / loose；阶段 5 内核审查不可跳过）；回滚策略（不删客户文件、历史版本归档、配置回滚 ≠ 数据回滚）；workflow 嵌套规则（声明嵌套 + 不重复展开 + 状态独立 + 禁止双向）；与原子 skill 五项边界声明（角色 / 输出 / 触发频次 / 上下文使用 / 失败影响域）。所有 6 个 ecm-workflow-* skill 必须套用。
+- `skills/ecm-workflow-wf-ipo-full/`：完整 IPO 项目工作流 skill。覆盖 A 股主板 / 科创板 / 创业板 / 北交所 + 港股 + 美股 + 红筹 / VIE 全场景；6 阶段编排（启动 → 设计 → 尽调 → 文书 → 内核 → 申报）；阶段 3 嵌套调用 `wf-ipo-dd-full`（不重复 17 章清单）；阶段 5 内核审查不可跳过；提供端到端 IPO 项目示例（科创板 IPO 全流程脑内测试）。
+- `skills/ecm-workflow-wf-ipo-dd-full/`：完整 IPO 尽调工作流 skill（叶节点 workflow，被 wf-ipo-full / wf-nto-listing 嵌套）。按编报规则第 12 号顺序串联 17 个 `ecm-dd-*` 业务 skill + 2 个工具 skill；锁定独立性（第 4 章）放在最后跑的实务习惯（避免上游 5 个 DD skill 字段空缺）；含同章节并行触发规则（establishment / history 共用 02-03 目录但 Memo 名不冲突；合规事项簇第 13-17 章可分头跑）；工具 skill 穿插规则（dd-data-verify 高数据密度章节前先跑、dd-file-review 文件量大时先跑）。
+- `skills/ecm-workflow-wf-ma-full/`：完整并购重组项目工作流 skill。覆盖一般并购 / 重大资产重组 / 借壳 / 上市公司收购 / 控制权交易 5 个子类型；阶段 2 按子类型分流 design skill；阶段 3 定向 DD 子集（必查 10 章 + 子类型追加：上市公司方追加 dd-charter / dd-directors；借壳场景**回退嵌套调用** wf-ipo-dd-full）；阶段 4 上市公司主导项目必含信披自查（disclosure-review）；阶段 5 内核审查不可跳过。
+- `skills/ecm-workflow-wf-cross-border-ma/`：跨境并购项目工作流 skill。覆盖境内主体出境（ODI）/ 境外主体入境（FDI）/ 红筹回归 / 中概股私有化 / 跨境换股 / VIE 收购 6 个子类型；阶段 2 强制核对 10 项触发监管路径清单（发改委 / 商务部 / 外汇 / 反垄断 / 国安 / 数据出境 / 国资 / 行业主管 / 上市公司信披 / 税务结构）；阶段 3 法规研究前置（先做研究后做尽调；reg-search → reg-study → case-search 串联）；境外律师配合节点显式提示 + 境外律师意见作为附件整合规则；阶段 6 反馈支持几乎必触发（多线申报必有反馈）；strict 模式强制（容错率低）。
+- `skills/ecm-workflow-wf-issuance/`：上市公司再融资项目工作流 skill。覆盖向特定对象发行（定增）/ 配股 / 可转债 / 优先股 / 公开增发 5 类工具；阶段 2 强制工具比选（不同工具适用条件 / 发行难度 / 对老股东摊薄 / 监管审核周期 / 募投合规要求）；阶段 3 上市公司视角 13 章必查子集（不查 establishment / tax / environment / independence——上市公司主体已稳定）+ IPO 红线再核查（关联交易 / 资金占用 / 违规担保影响《上市公司证券发行注册管理办法》§ 11 / § 12 发行条件）；阶段 4 三项硬规则（特别决议 + 关联股东回避 + 中小投资者单独计票）+ 募集说明书法律相关章节自查；前次募集资金使用情况报告专项核查。
+- `skills/ecm-workflow-wf-nto-listing/`：新三板挂牌项目工作流 skill。覆盖基础层直接挂牌 / 创新层挂牌 / 创新层 → 北交所 IPO 衔接路径；阶段 2 子类型识别（含"已挂牌创新层去北交所"路径切换提示——切换到 wf-ipo-full）；阶段 3 嵌套调用 wf-ipo-dd-full（"新三板尽调标准与 IPO 高度重合"实务认知）+ dd-data-verify 核验创新层进入指标；阶段 4 公开转让说明书法律相关章节自查（disclosure-review 的 disclosure-chapter-map.md 已含新三板章节映射）。
+
+### Changed — BATCH-10 相关
+- `.claude-plugin/plugin.json`：`skills` 数组新增 6 个 `ecm-workflow-*` 路径；workflow skill 不直接调用外部 skill（外部依赖由被嵌套的原子 skill 自行声明），故 `dependencies.external_skills` 不变。
+- `README.md`：状态徽章从 "early development" 改为 "v1.0.0 complete"；项目 skill 类别表新增"工作流编排（6）"明细；"当前可用"表新增 6 行 ecm-workflow 条目；同时把 BATCH-09 的 4 个 ecm-qc-*-review 状态从 ⏳ 改为 ✅（BATCH-06 占位的延期更新，BATCH-10 作为最终窗口同步落地）。
+- `docs/skill-roadmap.md`：6 个 `ecm-workflow:wf-*` 状态从 🟡 草稿 改为 ✅ v0.1.0 可用；BATCH-09 的 4 个 ecm-qc-*-review 状态从 ⏳ 改为 ✅；P6 优先级标注完成；P7 优先级标注完成；P8 标注合并入 BATCH-05；clinical 清单标题从 "36 项项目 skill + 1 项已实现 QC skill" 改为 "41 项项目 skill + 5 项 QC skill = 46 项；v1.0.0 全部就绪"。
+- `docs/project-plan.md`：BATCH-10 标记 ✅；BATCH-11 标记为已并入 BATCH-05；状态快照从"40 个 skill 可用"改为"v1.0.0 全部就绪 46 个 skill"；版本发布表 v1.0.0 标记本地 commit 已就绪；"跨 skill 共享资源"清单新增 `workflow-skill-template.md`；更新日志追加 BATCH-10 完成记录。
+- `shared/templates/README.md`：已建立列表新增 `qc-skill-template.md` 和 `workflow-skill-template.md`；待补充列表删除 `qc-skill-template.md` 占位。
+
+### Added — BATCH-09（ecm-qc 剩余 4 件套，2026-04-24 由 BATCH-09 独立窗口交付，本 batch（BATCH-10）作为最终 aggregator 在共用索引文件中追加登记）
+- `shared/templates/qc-skill-template.md`：**ecm-qc-*-review 系列统一骨架 SoT**。锁定 SKILL.md frontmatter（module=ecm-qc + user_role="内核 / QC 团队"）；五步工作流（定位预读入文件 / 拉取参考坐标三级降级 / 三维度审查 / 准备修订工作目录 / 写入修订痕迹和批注 / 打包输出呈递）；三条硬性输出契约（修订者 = "内核" 或用户覆盖值 / 修订模式开启 + 最小显示改动原则 / 解释文字只进批注不进正文）；批注分类前缀（【必改】【核实】【建议】【底稿】）；references/ 目录结构（cross-check-matrix / form-requirements / substantive-checklist / common-errors / comment-templates 5 份）；与 ecm-draft-* 的边界声明格式（5 项区别表）；与 dd-output-schema.md 的消费规则。
+- `skills/ecm-qc-opinion-letter-review/`：法律意见书内核审查 skill。配对 `ecm-draft:opinion-letter`；交叉比对参考坐标为 legal-opinion-format.md + 同项目律师工作报告 + 17 份 DD Memo；自带 5 份 references；输出带 tracked changes + comments 的 .docx（w:author="内核"）。
+- `skills/ecm-qc-work-report-review/`：律师工作报告内核审查 skill。配对 `ecm-draft:report-assembly`；交叉比对参考坐标为 work-report-format.md + 17 份 DD Memo；按 dd-output-schema § 2.3 反向校验"全项目风险汇总表"。
+- `skills/ecm-qc-disclosure-review/`：信披文件内核审查 skill（视角为内核独立审查；与 `ecm-draft:disclosure-review` 起草人自查在 7 维度严格区分：使用者 / 视角 / 输出 / 修订方式 / 后续流程 / w:author / 触发关键词）。覆盖招股书 / 重组报告书 / 权益变动报告书 / 收购报告书 / 募集说明书等信披文件的法律相关章节。
+- `skills/ecm-qc-meeting-docs-review/`：会议文件内核审查 skill。配对 `ecm-draft:meeting-docs`；交叉比对参考坐标为 meeting-docs-format.md + 同项目其他会议文件（通知 / 议案 / 决议 / 记录 互为参考）；通知期限硬校验 + 特别决议 + 关联回避 + 中小投资者单独计票核对。
+- 4 个 skill 均产出带 tracked changes + comments 的 Word 文件，遵循"最小显示改动 + 解释入批注"硬契约。
+
+### Changed — BATCH-09 相关（实际由 BATCH-09 窗口落地于 plugin.json 和 dependencies.md，README / CHANGELOG / skill-roadmap / shared-templates-README 由本 batch 即 BATCH-10 作为最终 aggregator 同步落地）
+- `.claude-plugin/plugin.json`：`skills` 数组新增 4 个 `ecm-qc-*-review` 路径；`dependencies.external_skills.docx.required_by` 追加 4 个 ecm-qc-* skill；`pdf.required_by` 追加 `ecm-qc-disclosure-review`。
+- `docs/dependencies.md`：`docx` / `pdf` 的 required_by 列表已更新到 BATCH-09 的 qc skill。
+- `docs/skill-roadmap.md`：4 个 `ecm-qc:*-review` 状态从 ⏳ BATCH-09 规划中 改为 ✅ v0.1.0 可用。
+- `README.md`："当前可用"表 4 个 ecm-qc-*-review 行状态从 ⏳ BATCH-09 规划中 改为 ✅ v0.1.0；模块概览"QC skill"小框中 4 个 review 名称的"（规划）"标注移除。
+
 ### Added — BATCH-06（ecm-draft 五件套 + DD→Draft 契约 + 3 份格式规范）
 - `shared/schemas/dd-output-schema.md`：**DD → Draft 数据交接契约 Single Source of Truth**。冻结 17 份 DD Memo 的五段式二级标题、风险级别枚举（`高 / 中 / 低`）、风险汇总表 5 列定义、一级标题 → 章节号映射（NN=01-17 + skill 对应关系）、Memo 落地路径模式（`02-尽职调查/02-NN-xxx/DD-Memo-{章节}-{YYYYMMDD}.md`）、元信息引用块字段（company_short_name / chapter_no / issue_date / lawyer_name / skill_version）、拼接层语义（章节顺序、章节号转换、风险聚合、缺章处理）、opinion-letter 消费规则（`级别=高` 事项自动注入"特别事项提示"）、违约处理（不得静默纠正）；17 个业务性 `ecm-dd-*` skill + 2 个 `ecm-draft-*` 消费方 skill 共同遵守。**契约的字段增删改均为 MAJOR 变更**。
 - `shared/schemas/README.md`：schemas/ 目录的使用规范，说明用 Markdown 而非 JSON Schema 的原因（需同时约束"输出 Markdown 结构"和"结构化字段"）。
@@ -22,13 +52,7 @@
 - `docs/project-plan.md`：BATCH-06 标记 ✅；"已建立的跨 skill 共享资源" 清单新增 `work-report-format.md` / `legal-opinion-format.md` / `meeting-docs-format.md` / `dd-output-schema.md`；更新日志追加 BATCH-06 + 09 并行完成记录。
 - `shared/templates/README.md`：已建立列表新增 `work-report-format.md` / `legal-opinion-format.md` / `meeting-docs-format.md`；待补充列表中对应三项划勾。
 
-### Added — BATCH-09 占位登记（cross-batch aggregator 代发；实际内容由 BATCH-09 窗口交付）
-- `skills/ecm-qc-opinion-letter-review/`（法律意见书内核审查；配对 `ecm-draft:opinion-letter`；BATCH-09 窗口建设中）
-- `skills/ecm-qc-work-report-review/`（律师工作报告内核审查；配对 `ecm-draft:report-assembly`；BATCH-09 窗口建设中）
-- `skills/ecm-qc-disclosure-review/`（信披文件内核审查；配对 `ecm-draft:disclosure-review`，视角为独立审查而非起草人自查；BATCH-09 窗口建设中）
-- `skills/ecm-qc-meeting-docs-review/`（会议文件内核审查；配对 `ecm-draft:meeting-docs`；BATCH-09 窗口建设中）
-
-> **BATCH-09 索引占位说明**：上述 4 个 qc skill 的路径、名称、配对关系已在 README / skill-roadmap 中登记；实际 `skills/ecm-qc-*/` 目录和 SKILL.md 正文由 BATCH-09 独立窗口交付。BATCH-06 作为 aggregator 只为其占位，不动 qc 窗口的 skill 目录。**BATCH-09 窗口在 commit 时不要再碰本 batch 的 6 份共用索引文件**（README / CHANGELOG / plugin.json / skill-roadmap / project-plan / shared/templates/README.md），只改自己的 `skills/ecm-qc-*/` 目录和本批专属 shared 资源（如 `shared/templates/qc-skill-template.md`）。qc skill 目录建好后，`plugin.json` 的 `skills` 数组和 README 的"当前可用"表由 BATCH-09 窗口追加条目即可（本 batch 未提前加 plugin.json 的 qc 路径，避免目录不存在时 plugin 加载失败）。
+> **BATCH-09 占位说明**：BATCH-06 作为 aggregator 仅在 README / skill-roadmap / shared-templates-README 中预登记 4 个 ecm-qc-*-review skill 的路径与配对关系（不提前加 plugin.json 的 qc 路径，避免目录不存在时 plugin 加载失败）；BATCH-09 独立窗口于 2026-04-24 实际交付 skill 目录、SKILL.md 与 shared/templates/qc-skill-template.md，并自行追加 plugin.json 的 qc skills 路径 + 更新 docs/dependencies.md。BATCH-09 作为非 aggregator 窗口未碰 README / CHANGELOG / skill-roadmap / shared-templates-README。本 BATCH-10（最终窗口）作为整个项目的最终 aggregator，把 BATCH-09 在 README / CHANGELOG / skill-roadmap / shared-templates-README 上的延期更新与本 batch 的 BATCH-10 更新一并落地。
 
 ### Added — BATCH-03（ecm-dd 业务与资产 5 个 skill）
 - `skills/ecm-dd-business/`：发行人业务核查（编报规则第 7 章）。覆盖经营范围 / 业务资质 / 特许经营、重大业务合同（签约主体 + change of control + 违约）、前五大客户 / 供应商集中度、业务合规（反垄断 / 数据合规 / 网络安全 / 国家安全审查 / 外资准入 / 产业政策）、业务完整性与连续性。Memo 含**业务资质清单表**和**前五大客户/供应商集中度表**强制字段。

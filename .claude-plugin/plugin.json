@@ -66,7 +66,13 @@
     "skills/ecm-qc-opinion-letter-review",
     "skills/ecm-qc-work-report-review",
     "skills/ecm-qc-disclosure-review",
-    "skills/ecm-qc-meeting-docs-review"
+    "skills/ecm-qc-meeting-docs-review",
+    "skills/ecm-workflow-wf-ipo-full",
+    "skills/ecm-workflow-wf-ipo-dd-full",
+    "skills/ecm-workflow-wf-ma-full",
+    "skills/ecm-workflow-wf-cross-border-ma",
+    "skills/ecm-workflow-wf-issuance",
+    "skills/ecm-workflow-wf-nto-listing"
   ],
   "dependencies": {
     "external_skills": [
