@@ -282,7 +282,7 @@
 
 **依赖**：无硬依赖，可与其他 batch 并行。
 
-**源材料**：`54-ecm_skills/.claude/skills/ecm-design/` 下同名 .md（其中 ipo-path 最成熟；另外 /var/folders/.../listing-pathway-selection/SKILL.md 是 ipo-path 的同源拷贝，可以参考）。
+**源材料**：`skills/ecm-design-*` 下现行 skill 文件及其 `references/` 配套材料；后续维护以仓库内现行路径为准，不再引用临时目录同源拷贝。
 
 **关键设计**：
 - 5 个 skill 的输出都偏"分析备忘录"格式（不是 checklist），所以要单独约定统一格式（法律备忘录标准排版：楷体_GB2312、小四、段后 18 磅、首行缩进 2 字符——ipo-path 源稿里已有规范）

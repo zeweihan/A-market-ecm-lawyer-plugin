@@ -61,6 +61,17 @@ depends_on:
 
 ---
 
+## 资深律师执行标准
+
+执行本 skill 时，必须同时遵循 [senior-lawyer-execution-standards.md](../../shared/templates/senior-lawyer-execution-standards.md)。本 skill 的任何输出不得突破四条底线：事实可追溯、法源可核验、风险可分级、建议可落地；无法核验时必须显式标注。
+
+## 本 skill 的实务加固点
+
+- **路径不是营销判断**：板块建议必须同时比较发行条件、行业属性、财务指标、审核关注、时间成本和失败后果。
+- **红线先筛**：同业竞争、关联交易、控制权稳定、重大违法、财务真实性、板块属性不匹配应先判断是否构成路径否决项。
+- **动态法源**：板块规则、上市标准、审核问答和窗口指导需调用 `ecm-research:reg-search` 核验，不得只靠内置表。
+- **输出分层**：必须给出首选路径、备选路径、放弃路径及各自前置整改清单。
+
 ## 输出格式要求
 
 本 Skill 的输出是一份**专业法律备忘录**。**排版规范统一遵循** [shared/templates/legal-memo-format.md](../../shared/templates/legal-memo-format.md)——字体、字号、段距、表格样式、编号体系、引用规范、数字格式等详见该文件。

@@ -28,9 +28,9 @@ description: >
   - 环保 / 安全生产 / 产品质量 → 归 ecm-dd-environment；本 skill 只接"剩余"合规
   - 募集资金合规 → 归 ecm-dd-fundraising
   - 诉讼 / 仲裁 / 行政处罚本身的事实登记 → 归 ecm-dd-litigation
-  - 业务经营性许可 → 归 ecm-dd-business（BATCH-03）
-  - 关联交易合规 → 归 ecm-dd-related-party（BATCH-03）
-  - 独立性合规 → 归 ecm-dd-independence（BATCH-03）
+  - 业务经营性许可 → 归 ecm-dd-business
+  - 关联交易合规 → 归 ecm-dd-related-party
+  - 独立性合规 → 归 ecm-dd-independence
   - 治理合规 / 三会运作 → 归 ecm-dd-charter
   即使用户说"帮我看下这家公司的合规状况"这种模糊请求，也应优先让其他具体
   DD skill 先处理其所属章节，再由本 skill 兜底其余事项；只有在用户明确提到
@@ -81,9 +81,9 @@ depends_on:
 - 环保 / 安全生产 / 产品质量 → `ecm-dd-environment`
 - 募集资金运用 → `ecm-dd-fundraising`
 - 诉讼 / 仲裁 / 行政处罚 → `ecm-dd-litigation`
-- 业务经营性许可 → `ecm-dd-business`（BATCH-03）
-- 关联交易 → `ecm-dd-related-party`（BATCH-03）
-- 独立性 → `ecm-dd-independence`（BATCH-03）
+- 业务经营性许可 → `ecm-dd-business`
+- 关联交易 → `ecm-dd-related-party`
+- 独立性 → `ecm-dd-independence`
 - 治理 / 章程 / 三会 → `ecm-dd-charter`
 - 主体资格 / 设立 / 历史沿革 / 股东及实控人 / 董监高 / 资产 / 债务 → 分别
   对应 `ecm-dd-entity` / `ecm-dd-establishment` / `ecm-dd-history` /
@@ -94,6 +94,17 @@ depends_on:
 本 skill 产出的 DD Memo 为工作底稿，不构成最终法律意见，更不构成任何专项
 合规意见（劳动 / 海关 / 外汇 / 数据等均有独立专业领域）。完整免责声明见
 [DISCLAIMER.md](../../DISCLAIMER.md)。
+
+## 资深律师执行标准
+
+执行本 skill 时，必须同时遵循 [senior-lawyer-execution-standards.md](../../shared/templates/senior-lawyer-execution-standards.md)。本 skill 的任何输出不得突破四条底线：事实可追溯、法源可核验、风险可分级、建议可落地；无法核验时必须显式标注。
+
+## 本 skill 的实务加固点
+
+- **兜底不泛化**：仅承接未被其他 DD skill 覆盖但可能影响发行/交易的合规事项，不能替代专项 DD。
+- **监管记录全扫**：证监会、交易所、股转、发改、商务、外汇、市场监管、海关、网信等记录按项目类型筛查。
+- **重大违法判断**：违法事实、处罚机关、处罚依据、金额、整改、主管证明和规则口径必须同时列示。
+- **高风险触发器**：报告期重大违法、监管立案未结、整改无证明、影响发行条件的诚信问题，应列高风险。
 
 ## 前置依赖
 
@@ -169,8 +180,8 @@ depends_on:
 | 环评、排污、安全生产、职业病、产品质量 | `ecm-dd-environment` | 不触发本 skill |
 | 募投、募集资金、可研报告 | `ecm-dd-fundraising` | 不触发本 skill |
 | 诉讼、仲裁、处罚决定书、裁判文书 | `ecm-dd-litigation` | 不触发本 skill |
-| 经营许可、特许经营权、业务资质 | `ecm-dd-business`（BATCH-03） | 不触发本 skill |
-| 关联交易、关联方、同业竞争 | `ecm-dd-related-party`（BATCH-03） | 不触发本 skill |
+| 经营许可、特许经营权、业务资质 | `ecm-dd-business` | 不触发本 skill |
+| 关联交易、关联方、同业竞争 | `ecm-dd-related-party` | 不触发本 skill |
 | 社保、公积金、劳动合同、派遣 | **本 skill（劳动用工议题组）** | 触发 |
 | 海关、AEO、加工贸易手册 | **本 skill（海关议题组）** | 触发 |
 | 外汇登记、FDI、ODI、资本项目 | **本 skill（外汇议题组）** | 触发 |

@@ -105,9 +105,9 @@
 - `ecm-dd-environment`：涉及环保 / 安全 / 质量
 - `ecm-dd-litigation`：涉及诉讼 / 处罚事实的登记
 - `ecm-dd-fundraising`：募投项目涉及的劳动用工 / 外汇 / 数据合规
-- `ecm-dd-business`（BATCH-03）：业务经营性许可、特许经营
-- `ecm-dd-related-party`（BATCH-03）：关联交易合规
-- `ecm-dd-independence`（BATCH-03）：人员 / 财务独立性
+- `ecm-dd-business`：业务经营性许可、特许经营
+- `ecm-dd-related-party`：关联交易合规
+- `ecm-dd-independence`：人员 / 财务独立性
 - `ecm-dd-shareholders` / `ecm-dd-directors`：员工持股、董监高任职相关议题
 
 ## 更新规则

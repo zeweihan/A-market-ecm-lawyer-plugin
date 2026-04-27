@@ -54,9 +54,9 @@ depends_on:
 - 应收 / 应付背后的销售 / 采购业务合同商业条款（归 `ecm-dd-business`）
 - 非经营性资金占用 / 违规担保的**关联属性**（归 `ecm-dd-related-party`；本 skill 关注
   额度、决策和红线）
-- 涉及诉讼 / 仲裁的债权债务纠纷案件本身（归 `ecm-dd-litigation`，BATCH-04；本 skill 只关注
+- 涉及诉讼 / 仲裁的债权债务纠纷案件本身（归 `ecm-dd-litigation`；本 skill 只关注
   或有负债金额与会计披露）
-- 债务违约引发的行政处罚（归 `ecm-dd-compliance`，BATCH-04）
+- 债务违约引发的行政处罚（归 `ecm-dd-compliance`）
 - 对赌 / 回购 / 业绩补偿对股权结构的影响（归 `ecm-dd-shareholders`）
 - 税务筹划（归 `ecm-dd-tax`）
 - 文件读取 / 搬运（归 `ecm-dd-file-review` / `ecm-setup-file-organize`）
@@ -65,6 +65,17 @@ depends_on:
 
 本 skill 产出的 DD Memo 为工作底稿，不构成最终法律意见。完整免责声明见
 [DISCLAIMER.md](../../DISCLAIMER.md)。
+
+## 资深律师执行标准
+
+执行本 skill 时，必须同时遵循 [senior-lawyer-execution-standards.md](../../shared/templates/senior-lawyer-execution-standards.md)。本 skill 的任何输出不得突破四条底线：事实可追溯、法源可核验、风险可分级、建议可落地；无法核验时必须显式标注。
+
+## 本 skill 的实务加固点
+
+- **合同分层**：重大销售采购、融资、担保、租赁、授信、对赌、框架协议应按金额、期限和经营影响分层。
+- **或有负债识别**：担保、回购、赔偿、违约金、未决争议、对赌补偿和兜底承诺必须单列。
+- **控制权变更条款**：并购、IPO 前融资和重大合同中的 change of control / IPO 失败条款必须重点提示。
+- **高风险触发器**：重大违约、交叉违约、违规担保、债务集中到期、对赌未清理，应列高风险。
 
 ## 前置依赖
 
@@ -121,7 +132,7 @@ depends_on:
 | 资产抵押 / 质押的标的物权属 | `ecm-dd-assets` | 本 skill 关注主债权；标的物权属归 assets |
 | 债权债务的关联属性 | `ecm-dd-related-party` | 本 skill 记录非经营性资金占用红线；关联属性归 related-party |
 | 应收 / 应付对应的业务合同条款 | `ecm-dd-business` | 本 skill 关注账龄 / 坏账 / 争议；合同条款归 business |
-| 涉及诉讼 / 仲裁的债权债务 | `ecm-dd-litigation`（BATCH-04）| 本 skill 关注或有负债金额；诉讼本体归 litigation |
+| 涉及诉讼 / 仲裁的债权债务 | `ecm-dd-litigation`| 本 skill 关注或有负债金额；诉讼本体归 litigation |
 | 债券发行本身作为融资手段 | `ecm-design-deal-structure` / `ecm-design-ipo-path` | 本 skill 审已发行债券的合同条款；债券发行方案归 design |
 | 对赌 / 回购对股权影响 | `ecm-dd-shareholders` | 本 skill 关注或有负债；对股权的影响归 shareholders |
 

@@ -4,6 +4,17 @@
 
 ## [Unreleased]
 
+### Changed — 资深律师审阅优化（2026-04-25）
+- 所有 46 个 `SKILL.md` 新增"资深律师执行标准"引用，统一事实可追溯、法源可核验、风险可分级、建议可落地四项底线。
+- 所有 46 个 `SKILL.md` 第二轮新增"本 skill 的实务加固点"，逐项写入该 skill 独有的必查事项、高风险触发器、边界分流或补正路径，避免只用通用标准代替实质审阅。
+- 新增 `docs/skill-hardening-index-2026-04-26.md`，逐项索引 46 个 skill 的实质加固主题，便于复核不依赖通用标准充数。
+- 新增 `shared/templates/senior-lawyer-execution-standards.md`，作为全仓 skill 的共同执行标准。
+- 新增 `shared/regulations/current-core-regulatory-sources.md`，集中维护 2026-04-25 核验的 A 股 ECM 当前核心法源索引。
+- 修正 DD 目录序号与《编报规则第 12 号》章节号的混淆，在 `project-folder-structure.md` 和 `dd-output-schema.md` 中区分"目录序号 NN"与"编报章节号"。
+- 修正工具类输出路径：`ecm-dd-data-verify` 与 `ecm-dd-file-review` 的底稿输出统一落入 `05-底稿和附件/数据比对/`、`05-底稿和附件/文件审阅/`。
+- 更新关键法规速查口径：纳入《上市公司信息披露管理办法》2025 修订版、《上市公司重大资产重组管理办法》2025 修订版、《上市公司治理准则》2025 修订版及 2026 年再融资第18号适用意见修订提示；移除对"上市公司董事会规则"作为现行核心规章的误引。
+- 同步仓库版本元数据：`VERSION` 与 `.claude-plugin/plugin.json` 调整为 `1.0.0`。
+
 ### Added — BATCH-10（ecm-workflow 六件套 + workflow-skill-template SoT；**v1.0.0 全部就绪**）
 - `shared/templates/workflow-skill-template.md`：**ecm-workflow-* 编排层 skill 统一骨架 SoT**。锁定 SKILL.md frontmatter（含 `wf-` 前缀强制 + module=ecm-workflow + category=工作流编排）；正文 9 节硬性顺序（定位与边界 / 免责声明 / 与原子 skill 的边界 / 配置项 / 阶段编排 / skill 间数据传递契约 / 失败-跳过-回滚处理 / 嵌套关系 / 端到端示例 / 参考资料索引）；6 阶段 schema（启动 / 设计 / 尽调 / 文书 / 内核 / 申报）；skill 间数据传递契约的无状态原则（workflow 不维护私有状态，阶段间状态完全靠"项目目录里有没有该产物"自然表达——`ls 02-尽职调查/02-*/DD-Memo-*.md | wc -l` 即可知进度，便于多 workflow 嵌套与切换）；失败处理（标记 `⛔ 失败`、违约 Memo 按 dd-output-schema § 7 跳过）；跳过策略（strict / loose；阶段 5 内核审查不可跳过）；回滚策略（不删客户文件、历史版本归档、配置回滚 ≠ 数据回滚）；workflow 嵌套规则（声明嵌套 + 不重复展开 + 状态独立 + 禁止双向）；与原子 skill 五项边界声明（角色 / 输出 / 触发频次 / 上下文使用 / 失败影响域）。所有 6 个 ecm-workflow-* skill 必须套用。
 - `skills/ecm-workflow-wf-ipo-full/`：完整 IPO 项目工作流 skill。覆盖 A 股主板 / 科创板 / 创业板 / 北交所 + 港股 + 美股 + 红筹 / VIE 全场景；6 阶段编排（启动 → 设计 → 尽调 → 文书 → 内核 → 申报）；阶段 3 嵌套调用 `wf-ipo-dd-full`（不重复 17 章清单）；阶段 5 内核审查不可跳过；提供端到端 IPO 项目示例（科创板 IPO 全流程脑内测试）。

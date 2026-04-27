@@ -57,6 +57,17 @@ depends_on:
 本 skill 给出的结论是**一般性分析**，律师必须结合项目具体情境、最新监管口径、近期裁判案例
 再做独立判断。完整免责声明见仓库顶层 [DISCLAIMER.md](../../DISCLAIMER.md)。
 
+## 资深律师执行标准
+
+执行本 skill 时，必须同时遵循 [senior-lawyer-execution-standards.md](../../shared/templates/senior-lawyer-execution-standards.md)。本 skill 的任何输出不得突破四条底线：事实可追溯、法源可核验、风险可分级、建议可落地；无法核验时必须显式标注。
+
+## 本 skill 的实务加固点
+
+- **问题导向**：研究结论必须回应具体交易/发行问题，不只做法规摘要。
+- **适用性三段论**：事实前提、规则要件、适用结论必须分开写；事实缺口不得用法规解释补足。
+- **过渡安排**：新旧规则切换时必须核查受理日、披露日、决议日、实施日等关键时点。
+- **不确定性输出**：监管口径不稳定或规则冲突时，必须给出保守方案、激进方案和需外部确认事项。
+
 ## 前置依赖
 
 - 输出格式：[shared/templates/research-output-format.md](../../shared/templates/research-output-format.md)

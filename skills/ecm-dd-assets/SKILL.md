@@ -57,14 +57,25 @@ depends_on:
 - 资产相关的税务处理（归 `ecm-dd-tax`）
 - 资产形成的主营业务合法性（归 `ecm-dd-business`）
 - 资产独立性的独立性结论（归 `ecm-dd-independence`；本 skill 提供资产权属输入）
-- 募投项目所需预留地 / 房产 / 设备（归 `ecm-dd-fundraising`，BATCH-04）
-- 资产相关的诉讼 / 仲裁（归 `ecm-dd-litigation`，BATCH-04；本 skill 只关注涉及权属本身的纠纷）
+- 募投项目所需预留地 / 房产 / 设备（归 `ecm-dd-fundraising`）
+- 资产相关的诉讼 / 仲裁（归 `ecm-dd-litigation`；本 skill 只关注涉及权属本身的纠纷）
 - 文件读取 / 搬运（归 `ecm-dd-file-review` / `ecm-setup-file-organize`）
 
 ## 免责声明
 
 本 skill 产出的 DD Memo 为工作底稿，不构成最终法律意见。完整免责声明见
 [DISCLAIMER.md](../../DISCLAIMER.md)。
+
+## 资深律师执行标准
+
+执行本 skill 时，必须同时遵循 [senior-lawyer-execution-standards.md](../../shared/templates/senior-lawyer-execution-standards.md)。本 skill 的任何输出不得突破四条底线：事实可追溯、法源可核验、风险可分级、建议可落地；无法核验时必须显式标注。
+
+## 本 skill 的实务加固点
+
+- **权属链核查**：土地房产、知识产权、设备、在建工程、租赁资产必须核对权属证书、合同、付款和登记状态。
+- **受限状态识别**：抵押、质押、查封、冻结、共有、租赁瑕疵、权利期限即将届满必须单列。
+- **生产经营影响**：核心资产瑕疵需判断是否影响主营业务连续性、募投实施、抵押融资或重大合同履行。
+- **高风险触发器**：核心土地/房产无证、关键专利权属争议、重大资产被查封冻结、租赁不可续期，应列高风险。
 
 ## 前置依赖
 
@@ -122,8 +133,8 @@ depends_on:
 | 资产抵押 / 质押背后的借款合同 | `ecm-dd-debt` | 本 skill 只记录权利受限事实；对应的主债权归 debt |
 | 资产相关的关联交易（租赁给关联方等） | `ecm-dd-related-party` | 本 skill 记录租赁关系；关联属性归 related-party |
 | 资产支撑的主营业务是否合规 | `ecm-dd-business` | 本 skill 关注权属；业务合法性归 business |
-| 资产相关的环评 / 消防 / 安监 | `ecm-dd-environment`（BATCH-04）/ `ecm-dd-compliance` | 本 skill 只关注权属 |
-| 权属纠纷诉讼 | `ecm-dd-litigation`（BATCH-04）| 本 skill 记录纠纷对权属的影响；诉讼本体归 litigation |
+| 资产相关的环评 / 消防 / 安监 | `ecm-dd-environment`/ `ecm-dd-compliance` | 本 skill 只关注权属 |
+| 权属纠纷诉讼 | `ecm-dd-litigation`| 本 skill 记录纠纷对权属的影响；诉讼本体归 litigation |
 
 ## 参考资料索引
 

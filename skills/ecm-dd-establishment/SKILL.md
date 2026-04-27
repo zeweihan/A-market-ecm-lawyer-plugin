@@ -45,11 +45,22 @@ depends_on:
 - 设立后的股本变动（增资 / 减资 / 股权转让）（归 `ecm-dd-history`）
 - 现行公司章程的合规性（归 `ecm-dd-charter`）
 - 股东 / 实际控制人穿透（归 `ecm-dd-shareholders`）
-- 设立时的税务（归 `ecm-dd-tax`，BATCH-04；本 skill 仅记"是否有税务处理"，不深核）
+- 设立时的税务（归 `ecm-dd-tax`；本 skill 仅记"是否有税务处理"，不深核）
 
 ## 免责声明
 
 见 [DISCLAIMER.md](../../DISCLAIMER.md)。
+
+## 资深律师执行标准
+
+执行本 skill 时，必须同时遵循 [senior-lawyer-execution-standards.md](../../shared/templates/senior-lawyer-execution-standards.md)。本 skill 的任何输出不得突破四条底线：事实可追溯、法源可核验、风险可分级、建议可落地；无法核验时必须显式标注。
+
+## 本 skill 的实务加固点
+
+- **设立链条完整**：核查发起人/股东、出资方式、验资或出资证明、评估备案、工商登记和首版章程。
+- **改制设立专项**：有限公司整体变更、国企改制、集体企业改制必须单列资产评估、审计、批准和债权债务承继。
+- **高风险触发器**：虚假出资、抽逃出资、评估重大瑕疵、国资审批缺失、设立主体承继不清，应列高风险。
+- **章节边界**：本 skill 只处理“设立”事实，后续历次股权变动和增资减资转 `ecm-dd-history`。
 
 ## 前置依赖
 

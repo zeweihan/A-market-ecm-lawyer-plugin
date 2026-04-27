@@ -1,12 +1,12 @@
 ---
 文件类型: ecm-qc 内核审查 skill 统一模板
-维护者: BATCH-09 建立（ecm-qc 系列）
+维护者: ecm-qc 系列
 被哪些 skill 引用:
   - ecm-qc-opinion-letter-review
   - ecm-qc-work-report-review
   - ecm-qc-disclosure-review
   - ecm-qc-meeting-docs-review
-  - （参考样板）ecm-qc-shareholders-meeting-witness（BATCH-00.5 样板；实务上已稳定运行，本模板的共性抽象自该 skill）
+  - （参考样板）ecm-qc-shareholders-meeting-witness（实务上已稳定运行，本模板的共性抽象自该 skill）
 本版编制日期: 2026-04-24
 version: 0.1.0
 ---
@@ -76,6 +76,17 @@ depends_on:
 ## 免责声明
 
 本 skill 产出的修订意见和批注**不构成法律意见**，不替代签字律师的专业判断。完整免责声明见本仓库顶层 [DISCLAIMER.md](../../DISCLAIMER.md)。
+
+## 资深律师执行标准
+
+执行本 skill 时，必须同时遵循 [senior-lawyer-execution-standards.md](../../shared/templates/senior-lawyer-execution-standards.md)。本 skill 的任何输出不得突破四条底线：事实可追溯、法源可核验、风险可分级、建议可落地；无法核验时必须显式标注。
+
+## 本 skill 的实务加固点
+
+- **溯源审查**：写本审查对象必须回溯到哪些底稿、模板、法规或上游产物。
+- **高风险触发器**：写一旦出现即应出具【必改】或【核实】批注的事项。
+- **独立审查边界**：写哪些事项不得替项目组直接改结论，只能批注要求确认。
+- **交叉比对**：写本审查对象必须和哪些文件做硬字段/结论比对。
 
 ## 配置项
 
@@ -278,4 +289,4 @@ skills/ecm-qc-<function>/
 
 | 日期 | 变更 |
 |------|------|
-| 2026-04-24 | 初版（BATCH-09 建立）。锁定：SKILL.md frontmatter / 正文骨架 / 三大输出契约（w:author / 最小改动 / 解释入批注）/ 批注分类前缀 / references 目录结构 / 与 ecm-draft-* 的边界声明格式 |
+| 2026-04-24 | 初版。锁定：SKILL.md frontmatter / 正文骨架 / 三大输出契约（w:author / 最小改动 / 解释入批注）/ 批注分类前缀 / references 目录结构 / 与 ecm-draft-* 的边界声明格式 |

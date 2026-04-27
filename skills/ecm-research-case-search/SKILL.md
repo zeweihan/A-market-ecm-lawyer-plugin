@@ -55,6 +55,17 @@ depends_on:
 局限；律师在作为意见书或尽调报告论据使用前，**必须亲自到官方数据源核对原文**。完整免责声明见仓库
 顶层 [DISCLAIMER.md](../../DISCLAIMER.md)。
 
+## 资深律师执行标准
+
+执行本 skill 时，必须同时遵循 [senior-lawyer-execution-standards.md](../../shared/templates/senior-lawyer-execution-standards.md)。本 skill 的任何输出不得突破四条底线：事实可追溯、法源可核验、风险可分级、建议可落地；无法核验时必须显式标注。
+
+## 本 skill 的实务加固点
+
+- **案例类型分层**：审核问询、监管处罚、自律监管、司法裁判、市场案例的证明力不同，输出时必须分层。
+- **相似性限定**：不得只因关键词相同即类比；需比较板块、行业、交易结构、时间、监管规则和事实差异。
+- **负面案例优先**：涉及发行障碍、处罚、否决、撤回、问询重点时，应优先列负面或边界案例。
+- **结论谨慎**：案例只能支持监管关注趋势，不能替代现行法规适用结论。
+
 ## 前置依赖
 
 - 输出格式：[shared/templates/research-output-format.md](../../shared/templates/research-output-format.md)（统一输出契约，不得在本 skill 另定义格式）

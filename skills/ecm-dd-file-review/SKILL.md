@@ -7,7 +7,7 @@ description: >
   这个文件夹里都有什么、提取文件关键字段、对照清单核对文件、文件缺失检查、跨文件一致性核对、
   文件格式 / 清晰度 / 签字盖章检查、file review、document extract、bulk read、
   review folder of documents。
-  典型输入：文件夹路径（如 `02-尽职调查/02-03-设立/`）、对应章节的核查要点（可由业务 DD
+  典型输入：文件夹路径（如 `02-尽职调查/02-03-历史沿革/`）、对应章节的核查要点（可由业务 DD
   skill 提供）、需关注的特殊事项；典型输出：按文件列出的摘要 + 问题汇总 + 缺失文件提示 +
   跨文件一致性核查。
   非触发边界：本 skill 是**工具类**不输出 DD Memo（五段式）；真正的合规判断由各业务 DD skill
@@ -71,6 +71,17 @@ depends_on:
 本 skill 产出的文件审阅摘要仅为 DD 工作底稿，不构成最终法律意见。
 完整免责声明见 [DISCLAIMER.md](../../DISCLAIMER.md)。
 
+## 资深律师执行标准
+
+执行本 skill 时，必须同时遵循 [senior-lawyer-execution-standards.md](../../shared/templates/senior-lawyer-execution-standards.md)。本 skill 的任何输出不得突破四条底线：事实可追溯、法源可核验、风险可分级、建议可落地；无法核验时必须显式标注。
+
+## 本 skill 的实务加固点
+
+- **机器抽取有限**：OCR、PDF 文本抽取和表格识别只作初筛；签章、骑缝章、附件、手写修改必须提示人工复核。
+- **硬字段优先**：主体名称、统一社会信用代码、日期、金额、股数、比例、文号、签署页和附件清单优先抽取。
+- **跨文件冲突**：同一事项在章程、决议、工商档案、审计报告、信披文件中不一致时必须输出冲突表。
+- **不可读处理**：加密、损坏、低清扫描、缺页文件不得静默跳过，必须列入无法读取清单和补件建议。
+
 ## 前置依赖
 
 ### 外部依赖
@@ -123,7 +134,7 @@ depends_on:
 
 ```bash
 python skills/ecm-dd-file-review/scripts/scan_folder.py \
-    02-尽职调查/02-03-设立/
+    02-尽职调查/02-03-历史沿革/
 ```
 
 > 若目录下文件数 > 20，建议先按命名前缀 / 子目录分批审阅，避免一次性上下文过大。
@@ -131,7 +142,7 @@ python skills/ecm-dd-file-review/scripts/scan_folder.py \
 ### 第 3 步：批量读取文件内容
 
 按文件格式委派对应外部 skill。本步骤输出"每份文件的原始内容缓存"（放入工作区上下文或
-写入 `04-底稿/文件审阅/{文件名}.extract.md`）。
+写入 `05-底稿和附件/文件审阅/{文件名}.extract.md`）。
 
 - `.pdf` → 调 `pdf` skill 抽文本 → 若纯图片扫描件，再走 OCR
 - `.docx` → 调 `docx` skill；注意保留段落结构和表格
@@ -183,7 +194,7 @@ python skills/ecm-dd-file-review/scripts/scan_folder.py \
 
 ## 一、审阅范围
 
-- **目录路径**：02-尽职调查/02-03-设立/
+- **目录路径**：02-尽职调查/02-03-历史沿革/
 - **文件总数**：{N}
 - **按格式分布**：PDF {a} / Word {b} / Excel {c} / 图片 {d} / 其他 {e}
 - **文件清单**：
@@ -252,7 +263,7 @@ python skills/ecm-dd-file-review/scripts/scan_folder.py \
 2. 必有"审阅范围 / 按文件审阅结果 / 跨文件一致性核查 / 缺失文件提示 / 无法读取文件清单 /
    总体观察"六个二级标题
 3. 每个"按文件审阅结果"条目必须含"文件信息 / 关键字段抽取 / 形式瑕疵 / 疑点记录"四个子项
-4. 输出文件放到 `04-底稿/文件审阅/摘要-{目录简称}-{YYYYMMDD}.md`
+4. 输出文件放到 `05-底稿和附件/文件审阅/摘要-{目录简称}-{YYYYMMDD}.md`
 5. 不做合规结论（不出现"风险分级"、"违反《xx 条》"这类判断语句——那是业务 DD skill 的活）
 
 ## 如何被其他 DD skill 调用
@@ -262,7 +273,7 @@ python skills/ecm-dd-file-review/scripts/scan_folder.py \
 ```
 ecm-dd-establishment（设立 DD）
     └─ Step 2: 文件审阅
-           └─ 可选调用 ecm-dd-file-review（传入 02-03-设立/ 目录）
+           └─ 可选调用 ecm-dd-file-review（传入 02-03-历史沿革/ 目录）
                    └─ 调用 docx / pdf / xlsx 外部 skill 读取
                    └─ 产出"文件审阅摘要"
            └─ 业务 DD skill 基于摘要做合规判断 → 写入 DD Memo 的"审阅发现"段
@@ -273,7 +284,7 @@ ecm-dd-establishment（设立 DD）
 - **调用方式**：业务 DD skill 的 SKILL.md 在"核心工作流"第 2 步（文件审阅与标注）
   写"可选：先调用 `ecm-dd-file-review` 对 `02-NN-xxx/` 目录做批量摘要"
 - **传递的输入**：目录路径 + 章节核查要点清单文件路径
-- **接收的输出**：本 skill 生成的 Markdown 摘要 + 抽取缓存（`04-底稿/文件审阅/*.extract.md`）
+- **接收的输出**：本 skill 生成的 Markdown 摘要 + 抽取缓存（`05-底稿和附件/文件审阅/*.extract.md`）
 - **后续处理**：业务 DD skill 读取摘要里的"跨文件一致性核查"和"疑点记录"，做合规判断并
   写进自己的 DD Memo
 

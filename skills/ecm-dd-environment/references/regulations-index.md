@@ -79,11 +79,11 @@
 
 ## 与其他 DD skill 的引用交叉
 
-- `ecm-dd-business`（BATCH-03）：业务经营性许可、特许经营权、产能 / 主营业务合规
+- `ecm-dd-business`：业务经营性许可、特许经营权、产能 / 主营业务合规
 - `ecm-dd-fundraising`：募投项目涉及的环评 / 安全生产手续
 - `ecm-dd-litigation`：环保 / 安全 / 质量行政处罚决定书的程序合法性
-- `ecm-dd-assets`（BATCH-03）：不动产是否经消防验收、环评验收
-- `ecm-dd-related-party`（BATCH-03）：代工 / 委托加工的 HSE 责任边界
+- `ecm-dd-assets`：不动产是否经消防验收、环评验收
+- `ecm-dd-related-party`：代工 / 委托加工的 HSE 责任边界
 - `ecm-dd-compliance`：劳动用工合规（与职业病防治的交叉部分由本 skill 负责）
 
 ## 更新规则

@@ -69,6 +69,17 @@ depends_on:
 
 ---
 
+## 资深律师执行标准
+
+执行本 skill 时，必须同时遵循 [senior-lawyer-execution-standards.md](../../shared/templates/senior-lawyer-execution-standards.md)。本 skill 的任何输出不得突破四条底线：事实可追溯、法源可核验、风险可分级、建议可落地；无法核验时必须显式标注。
+
+## 本 skill 的实务加固点
+
+- **重组性质先判定**：先计算重大资产重组、发行股份购买资产、重组上市、收购和配套融资的触发条件。
+- **标的适格性**：标的权属、盈利质量、同业竞争、关联交易、合规瑕疵和估值基础决定结构可行性。
+- **程序路径**：董事会、股东会、交易所审核、证监会注册、停复牌、信披节点和中介分工必须列时间表。
+- **高风险触发器**：借壳认定争议、标的权属不清、业绩承诺不可实现、规避重组上市，应提示不可直接推进。
+
 ## 输出格式要求
 
 **排版规范统一遵循** [shared/templates/legal-memo-format.md](../../shared/templates/legal-memo-format.md)。

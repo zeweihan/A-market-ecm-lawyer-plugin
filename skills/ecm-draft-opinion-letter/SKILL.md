@@ -12,7 +12,7 @@ description: >
   特别事项提示段（从风险汇总表"高"级事项自动注入）、释义表、与工作报告形式配套校验报告。
   非触发边界：本 skill 不拼接工作报告（归 ecm-draft-report-assembly）、不核查 DD 内容
   （归各 ecm-dd-* skill）、不审阅披露文件（归 ecm-draft-disclosure-review）、不做内核审查
-  （归 ecm-qc-opinion-letter-review，BATCH-09）。
+  （归 ecm-qc-opinion-letter-review）。
   即使用户未明确说"意见书"，只要涉及"基于 DD 发表意见""IPO 法律意见""撰写对 xx 事项的法律意见"
   也应触发。
 version: 0.1.0
@@ -70,11 +70,22 @@ depends_on:
 - 单章 DD 内容核查 → 各 `ecm-dd-*` skill
 - 招股书 / 重组报告书的披露自查 → `ecm-draft-disclosure-review`
 - Word 套版和最终排版 → `ecm-draft-format-adjust`
-- 内核独立审查 → `ecm-qc-opinion-letter-review`（BATCH-09）
+- 内核独立审查 → `ecm-qc-opinion-letter-review`
 
 ## 免责声明
 
 本 skill 产出的法律意见书**初稿**不构成最终法律意见，需经签字律师复核、律所内核审查后方可对外使用。完整免责声明见 [DISCLAIMER.md](../../DISCLAIMER.md)。
+
+## 资深律师执行标准
+
+执行本 skill 时，必须同时遵循 [senior-lawyer-execution-standards.md](../../shared/templates/senior-lawyer-execution-standards.md)。本 skill 的任何输出不得突破四条底线：事实可追溯、法源可核验、风险可分级、建议可落地；无法核验时必须显式标注。
+
+## 本 skill 的实务加固点
+
+- **意见来源限定**：正式法律意见只能来自已核验 DD Memo、工作报告、法规检索和用户确认事实，不得新增未核验事实。
+- **肯定结论门槛**：材料缺失、重大风险未关闭、法规未核验时，不得写“符合条件”“合法有效”等无保留结论。
+- **特别事项提示**：高风险、重大不确定、需依赖第三方专项意见事项必须进入特别提示或保留说明。
+- **口径一致**：意见书、工作报告、信披文件、会议文件中的项目名称、主体、法规依据和结论必须一致。
 
 ## 前置依赖
 
@@ -192,7 +203,7 @@ depends_on:
 - 与 `ecm-draft-report-assembly`：两者共享 DD Memo 输入；本 skill 依赖工作报告（若已生成）做形式配套
 - 与 `ecm-draft-disclosure-review`：本 skill 发表意见，disclosure-review 审阅招股书披露；两者不冲突，按业务场景先后调用
 - 与 `ecm-draft-format-adjust`：本 skill 输出 Markdown 初稿，format-adjust 负责 Word 套版
-- 与 `ecm-qc-opinion-letter-review`（BATCH-09）：后者对本 skill 的输出做独立审查，不改变本 skill 行为
+- 与 `ecm-qc-opinion-letter-review`：后者对本 skill 的输出做独立审查，不改变本 skill 行为
 - 与 `ecm-qc-shareholders-meeting-witness`：见证意见是另一类产品，不走本 skill，不冲突
 
 ## 参考资料索引

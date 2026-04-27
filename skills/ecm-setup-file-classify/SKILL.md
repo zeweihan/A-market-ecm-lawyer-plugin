@@ -39,6 +39,17 @@ depends_on:
 
 本 skill 的分类结果仅供律师参考，**不构成**对文件法律性质的最终判断。律师需复核分类结果的合理性，并在 `file-organize` 前确认。完整免责声明见仓库顶层 [DISCLAIMER.md](../../DISCLAIMER.md)。
 
+## 资深律师执行标准
+
+执行本 skill 时，必须同时遵循 [senior-lawyer-execution-standards.md](../../shared/templates/senior-lawyer-execution-standards.md)。本 skill 的任何输出不得突破四条底线：事实可追溯、法源可核验、风险可分级、建议可落地；无法核验时必须显式标注。
+
+## 本 skill 的实务加固点
+
+- **一文多标签**：同一文件同时涉及历史沿革、股东、批准授权或资产权属时必须多标签，不得强行单一归类。
+- **低置信度显性化**：文件名模糊、扫描件无法读取、缺页或版本不明时，必须进入“待人工确认”而非自动归类。
+- **关键底稿识别**：营业执照、章程、三会文件、验资/评估、工商档案、产权证书、处罚文书应优先标注为核心底稿。
+- **不改变文件事实**：分类只标注位置和标签，不得改写文件名称中的日期、主体、文号或版本。
+
 ## 前置依赖
 
 - 标签体系：[shared/terminology/classification-labels.md](../../shared/terminology/classification-labels.md)（**唯一权威**来源）

@@ -41,13 +41,24 @@ depends_on:
 - 历次股本变动所涉决议（归 `ecm-dd-history`）
 - 设立时的发起人协议、创立大会决议（归 `ecm-dd-establishment`）
 - 三会日常运作的规范性（归 `ecm-dd-charter`）
-- 政府处罚决定书（归 `ecm-dd-litigation`，BATCH-04）
+- 政府处罚决定书（归 `ecm-dd-litigation`）
 - 文件读取和搬运（归 `ecm-dd-file-review` / `ecm-setup-file-organize`）
 
 ## 免责声明
 
 本 skill 产出的 DD Memo 为工作底稿，不构成最终法律意见。完整免责声明见
 [DISCLAIMER.md](../../DISCLAIMER.md)。
+
+## 资深律师执行标准
+
+执行本 skill 时，必须同时遵循 [senior-lawyer-execution-standards.md](../../shared/templates/senior-lawyer-execution-standards.md)。本 skill 的任何输出不得突破四条底线：事实可追溯、法源可核验、风险可分级、建议可落地；无法核验时必须显式标注。
+
+## 本 skill 的实务加固点
+
+- **决策链闭环**：必须按董事会/股东会/国资或外部主管审批/授权有效期四层核对，不得只看最终决议。
+- **方案一致性**：决议中的发行对象、数量、价格、募集资金、交易对方、标的资产必须与申报方案逐项比对。
+- **高风险触发器**：缺少特别决议、关联方未回避、授权过期、审批主体错误或国资/外资审批缺失，应直接列为高风险。
+- **补正路径**：每项瑕疵必须说明可否重新开会、补充授权、取得主管确认或只能作为发行障碍处理。
 
 ## 前置依赖
 

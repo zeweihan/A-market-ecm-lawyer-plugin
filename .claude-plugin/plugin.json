@@ -2,7 +2,7 @@
   "$schema": "https://claude.com/schemas/plugin.json",
   "name": "a-share-ecm-lawyer",
   "displayName": "A 股 ECM 律师助手",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "面向中国 A 股股权资本市场律师的 Claude 插件，覆盖路径选择、尽调、意见书撰写/审核、文书格式处理等业务环节。",
   "author": {
     "name": "zeweihan",

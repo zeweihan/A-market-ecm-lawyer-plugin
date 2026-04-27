@@ -71,6 +71,17 @@ depends_on:
 
 本 skill 产出的修订意见和批注**不构成法律意见**，不替代签字律师的专业判断。完整免责声明见本仓库顶层 [DISCLAIMER.md](../../DISCLAIMER.md)。
 
+## 资深律师执行标准
+
+执行本 skill 时，必须同时遵循 [senior-lawyer-execution-standards.md](../../shared/templates/senior-lawyer-execution-standards.md)。本 skill 的任何输出不得突破四条底线：事实可追溯、法源可核验、风险可分级、建议可落地；无法核验时必须显式标注。
+
+## 本 skill 的实务加固点
+
+- **DD 溯源审查**：工作报告每章必须能定位到对应 DD Memo、底稿附件或缺章占位说明。
+- **风险汇总完整性**：各 DD Memo 的高/中风险事项不得在工作报告汇总表中遗漏、降级或改写。
+- **附件闭环**：重大结论引用的附件必须存在、编号一致、签章/日期可核验。
+- **高风险触发器**：章节缺失无说明、事实与底稿冲突、发行障碍未进入汇总，应列必改。
+
 ## 配置项
 
 **修订者名称（Reviewer Name）**

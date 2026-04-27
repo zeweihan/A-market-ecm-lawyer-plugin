@@ -1,12 +1,12 @@
-# 起草人自查（本 skill）vs 内核审查（BATCH-09 qc 版）— 边界说明
+# 起草人自查（本 skill）vs 内核审查（内核审查版）— 边界说明
 
-本文件详细说明 `ecm-draft:disclosure-review`（本 skill，起草人自查）与 `ecm-qc:disclosure-review`（BATCH-09 qc 版，内核审查）的边界、工作流差异和协作关系。
+本文件详细说明 `ecm-draft:disclosure-review`（本 skill，起草人自查）与 `ecm-qc:disclosure-review`（内核审查版，内核审查）的边界、工作流差异和协作关系。
 
 ---
 
 ## 核心区别一览
 
-| 维度 | ecm-draft:disclosure-review（本 skill） | ecm-qc:disclosure-review（BATCH-09） |
+| 维度 | ecm-draft:disclosure-review（本 skill） | ecm-qc:disclosure-review |
 |------|--------------------------------------|------------------------------------|
 | **使用者** | 项目组起草人（或项目组审核人） | 内核 / QC 团队（独立于项目组） |
 | **角色** | "作者自己读一遍" | "审稿人给作者提意见" |
@@ -92,7 +92,7 @@
 1. **起草人完成初稿**：按 skill-roadmap 调用 `ecm-draft:report-assembly` + `ecm-draft:opinion-letter` 起草，然后人工起草信披文件
 2. **起草人自查**：调用本 skill，按自查报告改稿
 3. **起草人送内核**：交付给内核团队
-4. **内核审查**：内核调用 `ecm-qc:disclosure-review`（BATCH-09）
+4. **内核审查**：内核调用 `ecm-qc:disclosure-review`
 5. **内核复核**：内核审稿人调整 qc 生成的修订建议（必要时加批注 / 删批注）
 6. **返回起草人**：内核把带修订的 Word 返回项目组
 7. **起草人响应修订**：起草人接受 / 拒绝修订，有争议的与内核沟通

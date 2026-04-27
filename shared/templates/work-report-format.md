@@ -1,9 +1,9 @@
 ---
 文件类型: 律师工作报告 / 尽职调查报告 排版规范
-维护者: BATCH-06 建立（ecm-draft 系列）
+维护者: ecm-draft 系列
 被哪些 skill 引用:
   - ecm-draft-report-assembly（主用户，拼接输出时套用本规范）
-  - ecm-qc-work-report-review（BATCH-09 建立；按本规范反向审核项目组提交的报告）
+  - ecm-qc-work-report-review（按本规范反向审核项目组提交的报告）
   - ecm-draft-format-adjust（提供 Markdown → Word 的样式参数）
 本版编制日期: 2026-04-24
 ---
@@ -19,7 +19,7 @@
 ## 适用范围
 
 - `ecm-draft:report-assembly` 输出的《律师工作报告》和《尽职调查报告》主文
-- `ecm-qc:work-report-review`（BATCH-09）对上述文书的审查产出（以本规范为"参考坐标"指认项目组报告的格式偏离）
+- `ecm-qc:work-report-review`对上述文书的审查产出（以本规范为"参考坐标"指认项目组报告的格式偏离）
 
 **不适用**于：
 - 法律意见书 → `shared/templates/legal-opinion-format.md`
@@ -317,4 +317,4 @@ Markdown 骨架与 Word 样式的映射（供 format-adjust 直接套用）：
 
 | 日期 | 变更 |
 |------|------|
-| 2026-04-24 | 初版（BATCH-06 建立），锁定章节结构、字体 / 字号、Markdown → Word 映射、全项目风险汇总表规范 |
+| 2026-04-24 | 初版，锁定章节结构、字体 / 字号、Markdown → Word 映射、全项目风险汇总表规范 |

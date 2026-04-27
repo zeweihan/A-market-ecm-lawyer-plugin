@@ -9,7 +9,7 @@ description: >
   existence check、subject qualification 等。
   典型输入：营业执照、工商登记档案、企业信用报告、特殊行业许可证、历年年报。
   非触发边界：历史沿革（增资 / 股转）归 ecm-dd-history；设立时的出资 / 验资归 ecm-dd-establishment；
-  公司章程本身归 ecm-dd-charter；业务经营资质归 ecm-dd-business（BATCH-03）。
+  公司章程本身归 ecm-dd-charter；业务经营资质归 ecm-dd-business。
   即使用户只说"帮我看看这家公司有没有问题"，只要针对主体身份合法性，也应触发本 skill。
 version: 0.1.0
 license: MIT
@@ -42,13 +42,24 @@ depends_on:
 - 历次股权变动（归 `ecm-dd-history`）
 - 设立时的出资 / 验资 / 评估（归 `ecm-dd-establishment`）
 - 公司章程条款合规性（归 `ecm-dd-charter`）
-- 业务 / 资质的深度合规（归 `ecm-dd-business`，BATCH-03）
+- 业务 / 资质的深度合规（归 `ecm-dd-business`）
 - 分支机构和子公司的单独核查（并表范围内的主要子公司另行调用本 skill 做子维度核查）
 
 ## 免责声明
 
 本 skill 产出的 DD Memo 为工作底稿，不构成最终法律意见。完整免责声明见
 [DISCLAIMER.md](../../DISCLAIMER.md)。
+
+## 资深律师执行标准
+
+执行本 skill 时，必须同时遵循 [senior-lawyer-execution-standards.md](../../shared/templates/senior-lawyer-execution-standards.md)。本 skill 的任何输出不得突破四条底线：事实可追溯、法源可核验、风险可分级、建议可落地；无法核验时必须显式标注。
+
+## 本 skill 的实务加固点
+
+- **主体存续核验**：营业执照、工商档案、章程、信用信息和监管状态必须交叉验证主体是否依法有效存续。
+- **资格边界**：区分发行人主体资格、业务资质、股东资格和董监高资格，发现邻近问题应转对应 DD skill。
+- **高风险触发器**：吊销/注销风险、经营异常未消除、主体类型不符合发行条件、历史改制主体承继不清，应列高风险。
+- **结论约束**：未拿到完整工商档案或章程现行版时，不得出具“主体资格合法有效”的肯定结论。
 
 ## 前置依赖
 

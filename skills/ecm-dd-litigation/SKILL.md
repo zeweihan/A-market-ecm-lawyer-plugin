@@ -23,7 +23,7 @@ description: >
   非触发边界：税务处罚的税务合规性归 ecm-dd-tax（本 skill 仅核查程序合法性和
   是否构成重大违法）；环保 / 安全生产 / 质量处罚的合规层面归 ecm-dd-environment
   （本 skill 仅关注处罚事实本身与程序合法性）；知识产权诉讼涉及权属的实质判断
-  归 ecm-dd-assets（BATCH-03）；社保 / 公积金 / 劳动仲裁的合规性归
+  归 ecm-dd-assets；社保 / 公积金 / 劳动仲裁的合规性归
   ecm-dd-compliance（本 skill 仅登记仲裁事实）；股东 / 实控人自身身份合法性归
   ecm-dd-shareholders；董监高任职资格归 ecm-dd-directors（本 skill 仅登记其涉诉
   / 受处罚事实并反馈给 directors）。
@@ -70,10 +70,10 @@ depends_on:
   环保 / 安全 / 质量处罚的合规背景归 `ecm-dd-environment`；劳动 / 社保
   仲裁的合规背景归 `ecm-dd-compliance`）——本 skill 只登记处罚事实、核查
   程序合法性、判断是否构成"重大违法"
-- 知识产权诉讼涉及的**权属实质**（归 `ecm-dd-assets`，BATCH-03；本 skill
+- 知识产权诉讼涉及的**权属实质**（归 `ecm-dd-assets`；本 skill
   仅登记诉讼事实与进展）
 - 业务合同纠纷的**业务属性与履行实质**（归 `ecm-dd-business` 或 `ecm-dd-debt`，
-  BATCH-03；本 skill 仅登记纠纷事实）
+  本 skill 仅登记纠纷事实）
 - 股东身份合法性和穿透核查（归 `ecm-dd-shareholders`）
 - 董监高任职资格（归 `ecm-dd-directors`；本 skill 将识别到的董监高涉诉 / 处罚
   情况反向推送给 directors）
@@ -84,6 +84,17 @@ depends_on:
 仲裁的实体判断、胜诉可能性、执行可能性等，需由发行人的**诉讼专项代理律师**
 或其他专业律师出具独立意见；本 skill 仅从发行上市法律核查角度汇总披露。
 完整免责声明见 [DISCLAIMER.md](../../DISCLAIMER.md)。
+
+## 资深律师执行标准
+
+执行本 skill 时，必须同时遵循 [senior-lawyer-execution-standards.md](../../shared/templates/senior-lawyer-execution-standards.md)。本 skill 的任何输出不得突破四条底线：事实可追溯、法源可核验、风险可分级、建议可落地；无法核验时必须显式标注。
+
+## 本 skill 的实务加固点
+
+- **案件全渠道**：法院公告、裁判文书、执行信息、仲裁材料、行政处罚、监管措施和律师函需合并检索。
+- **重大性判断**：按金额、败诉概率、资产冻结、核心业务影响、董监高/实控人牵连和信披标准分层。
+- **进展时点**：必须记录立案、开庭、判决、执行、和解、撤诉、处罚决定和整改完成日期。
+- **高风险触发器**：核心资产冻结、重大败诉可能、实控人刑事风险、重大行政处罚未整改，应列高风险。
 
 ## 前置依赖
 
@@ -168,8 +179,8 @@ depends_on:
 | 税务处罚的税务合规实质 | `ecm-dd-tax` | 本 skill 登记处罚事实并判断"是否重大违法" |
 | 环保 / 安全 / 质量处罚的合规背景 | `ecm-dd-environment` | 同上 |
 | 社保 / 公积金 / 劳动仲裁的合规背景 | `ecm-dd-compliance` | 同上 |
-| 知识产权诉讼权属 | `ecm-dd-assets`（BATCH-03） | 本 skill 仅登记诉讼事实 |
-| 合同纠纷的业务履行实质 | `ecm-dd-business` / `ecm-dd-debt`（BATCH-03） | 本 skill 仅登记纠纷事实 |
+| 知识产权诉讼权属 | `ecm-dd-assets` | 本 skill 仅登记诉讼事实 |
+| 合同纠纷的业务履行实质 | `ecm-dd-business` / `ecm-dd-debt` | 本 skill 仅登记纠纷事实 |
 | 股东 / 实控人身份合法性 | `ecm-dd-shareholders` | 本 skill 仅登记涉诉 / 刑事记录 |
 | 董监高任职资格 | `ecm-dd-directors` | 本 skill 将涉诉 / 处罚信息反向推送给 directors |
 | 证券监管层面的处分（警示函 / 立案） | 本 skill 为主，同步推送给 `ecm-dd-shareholders` 和 `ecm-dd-directors` | — |

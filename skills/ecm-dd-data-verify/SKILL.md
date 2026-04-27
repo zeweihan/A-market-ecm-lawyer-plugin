@@ -66,6 +66,17 @@ dd-compliance）有明显的职责分工：
 第三方商业数据源，数据口径与更新频率由其运营方决定，存在滞后或偏差的可能。关键事项仍须
 以政府主管部门出具的官方文件为准。完整免责声明见 [DISCLAIMER.md](../../DISCLAIMER.md)。
 
+## 资深律师执行标准
+
+执行本 skill 时，必须同时遵循 [senior-lawyer-execution-standards.md](../../shared/templates/senior-lawyer-execution-standards.md)。本 skill 的任何输出不得突破四条底线：事实可追溯、法源可核验、风险可分级、建议可落地；无法核验时必须显式标注。
+
+## 本 skill 的实务加固点
+
+- **数据不替代底稿**：Tushare、企查查等第三方数据仅作交叉验证线索，不得覆盖客户原件和官方登记信息。
+- **差异分级**：主体名称、股本、股东、董监高、处罚、诉讼、经营范围等差异需按发行影响分级。
+- **原始响应留存**：每次调用必须记录来源、查询关键词、时间戳、接口返回和失败原因，归入数据比对底稿。
+- **高风险触发器**：第三方数据出现未披露处罚/诉讼/股权冻结/经营异常，应转对应 DD skill 复核。
+
 ## 前置依赖
 
 ### 外部依赖
@@ -139,7 +150,7 @@ python scripts/qcc_connector.py --smoke
 # 工商基础 + 股东 + 处罚
 python scripts/qcc_connector.py \
     --basic "腾讯科技（深圳）有限公司" \
-    > 04-底稿/数据比对/qcc_basic_$(date +%Y%m%d_%H%M%S).json
+    > 05-底稿和附件/数据比对/qcc_basic_$(date +%Y%m%d_%H%M%S).json
 
 # 已上市标的：基础 + 财务
 python scripts/tushare_connector.py \
@@ -162,7 +173,7 @@ except MissingCredentialError:
     ...
 ```
 
-所有原始响应 **留痕**到 `04-底稿/数据比对/` 目录，保留到项目归档。
+所有原始响应 **留痕**到 `05-底稿和附件/数据比对/` 目录，保留到项目归档。
 
 ### 第 5 步：逐字段比对 + 输出报告
 
@@ -217,7 +228,7 @@ except MissingCredentialError:
 
 | 维度 | 数据源 | 抓取时间 | 原始响应存档 |
 |------|-------|---------|-------------|
-| 工商基本信息 | 企查查 | 2026-04-24 10:30 | 04-底稿/数据比对/qcc_basic_20260424_103000.json |
+| 工商基本信息 | 企查查 | 2026-04-24 10:30 | 05-底稿和附件/数据比对/qcc_basic_20260424_103000.json |
 | 股东信息 | 企查查 | 2026-04-24 10:31 | ... |
 | 财务数据 | Tushare Pro | 2026-04-24 10:32 | ... |
 
@@ -262,9 +273,9 @@ except MissingCredentialError:
 
 ## 六、附件
 
-- 04-底稿/数据比对/qcc_basic_YYYYMMDD_HHMMSS.json
-- 04-底稿/数据比对/qcc_shareholders_YYYYMMDD_HHMMSS.json
-- 04-底稿/数据比对/tushare_fina_YYYYMMDD_HHMMSS.csv
+- 05-底稿和附件/数据比对/qcc_basic_YYYYMMDD_HHMMSS.json
+- 05-底稿和附件/数据比对/qcc_shareholders_YYYYMMDD_HHMMSS.json
+- 05-底稿和附件/数据比对/tushare_fina_YYYYMMDD_HHMMSS.csv
 - （下级业务 DD skill 可直接引用上述原始响应）
 ```
 
@@ -274,9 +285,9 @@ except MissingCredentialError:
 2. 必有"比对维度与数据源 / 比对结果汇总 / 差异分析 / 建议核实事项 / 数据源局限与注意事项"
    五个二级标题
 3. 汇总表的"级别"列取值必须是"高 / 中 / 低 / -"（"-" 表示一致）
-4. 输出文件放到 `02-尽职调查/02-17-数据比对/数据比对报告-{YYYYMMDD}.md`
-   （若项目目录尚未建立 `02-17-数据比对/`，优先放到 `04-底稿/数据比对/`）
-5. 所有 API 原始响应必须**留痕存档**到 `04-底稿/数据比对/`，不得仅贴到报告里
+4. 输出文件放到 `05-底稿和附件/数据比对/数据比对报告-{YYYYMMDD}.md`
+   （如该目录尚未建立，先按 `shared/templates/project-folder-structure.md` 创建）
+5. 所有 API 原始响应必须**留痕存档**到 `05-底稿和附件/数据比对/`，不得仅贴到报告里
 
 ## 如何被其他 DD skill 调用
 

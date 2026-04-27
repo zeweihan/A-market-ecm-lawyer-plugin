@@ -9,7 +9,7 @@ description: >
   典型输入：董监高名单、简历、身份证明、任职文件、聘任决议、无犯罪记录证明、个人征信报告、
   对外投资清单、兼职情况说明、同业竞争回避承诺、近 3 年（报告期内）的董监高变化记录。
   非触发边界：三会运作和独立董事制度归 ecm-dd-charter；股东身份和实控人认定归 ecm-dd-shareholders；
-  业务条线管理和关联交易归 ecm-dd-related-party 和 ecm-dd-business（BATCH-03）；设立时的
+  业务条线管理和关联交易归 ecm-dd-related-party 和 ecm-dd-business；设立时的
   董监高任命归 ecm-dd-establishment。
   即使用户只说"帮我核一下这家公司的董监高有没有问题"或"管理层稳不稳定"，也应触发本 skill。
 version: 0.1.0
@@ -46,12 +46,23 @@ depends_on:
 - 独立董事制度本体（归 `ecm-dd-charter`，但独立董事个人任职资格仍归本 skill）
 - 股东身份穿透（归 `ecm-dd-shareholders`）
 - 薪酬和股权激励计划（归 `ecm-dd-history` 的股权激励段 + 其他 DD skill 的薪酬税务部分）
-- 关联交易 / 同业竞争本体（归 `ecm-dd-related-party`，BATCH-03）
-- 董监高个人的处罚和诉讼（本 skill 仅记"是否存在"；深核归 `ecm-dd-litigation`，BATCH-04）
+- 关联交易 / 同业竞争本体（归 `ecm-dd-related-party`）
+- 董监高个人的处罚和诉讼（本 skill 仅记"是否存在"；深核归 `ecm-dd-litigation`）
 
 ## 免责声明
 
 见 [DISCLAIMER.md](../../DISCLAIMER.md)。
+
+## 资深律师执行标准
+
+执行本 skill 时，必须同时遵循 [senior-lawyer-execution-standards.md](../../shared/templates/senior-lawyer-execution-standards.md)。本 skill 的任何输出不得突破四条底线：事实可追溯、法源可核验、风险可分级、建议可落地；无法核验时必须显式标注。
+
+## 本 skill 的实务加固点
+
+- **任职资格核查**：董事、监事、高管、核心技术人员需核对任命程序、任期、兼职、竞业、处罚和诚信记录。
+- **稳定性判断**：报告期内频繁变动、关键人员离职、独董资格不符或核心技术人员认定变化必须单列。
+- **高风险触发器**：任职禁止情形、重大违法处罚、失信被执行、同业任职冲突、独董独立性瑕疵，应列高风险。
+- **边界提示**：薪酬、股权激励和股份锁定问题应提示联动披露和信披/QC 审查。
 
 ## 前置依赖
 

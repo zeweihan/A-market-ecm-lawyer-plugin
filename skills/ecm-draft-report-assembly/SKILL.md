@@ -11,7 +11,7 @@ description: >
   skill）+ 全项目风险汇总表 + 未完成章节清单 + 元信息一致性校验提示。
   非触发边界：本 skill 不起草法律意见书（归 ecm-draft-opinion-letter）、不负责 DD 内容核查
   （归各 ecm-dd-* skill）、不负责 Word 最终排版细节（归 ecm-draft-format-adjust）、不做内核审查
-  （归 ecm-qc-work-report-review，BATCH-09）。
+  （归 ecm-qc-work-report-review）。
   即使用户未说"拼接"一词，只要涉及"整合 DD 成报告""出 work report""汇编工作底稿"也应触发。
 version: 0.1.0
 license: MIT
@@ -66,11 +66,22 @@ depends_on:
 - 单章 DD 内容核查 → 各 `ecm-dd-*` skill
 - Word 最终排版（自动编号、页眉页脚、交叉引用、目录生成） → `ecm-draft-format-adjust`
 - 信息披露文件（招股书等）的起草与自查 → `ecm-draft-disclosure-review`
-- 内核独立审查 → `ecm-qc-work-report-review`（BATCH-09）
+- 内核独立审查 → `ecm-qc-work-report-review`
 
 ## 免责声明
 
 本 skill 产出的律师工作报告 / 尽职调查报告**初稿**不构成最终法律意见，需经签字律师复核、律所内核审查后方可对外使用。完整免责声明见 [DISCLAIMER.md](../../DISCLAIMER.md)。
+
+## 资深律师执行标准
+
+执行本 skill 时，必须同时遵循 [senior-lawyer-execution-standards.md](../../shared/templates/senior-lawyer-execution-standards.md)。本 skill 的任何输出不得突破四条底线：事实可追溯、法源可核验、风险可分级、建议可落地；无法核验时必须显式标注。
+
+## 本 skill 的实务加固点
+
+- **只拼已核验事实**：工作报告正文只能吸收符合 `dd-output-schema` 的 DD Memo；缺章必须按契约显式占位。
+- **风险不得弱化**：DD Memo 中高风险事项必须进入风险汇总和相关章节，不得在拼接时改写为一般关注。
+- **章节顺序双轨**：文件路径按目录序号，报告章节按编报章节号；设立和历史沿革必须分别落章。
+- **交叉引用校验**：报告内事实、附件、风险汇总、法律意见书特别提示之间必须保持一致。
 
 ## 前置依赖
 
@@ -180,7 +191,7 @@ depends_on:
 - 与 `ecm-draft-opinion-letter`：本 skill 不发法律意见；但二者共享项目元信息（同一律所、签字律师、日期），建议串行调用
 - 与 `ecm-draft-format-adjust`：本 skill 输出 Markdown 初稿，format-adjust 负责 Word 套版和最终排版调整
 - 与 `ecm-draft-disclosure-review`：本 skill 与 disclosure-review 共享 DD 核心结论，但后者面向招股书自查，不做拼接
-- 与 `ecm-qc-work-report-review`（BATCH-09）：后者对**本 skill 的输出**做独立审查，不改变本 skill 行为
+- 与 `ecm-qc-work-report-review`：后者对**本 skill 的输出**做独立审查，不改变本 skill 行为
 
 ## 参考资料索引
 

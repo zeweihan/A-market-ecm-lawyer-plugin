@@ -110,5 +110,5 @@
 - [ ] 已告知用户下一步：
   - 手工复核后可调用 `ecm-draft:format-adjust` 做 Word 套版
   - 或直接调用外部 `docx` skill 做 Markdown → Word 转换
-  - 内核审查可调用 `ecm-qc:work-report-review`（BATCH-09）
+  - 内核审查可调用 `ecm-qc:work-report-review`
 - [ ] 已提示用户：本报告为初稿，需签字律师复核后方可作为申报材料

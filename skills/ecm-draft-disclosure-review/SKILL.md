@@ -13,7 +13,7 @@ description: >
   清单、（2）披露遗漏项清单、（3）披露夸大 / 未充分揭示风险清单、（4）修改建议（带具体页码
   或章节编号）、（5）版本 Diff 摘要（若提供历史版本）。
   非触发边界：本 skill 是**项目组起草人的自查**，**不是**内核独立审查（那归 ecm-qc-disclosure-review，
-  BATCH-09，输出带修订痕迹的 Word 文件、w:author="内核"）。本 skill 不拼接工作报告
+  输出带修订痕迹的 Word 文件、w:author="内核"）。本 skill 不拼接工作报告
   （归 ecm-draft-report-assembly）、不起草法律意见书（归 ecm-draft-opinion-letter）、
   不起草会议文件（归 ecm-draft-meeting-docs）、不做 Word 格式调整（归 ecm-draft-format-adjust）。
   即使用户未用"自查"一词，只要是起草人在送内核前对招股书 / 重组报告书 / 权益变动报告书的法律
@@ -46,7 +46,7 @@ depends_on:
 
 两个关键区别：
 
-| 维度 | 本 skill（ecm-draft:disclosure-review） | ecm-qc:disclosure-review（BATCH-09，规划中） |
+| 维度 | 本 skill（ecm-draft:disclosure-review） | ecm-qc:disclosure-review |
 |------|--------------------------------------|----------------------------------------|
 | 使用者 | 项目组起草人 | 内核 / QC 团队 |
 | 视角 | "我写的有没有错、跟工作报告对不对得上" | "这一稿交给我了，能不能过内核" |
@@ -68,13 +68,24 @@ depends_on:
 - 信披文件的首次起草（起草人自己写，本 skill 只做事后自查）
 - 工作报告拼接 → `ecm-draft-report-assembly`
 - 法律意见书起草 → `ecm-draft-opinion-letter`
-- 内核审查 → `ecm-qc-disclosure-review`（BATCH-09）
+- 内核审查 → `ecm-qc-disclosure-review`
 - Word 格式最终调整 → `ecm-draft-format-adjust`
 - 非法律相关章节（如"管理层讨论与分析"中的财务分析、"募投项目"中的项目可行性分析）
 
 ## 免责声明
 
 本 skill 产出的自查报告仅供起草人内部使用，不替代律所内核审查、不构成对信披文件合规性的最终结论。完整免责声明见 [DISCLAIMER.md](../../DISCLAIMER.md)。
+
+## 资深律师执行标准
+
+执行本 skill 时，必须同时遵循 [senior-lawyer-execution-standards.md](../../shared/templates/senior-lawyer-execution-standards.md)。本 skill 的任何输出不得突破四条底线：事实可追溯、法源可核验、风险可分级、建议可落地；无法核验时必须显式标注。
+
+## 本 skill 的实务加固点
+
+- **披露以底稿为边界**：不得为美化披露而新增未有底稿支持的事实、行业判断或合规结论。
+- **反向核对**：信披文件中的主体、股权、业务、关联交易、诉讼处罚、募投和风险因素需反向匹配 DD Memo。
+- **监管语言敏感**：避免绝对化、选择性披露、避重就轻、用“基本”“较少”掩盖重大瑕疵。
+- **高风险触发器**：重大事项未披露、与审计/法律文件冲突、引用旧法、风险因素弱化，应列为必改。
 
 ## 前置依赖
 
@@ -207,7 +218,7 @@ depends_on:
 
 ## 八、后续流程建议
 
-- 修改后可调用 `ecm-qc:disclosure-review`（BATCH-09）做内核独立审查
+- 修改后可调用 `ecm-qc:disclosure-review`做内核独立审查
 - 如涉及法规引用更新，可调用 `ecm-research:reg-search` 核验法规时效性
 - 如涉及法律意见书同步修改，需同步更新 `ecm-draft:opinion-letter` 输出
 ```
@@ -217,7 +228,7 @@ depends_on:
 - 自查报告 Markdown 落到上述路径
 - 在报告末尾提示用户：
   - 按"必改项清单"先修改信披文件
-  - 修改后可调用 BATCH-09 的 `ecm-qc:disclosure-review` 做内核审查
+  - 修改后可调用 `ecm-qc:disclosure-review` 做内核审查
   - 若涉及工作报告修改，需协调起草人和 report-assembly 同步更新
 
 ## 配置项
@@ -249,7 +260,7 @@ depends_on:
 
 ## 与邻近 skill 的边界
 
-- 与 `ecm-qc-disclosure-review`（BATCH-09）：本 skill 是自查，不输出修订 Word；qc 版是内核审查，输出带 tracked changes 的 Word。二者的 checklist 可复用，但视角和输出完全不同
+- 与 `ecm-qc-disclosure-review`：本 skill 是自查，不输出修订 Word；qc 版是内核审查，输出带 tracked changes 的 Word。二者的 checklist 可复用，但视角和输出完全不同
 - 与 `ecm-draft-report-assembly` / `opinion-letter`：本 skill 依赖前两者的输出作为比对基准
 - 与 `ecm-research-reg-search`：本 skill Step 4 "引用过时法规" 检查可回调 research skill 核验时效
 
@@ -262,7 +273,7 @@ depends_on:
 ## 常见误用 / FAQ
 
 1. **"招股书已经交到保荐人那边了，能用本 skill 做自查吗？"**：可以，但建议在交出去**之前**跑一遍。交出去后再自查，如发现问题要撤回改动，成本很高。
-2. **"能不能直接改信披文件，不生成自查报告？"**：不能。本 skill 只提建议，不改原文件。直接改需要起草人自己操作（或等 BATCH-09 的 qc 版出现）。
+2. **"能不能直接改信披文件，不生成自查报告？"**：不能。本 skill 只提建议，不改原文件。直接改需要起草人自己操作（或等 内核审查版出现）。
 3. **"工作报告还没出，能用本 skill 吗？"**：只能做风格审查（Step 4），不能做交叉比对。建议先调用 `ecm-draft:report-assembly` 拼工作报告后再跑本 skill。
 4. **"信披文件是 PDF，本 skill 能读吗？"**：可以，会委托 `pdf` 外部 skill 提取文本 + 表格。但 PDF 复杂排版可能导致提取不全（图片、扫描页），此时提示用户提供 Word 源文件。
 5. **"自查报告能直接给内核吗？"**：不建议直接给。自查报告是起草人内部工具，应按报告建议修改后再送内核；送内核的是**修改后的信披文件**，不是自查报告本身。

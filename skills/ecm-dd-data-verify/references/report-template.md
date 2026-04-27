@@ -17,12 +17,12 @@
 
 | 维度 | 数据源 | 抓取时间 | 原始响应存档 |
 |------|-------|---------|-------------|
-| 工商基本信息 | 企查查 | YYYY-MM-DD HH:MM | 04-底稿/数据比对/qcc_basic_YYYYMMDD_HHMMSS.json |
-| 股东信息 | 企查查 | YYYY-MM-DD HH:MM | 04-底稿/数据比对/qcc_shareholders_YYYYMMDD_HHMMSS.json |
-| 主要人员 | 企查查 | YYYY-MM-DD HH:MM | 04-底稿/数据比对/qcc_employees_YYYYMMDD_HHMMSS.json |
-| 知识产权 | 企查查 | YYYY-MM-DD HH:MM | 04-底稿/数据比对/qcc_ip_YYYYMMDD_HHMMSS.json |
-| 行政处罚 | 企查查 | YYYY-MM-DD HH:MM | 04-底稿/数据比对/qcc_penalty_YYYYMMDD_HHMMSS.json |
-| 财务数据 | Tushare Pro | YYYY-MM-DD HH:MM | 04-底稿/数据比对/tushare_fina_YYYYMMDD_HHMMSS.csv |
+| 工商基本信息 | 企查查 | YYYY-MM-DD HH:MM | 05-底稿和附件/数据比对/qcc_basic_YYYYMMDD_HHMMSS.json |
+| 股东信息 | 企查查 | YYYY-MM-DD HH:MM | 05-底稿和附件/数据比对/qcc_shareholders_YYYYMMDD_HHMMSS.json |
+| 主要人员 | 企查查 | YYYY-MM-DD HH:MM | 05-底稿和附件/数据比对/qcc_employees_YYYYMMDD_HHMMSS.json |
+| 知识产权 | 企查查 | YYYY-MM-DD HH:MM | 05-底稿和附件/数据比对/qcc_ip_YYYYMMDD_HHMMSS.json |
+| 行政处罚 | 企查查 | YYYY-MM-DD HH:MM | 05-底稿和附件/数据比对/qcc_penalty_YYYYMMDD_HHMMSS.json |
+| 财务数据 | Tushare Pro | YYYY-MM-DD HH:MM | 05-底稿和附件/数据比对/tushare_fina_YYYYMMDD_HHMMSS.csv |
 
 ## 二、比对结果汇总
 

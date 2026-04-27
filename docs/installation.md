@@ -32,7 +32,7 @@ claude plugin install .
 ### 安装后确认
 
 ```bash
-claude skill list | grep -E "ecm-qc-shareholders-meeting-witness|listing-pathway-selection"
+claude skill list | grep -E "ecm-qc-shareholders-meeting-witness|ecm-workflow-wf-ipo-full"
 ```
 
 ## 方式 2：按需下载单个 `.skill` 文件

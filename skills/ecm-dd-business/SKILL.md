@@ -51,16 +51,27 @@ depends_on:
 - 业务合同项下的关联交易公允性、同业竞争（归 `ecm-dd-related-party`）
 - 不动产、知识产权、租赁等主要财产权属（归 `ecm-dd-assets`）
 - 借款合同、担保合同、应收 / 应付款等债权债务（归 `ecm-dd-debt`）
-- 税务合规（归 `ecm-dd-tax`，BATCH-04）
-- 环保、产品质量、安全生产（归 `ecm-dd-environment`，BATCH-04）
-- 募投项目的业务合同与可行性（归 `ecm-dd-fundraising`，BATCH-04）
-- 诉讼、仲裁、行政处罚（归 `ecm-dd-litigation`，BATCH-04）
+- 税务合规（归 `ecm-dd-tax`）
+- 环保、产品质量、安全生产（归 `ecm-dd-environment`）
+- 募投项目的业务合同与可行性（归 `ecm-dd-fundraising`）
+- 诉讼、仲裁、行政处罚（归 `ecm-dd-litigation`）
 - 文件读取 / 搬运（归 `ecm-dd-file-review` / `ecm-setup-file-organize`）
 
 ## 免责声明
 
 本 skill 产出的 DD Memo 为工作底稿，不构成最终法律意见。完整免责声明见
 [DISCLAIMER.md](../../DISCLAIMER.md)。
+
+## 资深律师执行标准
+
+执行本 skill 时，必须同时遵循 [senior-lawyer-execution-standards.md](../../shared/templates/senior-lawyer-execution-standards.md)。本 skill 的任何输出不得突破四条底线：事实可追溯、法源可核验、风险可分级、建议可落地；无法核验时必须显式标注。
+
+## 本 skill 的实务加固点
+
+- **业务模式拆解**：必须拆分采购、生产/服务、销售、结算、客户供应商集中度和外包/经销/加盟模式。
+- **资质许可闭环**：业务许可证照应核对主体、范围、期限、地域、年检/续期和与实际业务的一致性。
+- **高风险触发器**：无证经营、超范围经营、核心资质即将到期、重大客户供应商依赖、商业模式合法性存疑，应列高风险。
+- **披露联动**：业务描述与招股书、审计报告、重大合同和官网宣传不一致时，必须提示信披自查。
 
 ## 前置依赖
 

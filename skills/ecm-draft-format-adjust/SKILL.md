@@ -54,6 +54,17 @@ depends_on:
 
 本 skill 做**格式化**工作，不修改文书的内容实质。格式调整后文件需律师复核确认内容未因格式化而失真。完整免责声明见 [DISCLAIMER.md](../../DISCLAIMER.md)。
 
+## 资深律师执行标准
+
+执行本 skill 时，必须同时遵循 [senior-lawyer-execution-standards.md](../../shared/templates/senior-lawyer-execution-standards.md)。本 skill 的任何输出不得突破四条底线：事实可追溯、法源可核验、风险可分级、建议可落地；无法核验时必须显式标注。
+
+## 本 skill 的实务加固点
+
+- **格式不改实体**：格式调整不得改变法律结论、事实描述、金额、日期、主体名称和风险等级。
+- **修订痕迹保护**：含 tracked changes / comments 的 Word 文件不得扁平化；无法保留时必须先提示用户。
+- **目录与交叉引用**：自动目录、编号、表格编号、附件编号和交叉引用应优先修复，避免申报文件结构错误。
+- **失败回退**：无法转换或样式冲突时，应输出问题清单和可手工处理步骤，不得生成看似完成的错误版本。
+
 ## 前置依赖
 
 - 外部 `docx` skill（必需）：本 skill 的 Word 操作都委托给 docx skill 执行

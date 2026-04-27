@@ -60,7 +60,7 @@ A-market-ecm-lawyer-plugin/
 ├── shared/                     # 跨 skill 共用的资料
 │   ├── regulations/            # 法规条文节选
 │   ├── terminology/            # 术语词汇表
-│   └── templates/              # 文书模板片段
+│   └── templates/              # 文书模板片段 + 统一执行标准
 ├── scripts/
 │   └── package-skill.sh        # 把单个 skill 目录打包成 .skill zip 的工具
 └── skills/                     # 各个 skill（每个是独立子目录）

@@ -31,13 +31,13 @@
 
 ## 已建立
 
-- [x] [`dd-output-schema.md`](./dd-output-schema.md) — DD skill 统一输出 → `ecm-draft:report-assembly` / `ecm-draft:opinion-letter` 的结构化输入契约（BATCH-06 建立）
+- [x] [`dd-output-schema.md`](./dd-output-schema.md) — DD skill 统一输出 → `ecm-draft:report-assembly` / `ecm-draft:opinion-letter` 的结构化输入契约
 
 ## 待补充（占位）
 
 - [ ] `research-output-schema.md` — ecm-research:* 输出 → 其他 skill 引用法规 / 案例的字段契约（当前 `shared/templates/research-output-format.md` 已承担部分职责；后续评估是否拆出独立 schema）
 - [ ] `design-memo-schema.md` — ecm-design:* 备忘录 → 后续文书引用"方案结论"的字段契约
-- [ ] `qc-output-schema.md` — QC skill 输出 Word 修订稿的 `w:author` / 批注分类 / 处置建议等字段契约（随 BATCH-09 建立）
+- [ ] `qc-output-schema.md` — QC skill 输出 Word 修订稿的 `w:author` / 批注分类 / 处置建议等字段契约
 
 ## 变更规则
 

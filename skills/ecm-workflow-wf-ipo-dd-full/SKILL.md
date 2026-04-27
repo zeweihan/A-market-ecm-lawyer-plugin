@@ -53,6 +53,17 @@ depends_on:
 
 本 skill 仅为 IPO 尽调流程管理辅助工具，被嵌套触发的 17 个 DD skill 输出**不构成法律意见**，不替代签字律师的专业判断。完整免责声明见本仓库顶层 [DISCLAIMER.md](../../DISCLAIMER.md)。
 
+## 资深律师执行标准
+
+执行本 skill 时，必须同时遵循 [senior-lawyer-execution-standards.md](../../shared/templates/senior-lawyer-execution-standards.md)。本 skill 的任何输出不得突破四条底线：事实可追溯、法源可核验、风险可分级、建议可落地；无法核验时必须显式标注。
+
+## 本 skill 的实务加固点
+
+- **DD 顺序控制**：主体、设立、历史、股东、业务和重大风险章节优先，独立性应在相关章节事实形成后综合判断。
+- **缺章显性化**：17 章任一未做必须在进度清单标注，不得让 report-assembly 误以为 DD 完整。
+- **工具穿插**：大批文件先跑 file-review，高数据密度章节先跑 data-verify，再进入人工法律判断。
+- **红旗回路**：任一 DD skill 输出高风险时，应提示回到对应章节补底稿或转 research/design。
+
 ## 与原子 skill 的边界
 
 | 维度 | 17 个 `ecm-dd-*` 业务性 skill | `ecm-workflow:wf-ipo-dd-full`（本 skill） |
@@ -256,4 +267,4 @@ ls 02-尽职调查/02-*/DD-Memo-*.md 2>/dev/null | wc -l
 
 | 日期 | 变更 |
 |------|------|
-| 2026-04-25 | 初版（BATCH-10）。锁定 17 章执行顺序（含独立性留最后的实务习惯）+ 2 个工具 skill 穿插规则 + 同章节并行触发规则 + 父 workflow 嵌套规则（被 wf-ipo-full / wf-nto-listing 调用） |
+| 2026-04-25 | 初版。锁定 17 章执行顺序（含独立性留最后的实务习惯）+ 2 个工具 skill 穿插规则 + 同章节并行触发规则 + 父 workflow 嵌套规则（被 wf-ipo-full / wf-nto-listing 调用） |

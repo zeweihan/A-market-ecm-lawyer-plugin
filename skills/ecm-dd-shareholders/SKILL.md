@@ -11,7 +11,7 @@ description: >
   一致行动协议、代持及解除协议、股权质押 / 冻结证明、三类股东核查文件。
   非触发边界：历次股权变动（归 ecm-dd-history）；发起人设立时出资（归 ecm-dd-establishment）；
   股东在董事会 / 管理层任职情况（归 ecm-dd-directors）；关联交易和同业竞争（归
-  ecm-dd-related-party，BATCH-03）。
+  ecm-dd-related-party）。
   即使用户只说"帮我核一下谁是这家公司的实际控制人"或"股东有没有代持"，也应触发本 skill。
 version: 0.1.0
 license: MIT
@@ -47,11 +47,22 @@ depends_on:
 - 设立时发起人的出资 / 验资（归 `ecm-dd-establishment`）
 - 股东在三会中的表决记录（归 `ecm-dd-charter`）
 - 股东担任 / 关联董监高（归 `ecm-dd-directors`）
-- 关联方认定与同业竞争（归 `ecm-dd-related-party`，BATCH-03）
+- 关联方认定与同业竞争（归 `ecm-dd-related-party`）
 
 ## 免责声明
 
 见 [DISCLAIMER.md](../../DISCLAIMER.md)。
+
+## 资深律师执行标准
+
+执行本 skill 时，必须同时遵循 [senior-lawyer-execution-standards.md](../../shared/templates/senior-lawyer-execution-standards.md)。本 skill 的任何输出不得突破四条底线：事实可追溯、法源可核验、风险可分级、建议可落地；无法核验时必须显式标注。
+
+## 本 skill 的实务加固点
+
+- **穿透核查**：自然人、合伙企业、资管计划、境外主体、员工持股平台必须穿透至最终权益人和控制关系。
+- **实控人判断**：不得只按持股比例判断；需综合表决权、董事提名、协议安排、一致行动和历史控制事实。
+- **高风险触发器**：股权代持、委托持股、对赌回购、特殊权利未清理、控股权不稳定，应列高风险。
+- **适格性核查**：国资、外资、私募基金、三类股东和员工持股平台需分别核对适格性和备案/审批。
 
 ## 前置依赖
 

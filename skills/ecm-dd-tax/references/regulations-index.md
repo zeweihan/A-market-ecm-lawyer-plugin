@@ -62,13 +62,13 @@
 
 ## 与其他 DD skill 的引用交叉
 
-- `ecm-dd-related-party`（BATCH-03）：转让定价申报合规
+- `ecm-dd-related-party`：转让定价申报合规
 - `ecm-dd-litigation`：税务处罚决定书的程序合法性
 - `ecm-dd-shareholders`：股东个税扣缴
 - `ecm-dd-establishment` / `ecm-dd-history`：整体变更 / 历次变动的税务处理
 - `ecm-dd-fundraising`：募投项目不动产相关的房产税 / 土地使用税
-- `ecm-dd-debt`（BATCH-03）：地方财政返还协议民商法效力
-- `ecm-dd-business`（BATCH-03）：地方财政返还是否构成持续盈利能力重大依赖
+- `ecm-dd-debt`：地方财政返还协议民商法效力
+- `ecm-dd-business`：地方财政返还是否构成持续盈利能力重大依赖
 
 ## 更新规则
 

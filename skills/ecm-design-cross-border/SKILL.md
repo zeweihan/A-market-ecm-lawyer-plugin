@@ -77,6 +77,17 @@ depends_on:
 
 ---
 
+## 资深律师执行标准
+
+执行本 skill 时，必须同时遵循 [senior-lawyer-execution-standards.md](../../shared/templates/senior-lawyer-execution-standards.md)。本 skill 的任何输出不得突破四条底线：事实可追溯、法源可核验、风险可分级、建议可落地；无法核验时必须显式标注。
+
+## 本 skill 的实务加固点
+
+- **监管路径拆分**：ODI、FDI、外汇、发改、商务、反垄断、国安审查、数据出境、行业准入和制裁风险分别判断。
+- **境内外衔接**：境外律师意见、税务架构、SPA 条款、交割条件和境内审批时点必须形成条件清单。
+- **数据与制裁敏感**：涉及重要数据、个人信息、军工/半导体/能源/金融等敏感行业，应默认提高审查等级。
+- **高风险触发器**：审批不可取得、受制裁主体、资金出入境路径不清、VIE/红筹结构合法性存疑，应列为暂停推进事项。
+
 ## 输出格式要求
 
 **排版规范统一遵循** [shared/templates/legal-memo-format.md](../../shared/templates/legal-memo-format.md)。

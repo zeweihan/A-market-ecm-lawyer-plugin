@@ -35,6 +35,17 @@ depends_on:
 
 本 skill 的归位操作是物理文件操作，可能产生**不可逆**后果（尤其是 `move` 策略）。默认使用安全的 `copy` 策略。律师须在执行前复核分类结果的准确性。完整免责声明见 [DISCLAIMER.md](../../DISCLAIMER.md)。
 
+## 资深律师执行标准
+
+执行本 skill 时，必须同时遵循 [senior-lawyer-execution-standards.md](../../shared/templates/senior-lawyer-execution-standards.md)。本 skill 的任何输出不得突破四条底线：事实可追溯、法源可核验、风险可分级、建议可落地；无法核验时必须显式标注。
+
+## 本 skill 的实务加固点
+
+- **先索引后移动**：执行归位前必须生成原路径索引；移动后保留原路径、目标路径、标签和处理时间。
+- **冲突不覆盖**：同名文件、不同版本、扫描件与可编辑件并存时必须保留全部版本并标注差异，不得覆盖。
+- **多标签处理**：多标签文件优先放入主目录，同时在索引表中建立交叉引用，避免复制多个副本造成版本失控。
+- **缺类提示**：核心 DD 目录无文件时必须输出缺失清单，提示后续向客户补充索取。
+
 ## 前置依赖
 
 - 标签定义：[shared/terminology/classification-labels.md](../../shared/terminology/classification-labels.md)

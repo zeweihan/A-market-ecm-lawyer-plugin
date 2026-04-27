@@ -1,9 +1,9 @@
 ---
 文件类型: 法律意见书 排版规范
-维护者: BATCH-06 建立（ecm-draft 系列）
+维护者: ecm-draft 系列
 被哪些 skill 引用:
   - ecm-draft-opinion-letter（主用户，按本规范起草法律意见书）
-  - ecm-qc-opinion-letter-review（BATCH-09；按本规范反向审查项目组提交的意见书）
+  - ecm-qc-opinion-letter-review（按本规范反向审查项目组提交的意见书）
   - ecm-draft-format-adjust（提供 Markdown → Word 的样式参数）
 本版编制日期: 2026-04-24
 ---
@@ -23,7 +23,7 @@
   - 再融资（定增 / 配股 / 可转债）法律意见书
   - 并购重组 / 重大资产重组法律意见书
   - 股份发行 / 回购 / 减资等特定事项法律意见书
-- `ecm-qc:opinion-letter-review`（BATCH-09）对项目组提交的意见书做格式偏离检核
+- `ecm-qc:opinion-letter-review`对项目组提交的意见书做格式偏离检核
 
 **不适用**于：
 - 律师工作报告 → `work-report-format.md`
@@ -259,4 +259,4 @@ opinion-letter 运行时按下列顺序填充本模板：
 
 | 日期 | 变更 |
 |------|------|
-| 2026-04-24 | 初版（BATCH-06 建立），锁定 5 段骨架、事实 - 核查 - 意见三步法、opinion-letter 自动填充规则 |
+| 2026-04-24 | 初版，锁定 5 段骨架、事实 - 核查 - 意见三步法、opinion-letter 自动填充规则 |

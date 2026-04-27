@@ -1,6 +1,6 @@
 ---
 文件类型: ecm-workflow 编排层 skill 统一模板
-维护者: BATCH-10 建立（ecm-workflow 系列）
+维护者: ecm-workflow 系列
 被哪些 skill 引用:
   - ecm-workflow-wf-ipo-full
   - ecm-workflow-wf-ipo-dd-full
@@ -87,6 +87,17 @@ depends_on:
 ## 免责声明
 
 本 skill 输出的工作流仅为项目流程管理辅助工具，被嵌套的原子 skill 输出**不构成法律意见**，不替代签字律师的专业判断。完整免责声明见本仓库顶层 [DISCLAIMER.md](../../DISCLAIMER.md)。
+
+## 资深律师执行标准
+
+执行本 skill 时，必须同时遵循 [senior-lawyer-execution-standards.md](../../shared/templates/senior-lawyer-execution-standards.md)。本 skill 的任何输出不得突破四条底线：事实可追溯、法源可核验、风险可分级、建议可落地；无法核验时必须显式标注。
+
+## 本 skill 的实务加固点
+
+- **阶段门禁**：写哪些产物未完成时不得提示进入下一阶段。
+- **红旗升级**：写本 workflow 场景下必须转专项 skill 深挖的重大风险。
+- **产物清单**：写每阶段应形成的关键文件或备忘录。
+- **流程边界**：写 workflow 不替代哪些原子 skill 的专业判断。
 
 ## 配置项
 
@@ -321,4 +332,4 @@ workflow skill 在编写时引用的所有 SoT：
 
 | 日期 | 变更 |
 |------|------|
-| 2026-04-25 | 初版（BATCH-10 建立）。锁定：SKILL.md frontmatter（含 `wf-` 前缀强制 + module=ecm-workflow + category=工作流编排）/ 正文骨架 9 节 / 6 阶段 schema（启动 / 设计 / 尽调 / 文书 / 内核 / 申报）/ 三层契约（项目目录 SoT + DD-output schema + 各类格式 SoT）/ 失败-跳过-回滚处理规则 / workflow 嵌套规则（声明嵌套 + 不重复展开 + 状态独立 + 禁止双向）/ 与原子 skill 五项边界声明 |
+| 2026-04-25 | 初版。锁定：SKILL.md frontmatter（含 `wf-` 前缀强制 + module=ecm-workflow + category=工作流编排）/ 正文骨架 9 节 / 6 阶段 schema（启动 / 设计 / 尽调 / 文书 / 内核 / 申报）/ 三层契约（项目目录 SoT + DD-output schema + 各类格式 SoT）/ 失败-跳过-回滚处理规则 / workflow 嵌套规则（声明嵌套 + 不重复展开 + 状态独立 + 禁止双向）/ 与原子 skill 五项边界声明 |

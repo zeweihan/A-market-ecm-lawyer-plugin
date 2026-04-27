@@ -75,9 +75,9 @@
 - `ecm-dd-tax`：税务处罚的实体合规
 - `ecm-dd-environment`：环保 / 安全 / 质量处罚的实体合规
 - `ecm-dd-compliance`：社保 / 公积金 / 劳动仲裁的实体合规
-- `ecm-dd-business`（BATCH-03）：业务合同纠纷的业务履行实质
-- `ecm-dd-debt`（BATCH-03）：重大债权债务纠纷
-- `ecm-dd-assets`（BATCH-03）：知识产权权属诉讼
+- `ecm-dd-business`：业务合同纠纷的业务履行实质
+- `ecm-dd-debt`：重大债权债务纠纷
+- `ecm-dd-assets`：知识产权权属诉讼
 - `ecm-dd-shareholders`：股东身份与出资纠纷、实控人刑事记录
 - `ecm-dd-directors`：董监高任职资格影响（`ecm-dd-directors` 会从本 skill 拉取
   涉诉 / 处罚信息）

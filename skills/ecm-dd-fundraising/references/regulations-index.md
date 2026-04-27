@@ -68,11 +68,11 @@
 
 - `ecm-dd-approval`：募投方案的内部决议合规性
 - `ecm-dd-environment`：募投项目的环评与安全生产手续
-- `ecm-dd-assets`（BATCH-03）：募投用地 / 厂房权属
+- `ecm-dd-assets`：募投用地 / 厂房权属
 - `ecm-dd-tax`：募投项目的税务影响（房产税、土地使用税、增值税等）
-- `ecm-dd-business`（BATCH-03）：募投与主营业务相关性、产业政策适用
-- `ecm-dd-related-party`（BATCH-03）：募投涉及关联方或同业竞争
-- `ecm-dd-debt`（BATCH-03）：偿还贷款类募投的债权债务核查
+- `ecm-dd-business`：募投与主营业务相关性、产业政策适用
+- `ecm-dd-related-party`：募投涉及关联方或同业竞争
+- `ecm-dd-debt`：偿还贷款类募投的债权债务核查
 - `ecm-design-ipo-path` / `ecm-design-deal-structure`：发行方案本体
 
 ## 更新规则

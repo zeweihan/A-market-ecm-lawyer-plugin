@@ -50,10 +50,11 @@ claude plugin install anthropic-skills
 
 除了外部依赖，本仓库的某些 skill 会接受其他 skill 的结构化输出作为输入。例如：
 
-- `listing-pathway-selection` 的结构化结论 → `due-diligence` 的起点
-- `opinion-drafting` 的草稿 → `opinion-review` 的输入
+- `ecm-setup:file-organize` 的文件索引表 → 17 个 `ecm-dd:*` 业务性尽调 skill
+- 17 个 `ecm-dd:*` 输出的 DD Memo → `ecm-draft:report-assembly` / `ecm-draft:opinion-letter`
+- `ecm-draft:*` 输出的文书初稿 → 对应 `ecm-qc:*` 内核审查 skill
 
-跨 skill 的数据格式约定在 [skill-authoring-guide.md](./skill-authoring-guide.md#跨-skill-数据约定) 里单独维护。
+跨 skill 的数据格式约定在 [skill-authoring-guide.md](./skill-authoring-guide.md#跨-skill-数据约定) 和 [dd-output-schema.md](../shared/schemas/dd-output-schema.md) 里维护。
 
 ## 更新此文档
 

@@ -1,6 +1,6 @@
 ---
 文件类型: DD skill 编写模板
-维护者: ecm-dd 系列（BATCH-02 建立）
+维护者: ecm-dd 系列
 被哪些 skill 引用:
   - 所有 ecm-dd-* 业务性 skill（dd-approval / dd-entity / dd-establishment / dd-history /
     dd-shareholders / dd-charter / dd-directors / dd-independence / dd-business /
@@ -98,6 +98,17 @@ skills/ecm-dd-<function>/
 
 本 skill 产出的 DD Memo 为工作底稿，不构成最终法律意见。完整免责声明见
 [DISCLAIMER.md](../../DISCLAIMER.md)。
+
+## 资深律师执行标准
+
+执行本 skill 时，必须同时遵循 [senior-lawyer-execution-standards.md](../../shared/templates/senior-lawyer-execution-standards.md)。本 skill 的任何输出不得突破四条底线：事实可追溯、法源可核验、风险可分级、建议可落地；无法核验时必须显式标注。
+
+## 本 skill 的实务加固点
+
+- **必查事实**：写本章节独有的证据链和核查对象。
+- **高风险触发器**：写一旦出现即应列为高风险的事项。
+- **边界/分流**：写应转给相邻 DD skill、research、design 或专项机构的事项。
+- **补正路径**：写常见瑕疵能否补正及补正方式。
 
 ## 前置依赖
 
@@ -238,4 +249,4 @@ skills/ecm-dd-<function>/
 
 | 日期 | 变更 |
 |------|------|
-| 2026-04-24 | 模板初版（BATCH-02 建立） |
+| 2026-04-24 | 模板初版 |
